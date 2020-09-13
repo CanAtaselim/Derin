@@ -1,0 +1,118 @@
+﻿@model GalleryVM
+@{
+    Layout = "~/Views/Shared/_AjaxLayout.cshtml";
+}
+@section pageLevelInlineScripts {
+
+}
+@section pageLevelStyles {
+    <link href="~/lib/lightgallery/dist/css/lightgallery.css" rel="stylesheet" />
+    <link href="~/admin/gallery/edit.css" rel="stylesheet" />
+}
+@section pageLevelInlineStyles {
+
+}
+@section pageLevelPlugins {
+    <script src="~/admin/gallery/edit.js"></script>
+    <script src="~/lib/lightgallery/lib/picturefill.min.js"></script>
+    <script src="~/lib/lightgallery/lib/jquery.mousewheel.min.js"></script>
+    <script src="~/lib/lightgallery/dist/js/lightgallery-all.js"></script>
+}
+<div class="kt-portlet">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="fa fa-images"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                Galeri
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-actions">
+                <button type="button" class="btn btn-success btn-elevate btn-elevate-air btnSave"><i class="fa fa-save"></i>Kaydet</button>
+            </div>
+        </div>
+    </div>
+    <form novalidate id="submit_form" class="horizontal-form" enctype="multipart/form-data">
+        <div class="kt-portlet__body">
+            <div class="kt-portlet kt-portlet--bordered kt-portlet--head--noborder">
+                <div class="kt-portlet__head" style="padding:0 9px 0 10px">
+                    <div class="kt-portlet__head-toolbar" style="width:100%">
+                        <div class="row" style="width:100%">
+                            <div class="col-md-2">
+                                <select class="form-control kt-selectpicker" id="cbDepartment" asp-for="Department" asp-items="ViewBag.DepartmentList"></select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="btn btn-twitter btn-elevate" style="margin-bottom:0px; margin-left:10px; cursor:pointer" for="customFile"><i class="fa fa-upload"></i>Fotoğraf yüklemek için tıklayınız.</label>
+                                <input multiple type="file" name="files" id="customFile" accept="image/png,image/jpg,image/jpeg">
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="kt-portlet__head-toolbar">
+                        <div class="kt-portlet__head-actions">
+                            <span id="txtFileSize" class="kt-badge kt-badge--lg kt-badge--inline"></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="kt-portlet__body">
+                    <div id="emptyDiv" style="margin-bottom:0px;" class="alert alert-success alert-dismissible fade show" role="alert">
+                        Seçtiğiniz fotoğraflar burada listelenecektir.
+                    </div>
+                    <div id="galleryContents"></div>
+                </div>
+            </div>
+
+            @if (Model.GalleryList.Count() > 0)
+            {
+                <div class="kt-portlet kt-portlet--bordered kt-portlet--head--noborder">
+                    <div class="kt-portlet__head">
+                        <div class="kt-portlet__head-label">
+                            <h3 class="kt-portlet__head-title">
+                                Yüklenen Fotoğraflar
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="kt-portlet__body" style="padding-top:0px!important">
+                        <div class="demo-gallery">
+                            <ul id="lightgallery">
+                                @foreach (GalleryItem item in Model.GalleryList)
+                                {
+                                    <li class="img-thumbnail" style="padding:0px;" data-src="@Url.Action("GetImageFilePath", "File", new { fileName = item.FileName, filePath = item.FilePath + "\\lowres", area = "Administration" })">
+                                        <div class="image-area">
+                                            <a href="@Url.Action("GetImageFilePath", "File", new { fileName = item.FileName, filePath = item.FilePath + "\\thumnbail", area = "Administration" })">
+                                                <img class="img-responsive" data-src="@Url.Action("GetImageFilePath", "File", new { fileName = item.FileName, filePath = item.FilePath + "\\thumbnail", area = "Administration" })" style="background-image:url('@Url.Action("GetImageFilePath", "File", new { fileName = item.FileName, filePath = item.FilePath + "\\thumbnail", area = "Administration" })');">
+                                                <div class="demo-gallery-poster">
+                                                    <img src="~/lib/lightgallery/zoom.png" />
+                                                </div>
+                                            </a>
+                                            <button class="delete-image" href="#" data-name="@item.FileName" style="display: inline;">&#215;</button>
+                                        </div>
+                                    </li>
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+
+
+        <div class="kt-portlet__foot">
+            <div class="row">
+                <div class="col-lg-12">
+                    <button type="button" class="btn btn-success btn-elevate btn-elevate-air btnSave"><i class="fa fa-save"></i>Kaydet</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+

@@ -1,0 +1,112 @@
+﻿@model GalleryVM
+@section pageLevelInlineScripts {
+    <script>
+        jQuery(document).ready(function ()
+        {
+            $('#js-grid-mosaic').cubeportfolio({
+                filters: '#js-filters-mosaic',
+                loadMore: '#js-loadMore-mosaic',
+                loadMoreAction: 'click',
+                layoutMode: 'mosaic',
+                mediaQueries: [{
+                    width: 1000,
+                    cols: 6
+                }, {
+                    width: 900,
+                    cols: 5
+                }, {
+                    width: 800,
+                    cols: 5
+                }, {
+                    width: 480,
+                    cols: 4
+                }, {
+                    width: 320,
+                    cols: 2
+                }],
+                defaultFilter: '.cayyolu',
+                animationType: 'fadeOutTop',
+                gapHorizontal: 10,
+                gapVertical: 10,
+                gridAdjustment: 'responsive',
+                caption: 'zoom',
+                displayType: 'fadeIn',
+                displayTypeSpeed: 100,
+
+                // lightbox
+                lightboxDelegate: '.cbp-lightbox',
+                lightboxGallery: true,
+                lightboxTitleSrc: 'data-title',
+                lightboxCounter: '<div class="cbp-popup-lightbox-counter">{{current}} / {{total}}</div>',
+
+                // singlePageInline
+                singlePageInlineDelegate: '.cbp-singlePageInline',
+                singlePageInlinePosition: 'below'
+            });
+
+        });
+    </script>
+}
+@section pageLevelStyles {
+    <link href="~/lib/cubeportfolio/css/cubeportfolio.css" rel="stylesheet" />
+    <link href="~/lib/cubeportfolio/css/portfolio.css" rel="stylesheet" />
+}
+@section pageLevelInlineStyles {
+    <style>
+        .thumbnailImage {
+            position: relative !important;
+            float: left !important;
+            width: 100% !important;
+            height: 176px !important;
+            background-position: 50% 50% !important;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+        }
+    </style>
+}
+@section pageLevelPlugins {
+
+    <script src="~/lib/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+}
+
+
+<section class="ftco-section" style="padding-top:50px">
+    <div class="container">
+
+        <div class="portfolio-content portfolio-2">
+            <div id="js-filters-mosaic" class="cbp-l-filters-button">
+                <div class="nav ftco-animate nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    @foreach (var item in Model.GalleryList.GroupBy(m => m.DepartmentName))
+                    {
+                        if (item.Key == "cayyolu")
+                        {
+
+                            <a class="nav-link cbp-filter-item" style="margin-left:0px;" data-filter=".@(item.Key)" aria-selected="true">Çayyolu</a>
+                        }
+                        else if (item.Key == "polatli")
+                        {
+                            <a class="nav-link cbp-filter-item" data-filter=".@(item.Key)" aria-selected="true">Polatlı</a>
+
+                        }
+                    }
+                </div>
+            </div>
+            <div id="js-grid-mosaic" class="cbp cbp-l-grid-mosaic">
+                @foreach (var item in Model.GalleryList)
+                {
+                    <div class="cbp-item web-design @(item.DepartmentName)">
+                        <a href="@Url.Action("GetImageFilePath", "File", new { fileName = item.FileName, filePath = item.FilePath + "\\lowres", area = "Administration" })" class="cbp-caption cbp-lightbox">
+                            <div class="cbp-caption-defaultWrap">
+                                <img class="thumbnailImage" style="background-image:url('@Url.Action("GetImageFilePath", "File", new { fileName = item.FileName, filePath = item.FilePath + "\\thumbnail", area = "Administration" })');" alt="">
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+<br />
+<br />
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>

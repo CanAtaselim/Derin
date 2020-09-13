@@ -1,0 +1,146 @@
+﻿@model IEnumerable<PersonVM>
+@{
+    Layout = "~/Views/Shared/_AjaxLayout.cshtml";
+}
+@section pageLevelInlineScripts {
+
+}
+@section pageLevelStyles {
+    <style>
+        .table td {
+            vertical-align: middle
+        }
+    </style>
+}
+@section pageLevelInlineStyles {
+}
+@section pageLevelPlugins {
+
+
+    <script src="~/admin/person/list.js"></script>
+}
+
+<div class="kt-portlet">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="fa fa-users"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                Çalışan Listesi
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-actions">
+                <button type="button" class="btn btn-brand btn-elevate btn-elevate-air btnNew"><i class="fa fa-plus"></i> Yeni Personel Ekle </button>&nbsp;
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="kt-section" style="margin:0px;">
+            <div class="kt-section__content">
+                @if (Model.Count() > 0)
+                {
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Çalışan Tipi</th>
+                                <th>Şube</th>
+                                <th>Ad Soyad</th>
+                                <th>Unvan</th>
+                                <th>Meslek</th>
+                                <th>Telefon</th>
+                                <th>GSM</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @try
+                            {
+                                @foreach (PersonVM item in Model)
+                                {
+                                    <tr>
+                                        <td width="10px">
+                                            <div class="btn-group btn-group-sm" role="group" aria-label="First group">
+                                                <button type="button" data-id="@item.IdPerson" class="btn btn-info btn-icon btnEdit"><i class="la la-edit"></i></button>
+                                                <button type="button" data-id="@item.IdPerson" class="btn btn-danger btn-icon btnDel"><i class="flaticon-delete"></i></button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            @{
+
+
+
+                                                @if (item.EmployeeTypeList[0] != null)
+                                                {
+                                                    @foreach (var splitItem in item.EmployeeTypeList[0].Split(','))
+                                                    {
+                                                        if (Convert.ToInt32(splitItem) != 0)
+                                                        {
+                                                            string myClass = "";
+
+                                                            switch (Convert.ToInt32(splitItem))
+                                                            {
+                                                                case 1:
+                                                                    myClass = "kt-badge--brand";
+                                                                    break;
+                                                                case 2:
+                                                                    myClass = "kt-badge--warning";
+                                                                    break;
+                                                                case 3:
+                                                                    myClass = "kt-badge--success";
+                                                                    break;
+                                                                default:
+                                                                    myClass = "kt-badge--success";
+                                                                    break;
+                                                            }
+
+                                                            <span class="kt-badge kt-badge--inline @myClass">
+                                                                @_Enumeration.GetEnumDescription((_Enumeration._EmployeeType)Enum.ToObject(typeof(_Enumeration._EmployeeType), Convert.ToInt32(splitItem)))
+                                                            </span>
+                                                            <br />
+                                                        }
+
+                                                    }
+                                                }
+                                            }
+
+
+                                        </td>
+                                        <td>
+                                            <span>
+                                                @_Enumeration.GetEnumDescription((_Enumeration._Department)Enum.ToObject(typeof(_Enumeration._Department), item.Department))
+                                            </span>
+                                        </td>
+                                        <td>@item.Name @item.Surname</td>
+                                        <td>@item.Title</td>
+                                        <td>@item.Profession</td>
+                                        <td>@item.Phone</td>
+                                        <td>@item.Gsm</td>
+                                    </tr>
+
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+
+                            }
+
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <div style="margin-bottom:0px;" class="alert alert-warning" role="alert">
+                        <strong>Kayıt Bulunamadı!</strong>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

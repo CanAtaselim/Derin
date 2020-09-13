@@ -1,0 +1,88 @@
+﻿@model IEnumerable<ServicesVM>
+@{
+    Layout = "~/Views/Shared/_AjaxLayout.cshtml";
+}
+@section pageLevelInlineScripts {
+
+}
+@section pageLevelStyles {
+    <style>
+        .table td {
+            vertical-align: middle
+        }
+    </style>
+}
+@section pageLevelInlineStyles {
+}
+@section pageLevelPlugins {
+
+    <script src="~/admin/services/list.js"></script>
+}
+
+<div class="kt-portlet">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="fa fa-tools"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                Hizmet Listesi
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-actions">
+                <button type="button" class="btn btn-brand btn-elevate btn-elevate-air btnNew"><i class="fa fa-plus"></i> Yeni Hizmet Ekle </button>&nbsp;
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="kt-section" style="margin:0px;">
+            <div class="kt-section__content">
+                @if (Model.Count() > 0)
+                {
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Icon</th>
+                                <th>Hizmet Adı</th>
+                                <th>İçerik</th>
+                                <th>Özet</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (ServicesVM item in Model)
+                            {
+                                <tr>
+                                    <td width="10px">
+                                        <div class="btn-group btn-group-sm" role="group" aria-label="First group">
+                                            <button type="button" data-id="@item.IdServices" class="btn btn-info btn-icon btnEdit"><i class="la la-edit"></i></button>
+                                            <button type="button" data-id="@item.IdServices" class="btn btn-danger btn-icon btnDel"><i class="flaticon-delete"></i></button>
+                                        </div>
+                                    </td>
+                                    <td width="10px">
+                                        <i class="@item.Icon kt-font-success d-flex justify-content-center" style="font-size:2.5rem !important"></i>
+                                    </td>
+                                    <td>@item.Title</td>
+                                    <td>@item.FullText</td>
+                                    <td>@item.Summary</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <div style="margin-bottom:0px;" class="alert alert-warning" role="alert">
+                        <strong>Kayıt Bulunamadı!</strong>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

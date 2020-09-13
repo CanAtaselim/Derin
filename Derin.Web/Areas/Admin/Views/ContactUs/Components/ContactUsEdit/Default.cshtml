@@ -1,0 +1,142 @@
+﻿@model ContactUsVM
+@{
+    Layout = "~/Views/Shared/_AjaxLayout.cshtml";
+}
+@section pageLevelInlineScripts {
+}
+@section pageLevelStyles {
+}
+@section pageLevelInlineStyles {
+}
+@section pageLevelPlugins {
+    <script src="~/admin/contactus/edit.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+}
+<div class="kt-portlet">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="fa fa-phone-square"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+
+                İletişim
+
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-actions">
+                <button type="button" class="btn btn-success btn-elevate btn-elevate-air btnSave"><i class="fa fa-save"></i>Kaydet</button>
+                @if (Model.IdContactUs > 0)
+                {
+                    <button type="button" data-toggle="kt-tooltip" data-placement="top" title="" data-original-title="Sil" class="btn btn-danger btn-elevate btn-elevate-air btnDel" data-id="@Model.IdContactUs"><i class="flaticon-delete"></i> Sil </button>
+                }
+
+            </div>
+        </div>
+    </div>
+    <form novalidate id="submit_form" class="horizontal-form" enctype="multipart/form-data">
+        @Html.HiddenFor(m => m.IdContactUs)
+        <div class="kt-portlet__body">
+
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Şube:</label>
+                <div class="col-3">
+                    <select class="form-control kt-selectpicker" id="cbDepartment" asp-for="Department" asp-items="ViewBag.DepartmentList"></select>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Adres:</label>
+                <div class="col-6">
+                    <textarea class="form-control" asp-for="Address" style="min-height:100px; max-height:250px" maxlength="500"></textarea>
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">E-Posta:</label>
+                <div class="col-6">
+                    <input asp-for="Email" maxlength="40" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Telefon:</label>
+                <div class="col-6">
+                    <input asp-for="Phone" maxlength="14" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">GSM:</label>
+                <div class="col-6">
+                    <input asp-for="GSM" maxlength="14" class="form-control" />
+                    <span asp-validation-for="GSM" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Fax:</label>
+                <div class="col-6">
+                    <input asp-for="Fax" maxlength="14" class="form-control" />
+                    <span asp-validation-for="Fax" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Facebook:</label>
+                <div class="col-6">
+                    <input asp-for="Facebook" maxlength="100" class="form-control" />
+                    <span asp-validation-for="Facebook" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Twitter:</label>
+                <div class="col-6">
+                    <input asp-for="Twitter" maxlength="100" class="form-control" />
+                    <span asp-validation-for="Twitter" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Instagram:</label>
+                <div class="col-6">
+                    <input asp-for="Instagram" maxlength="100" class="form-control" />
+                    <span asp-validation-for="Instagram" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Youtube:</label>
+                <div class="col-6">
+                    <input asp-for="Youtube" maxlength="100" class="form-control" />
+                    <span asp-validation-for="Youtube" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Linkedin:</label>
+                <div class="col-6">
+                    <input asp-for="Linkedin" maxlength="100" class="form-control" />
+                    <span asp-validation-for="Linkedin" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Google+:</label>
+                <div class="col-6">
+                    <input asp-for="GooglePlus" maxlength="100" class="form-control" />
+                    <span asp-validation-for="GooglePlus" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="kt-portlet__foot">
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-10">
+                    <button type="button" class="btn btn-success btn-elevate btn-elevate-air btnSave"><i class="fa fa-save"></i>Kaydet</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

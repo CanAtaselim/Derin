@@ -1,0 +1,126 @@
+﻿@model ServicesVM
+@{
+    Layout = "~/Views/Shared/_AjaxLayout.cshtml";
+}
+@section pageLevelInlineScripts {
+    <script type="text/javascript" language="javascript">
+        var versionUpdate = (new Date()).getTime();
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "/admin/services/edit.js?v=" + versionUpdate;
+        document.body.appendChild(script);
+    </script>
+}
+@section pageLevelStyles {
+
+}
+@section pageLevelInlineStyles {
+
+}
+@section pageLevelPlugins {
+    @*<script src="~/admin/services/edit.js"></script>*@
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+}
+
+<div class="kt-portlet">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="fa fa-tools" ></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @if (Model.IdServices > 0)
+                {
+                    <span>@Model.Title</span>
+                }
+                else
+                {
+                    <span>Yeni Hizmet Ekle</span>
+                }
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-actions">
+                <button type="button" class="btn btn-success btn-elevate btn-elevate-air btnSave"><i class="fa fa-save"></i>Kaydet</button>
+                <button type="button" class="btn btn-info  btn-elevate btn-elevate-air btnReturnList"><i class="fa fa-arrow-left"></i> Listeye Dön </button>
+                @if (Model.IdServices > 0)
+                {
+                    <button type="button" data-toggle="kt-tooltip" data-placement="top" title="" data-original-title="Sil" class="btn btn-danger btn-elevate btn-elevate-air btnDel" data-id="@Model.IdServices"><i class="flaticon-delete"></i> Sil </button>
+                }
+
+            </div>
+        </div>
+    </div>
+    <form novalidate id="submit_form" class="horizontal-form" enctype="multipart/form-data">
+        <input type="hidden" asp-for="IdServices" />
+        <div class="kt-portlet__body">
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Icon:</label>
+                <div class="col-1">
+                    <input type="hidden" asp-for="Icon" />
+                    <div class="kt-demo-icon d-flex justify-content-center btnChooseIcon" data-toggle="kt-tooltip" data-placement="top" title="" data-original-title="Icon Seç" style="cursor:pointer;border:1px solid #ececec; margin-bottom:0px!important">
+                        <div class="kt-demo-icon__preview" style="padding-right:0px!important; flex:0!important">
+                            <i name="icon" class="@(Model.Icon == null ? "flaticon2-menu-1" : Model.Icon)" style="font-size:2.8rem !important"></i>
+                        </div>
+                    </div>
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Hizmet Adı:</label>
+                <div class="col-6">
+                    <input asp-for="Title" maxlength="50" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">İçerik:</label>
+                <div class="col-6">
+                    <textarea class="form-control" asp-for="FullText" maxlength="3000" style="min-height:100px; max-height:250px"></textarea>
+                    <span asp-validation-for="FullText" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Özet:</label>
+                <div class="col-6">
+                    <textarea class="form-control" asp-for="Summary" maxlength="300" style="min-height:100px; max-height:250px"></textarea>
+                    <span asp-validation-for="Summary" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label"></label>
+                <div class="col-6">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="kt-portlet__foot">
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-10">
+                    <button type="button" class="btn btn-success btn-elevate btn-elevate-air btnSave"><i class="fa fa-save"></i>Kaydet</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal fade" id="kt_modal_6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Icon Seçiniz</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="kt-scroll row" id="iconContent" data-scroll="true" data-height="500" data-mobile-height="200">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

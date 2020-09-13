@@ -1,0 +1,797 @@
+@font-face {
+    font-family: 'dentalicons';
+    src: url('fonts/dentalicons.eot?xcdxej');
+    src: url('fonts/dentalicons.eot?xcdxej#iefix') format('embedded-opentype'), url('fonts/dentalicons.ttf?xcdxej') format('truetype'), url('fonts/dentalicons.woff?xcdxej') format('woff'), url('fonts/dentalicons.svg?xcdxej#dentalicons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="dentalicon-"]:before, [class*=" dentalicon-"]:before,
+[class^="dentalicon-"]:after, [class*=" dentalicon-"]:after {
+    font-family: dentalicons;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align:center;
+}
+
+.dentalicon-uniF107:before {
+    content: "\f107";
+}
+
+.dentalicon-uniF103:before {
+    content: "\1f31b";
+}
+
+.dentalicon-uniF100:before {
+    content: "\f100";
+}
+
+.dentalicon-uniF101:before {
+    content: "\f101";
+}
+
+.dentalicon-uniF106:before {
+    content: "\f106";
+}
+
+.dentalicon-uniF102:before {
+    content: "\f102";
+}
+
+.dentalicon-uniF104:before {
+    content: "\f104";
+}
+
+.dentalicon-uniF105:before {
+    content: "\f105";
+}
+
+.dentalicon-046-tooth-12:before {
+    content: "\f12d";
+}
+
+.dentalicon-002-broken-tooth:before {
+    content: "\f108";
+}
+
+.dentalicon-009-dentist-chair:before {
+    content: "\f109";
+}
+
+.dentalicon-004-implant:before {
+    content: "\f10a";
+}
+
+.dentalicon-006-tooth-1:before {
+    content: "\f10b";
+}
+
+.dentalicon-037-toothbrush-1:before {
+    content: "\f124";
+}
+
+.dentalicon-021-tooth-6:before {
+    content: "\f114";
+}
+
+.dentalicon-020-tooth-5:before {
+    content: "\f113";
+}
+
+.dentalicon-036-teeth-brushing:before {
+    content: "\f123";
+}
+
+.dentalicon-012-dentist:before {
+    content: "\f10c";
+}
+
+.dentalicon-005-teeth-1:before {
+    content: "\f10d";
+}
+
+.dentalicon-048-suction:before {
+    content: "\f12f";
+}
+
+.dentalicon-028-dentist-chair-1:before {
+    content: "\f11b";
+}
+
+.dentalicon-041-tooth-8:before {
+    content: "\f128";
+}
+
+.dentalicon-010-mouthwash:before {
+    content: "\f192";
+}
+
+.dentalicon-017-tooth-4:before {
+    content: "\f193";
+}
+
+.dentalicon-034-x-ray:before {
+    content: "\f194";
+}
+
+.dentalicon-032-plaque:before {
+    content: "\f195";
+}
+
+.dentalicon-027-magnifying-glass:before {
+    content: "\f11a";
+}
+
+.dentalicon-003-teeth:before {
+    content: "\f10e";
+}
+
+.dentalicon-040-tooth-7:before {
+    content: "\f127";
+}
+
+.dentalicon-011-open-mouth:before {
+    content: "\f10f";
+}
+
+.dentalicon-038-toothbrush-2:before {
+    content: "\f125";
+}
+
+.dentalicon-008-dental-veneer:before {
+    content: "\f110";
+}
+
+.dentalicon-029-health-report:before {
+    content: "\f11c";
+}
+
+.dentalicon-045-smartphone:before {
+    content: "\f12c";
+}
+
+.dentalicon-015-braces:before {
+    content: "\f111";
+}
+
+.dentalicon-033-tooth-extraction:before {
+    content: "\f120";
+}
+
+.dentalicon-001-tooth:before {
+    content: "\f112";
+}
+
+.dentalicon-031-crown-1:before {
+    content: "\f11e";
+}
+
+.dentalicon-026-dentist-1:before {
+    content: "\f119";
+}
+
+.dentalicon-024-toothbrush:before {
+    content: "\f117";
+}
+
+.dentalicon-044-tooth-11:before {
+    content: "\f196";
+}
+
+.dentalicon-019-crown:before {
+    content: "\f197";
+}
+
+.dentalicon-047-braces-2:before {
+    content: "\f198";
+}
+
+.dentalicon-014-tooth-3:before {
+    content: "\f199";
+}
+
+.dentalicon-023-tools:before {
+    content: "\f116";
+}
+
+.dentalicon-025-tooth-drill:before {
+    content: "\f118";
+}
+
+.dentalicon-035-forceps:before {
+    content: "\f122";
+}
+
+.dentalicon-050-floss-1:before {
+    content: "\f131";
+}
+
+.dentalicon-013-tooth-2:before {
+    content: "\f115";
+}
+
+.dentalicon-016-braces-1:before {
+    content: "\f11d";
+}
+
+.dentalicon-043-tooth-10:before {
+    content: "\f12a";
+}
+
+.dentalicon-042-tooth-9:before {
+    content: "\f129";
+}
+
+.dentalicon-022-floss:before {
+    content: "\f11f";
+}
+
+.dentalicon-018-removal:before {
+    content: "\f121";
+}
+
+.dentalicon-007-drilling:before {
+    content: "\f126";
+}
+
+.dentalicon-030-dentures:before {
+    content: "\f12b";
+}
+
+.dentalicon-049-tooth-fairy:before {
+    content: "\f130";
+}
+
+.dentalicon-039-calcium:before {
+    content: "\f12e";
+}
+
+.dentalicon-uniF1061:before {
+    content: "\f132";
+}
+
+.dentalicon-uniF11B:before {
+    content: "\f133";
+}
+
+.dentalicon-uniF114:before {
+    content: "\f134";
+}
+
+.dentalicon-uniF1021:before {
+    content: "\f135";
+}
+
+.dentalicon-uniF11F:before {
+    content: "\f136";
+}
+
+.dentalicon-uniF1051:before {
+    content: "\f137";
+}
+
+.dentalicon-uniF111:before {
+    content: "\f138";
+}
+
+.dentalicon-uniF1011:before {
+    content: "\f139";
+}
+
+.dentalicon-uniF11D:before {
+    content: "\f13a";
+}
+
+.dentalicon-uniF117:before {
+    content: "\f13b";
+}
+
+.dentalicon-uniF11A:before {
+    content: "\f13c";
+}
+
+.dentalicon-uniF1041:before {
+    content: "\f13d";
+}
+
+.dentalicon-uniF118:before {
+    content: "\f13e";
+}
+
+.dentalicon-uniF120:before {
+    content: "\f13f";
+}
+
+.dentalicon-uniF10B:before {
+    content: "\f140";
+}
+
+.dentalicon-uniF10F:before {
+    content: "\f141";
+}
+
+.dentalicon-uniF11E:before {
+    content: "\f142";
+}
+
+.dentalicon-uniF113:before {
+    content: "\f143";
+}
+
+.dentalicon-uniF1071:before {
+    content: "\f144";
+}
+
+.dentalicon-uniF108:before {
+    content: "\f145";
+}
+
+.dentalicon-uniF10D:before {
+    content: "\f146";
+}
+
+.dentalicon-uniF115:before {
+    content: "\f147";
+}
+
+.dentalicon-uniF112:before {
+    content: "\f148";
+}
+
+.dentalicon-uniF123:before {
+    content: "\f149";
+}
+
+.dentalicon-uniF10E:before {
+    content: "\f14a";
+}
+
+.dentalicon-uniF10C:before {
+    content: "\f14b";
+}
+
+.dentalicon-uniF122:before {
+    content: "\f14c";
+}
+
+.dentalicon-uniF1031:before {
+    content: "\f14d";
+}
+
+.dentalicon-uniF11C:before {
+    content: "\f14e";
+}
+
+.dentalicon-uniF110:before {
+    content: "\f14f";
+}
+
+.dentalicon-uniF121:before {
+    content: "\f150";
+}
+
+.dentalicon-uniF109:before {
+    content: "\f151";
+}
+
+.dentalicon-uniF10A:before {
+    content: "\f152";
+}
+
+.dentalicon-uniF116:before {
+    content: "\f153";
+}
+
+.dentalicon-uniF119:before {
+    content: "\f154";
+}
+
+.dentalicon-uniF1001:before {
+    content: "\f155";
+}
+
+.dentalicon-uniF160:before {
+    content: "\f160";
+}
+
+.dentalicon-uniF1231:before {
+    content: "\f156";
+}
+
+.dentalicon-uniF131:before {
+    content: "\f157";
+}
+
+.dentalicon-uniF15D:before {
+    content: "\f15d";
+}
+
+.dentalicon-uniF13D:before {
+    content: "\f158";
+}
+
+.dentalicon-uniF139:before {
+    content: "\f159";
+}
+
+.dentalicon-uniF11C1:before {
+    content: "\f15a";
+}
+
+.dentalicon-uniF11D1:before {
+    content: "\f15b";
+}
+
+.dentalicon-uniF1101:before {
+    content: "\f15c";
+}
+
+.dentalicon-uniF14E:before {
+    content: "\f15e";
+}
+
+.dentalicon-uniF153:before {
+    content: "\f19a";
+}
+
+.dentalicon-uniF1062:before {
+    content: "\f19b";
+}
+
+.dentalicon-uniF11B1:before {
+    content: "\f19c";
+}
+
+.dentalicon-uniF10F1:before {
+    content: "\f19d";
+}
+
+.dentalicon-uniF1022:before {
+    content: "\f19e";
+}
+
+.dentalicon-uniF13E:before {
+    content: "\f19f";
+}
+
+.dentalicon-uniF1042:before {
+    content: "\f1a0";
+}
+
+.dentalicon-uniF12C:before {
+    content: "\f1a1";
+}
+
+.dentalicon-uniF13B:before {
+    content: "\f15f";
+}
+
+.dentalicon-uniF154:before {
+    content: "\f161";
+}
+
+.dentalicon-uniF1111:before {
+    content: "\f162";
+}
+
+.dentalicon-uniF157:before {
+    content: "\f163";
+}
+
+.dentalicon-uniF128:before {
+    content: "\f164";
+}
+
+.dentalicon-uniF10C1:before {
+    content: "\f165";
+}
+
+.dentalicon-uniF1191:before {
+    content: "\f166";
+}
+
+.dentalicon-uniF12A:before {
+    content: "\f167";
+}
+
+.dentalicon-uniF1072:before {
+    content: "\f168";
+}
+
+.dentalicon-uniF15C:before {
+    content: "\f169";
+}
+
+.dentalicon-uniF1012:before {
+    content: "\f1a2";
+}
+
+.dentalicon-uniF13A:before {
+    content: "\f1a3";
+}
+
+.dentalicon-uniF133:before {
+    content: "\f1a4";
+}
+
+.dentalicon-uniF1221:before {
+    content: "\f1a5";
+}
+
+.dentalicon-uniF161:before {
+    content: "\f1a6";
+}
+
+.dentalicon-uniF156:before {
+    content: "\f1a7";
+}
+
+.dentalicon-uniF140:before {
+    content: "\f1a8";
+}
+
+.dentalicon-uniF137:before {
+    content: "\f1a9";
+}
+
+.dentalicon-uniF134:before {
+    content: "\f16a";
+}
+
+.dentalicon-uniF155:before {
+    content: "\f16b";
+}
+
+.dentalicon-uniF11F1:before {
+    content: "\f16c";
+}
+
+.dentalicon-uniF1201:before {
+    content: "\f16d";
+}
+
+.dentalicon-uniF14A:before {
+    content: "\f16e";
+}
+
+.dentalicon-uniF149:before {
+    content: "\f16f";
+}
+
+.dentalicon-uniF148:before {
+    content: "\f170";
+}
+
+.dentalicon-uniF147:before {
+    content: "\f171";
+}
+
+.dentalicon-uniF12D:before {
+    content: "\f172";
+}
+
+.dentalicon-uniF146:before {
+    content: "\f173";
+}
+
+.dentalicon-uniF138:before {
+    content: "\f1aa";
+}
+
+.dentalicon-uniF124:before {
+    content: "\f1ab";
+}
+
+.dentalicon-uniF143:before {
+    content: "\f1ac";
+}
+
+.dentalicon-uniF151:before {
+    content: "\f1ad";
+}
+
+.dentalicon-uniF129:before {
+    content: "\f1ae";
+}
+
+.dentalicon-uniF162:before {
+    content: "\f1af";
+}
+
+.dentalicon-uniF1161:before {
+    content: "\f1b0";
+}
+
+.dentalicon-uniF1002:before {
+    content: "\f1b1";
+}
+
+.dentalicon-uniF142:before {
+    content: "\f174";
+}
+
+.dentalicon-uniF125:before {
+    content: "\f175";
+}
+
+.dentalicon-uniF15B:before {
+    content: "\f176";
+}
+
+.dentalicon-uniF132:before {
+    content: "\f177";
+}
+
+.dentalicon-uniF130:before {
+    content: "\f178";
+}
+
+.dentalicon-uniF1141:before {
+    content: "\f179";
+}
+
+.dentalicon-uniF13C:before {
+    content: "\f17a";
+}
+
+.dentalicon-uniF15A:before {
+    content: "\f17b";
+}
+
+.dentalicon-uniF159:before {
+    content: "\f17c";
+}
+
+.dentalicon-uniF158:before {
+    content: "\f17d";
+}
+
+.dentalicon-uniF14B:before {
+    content: "\f1b2";
+}
+
+.dentalicon-uniF1081:before {
+    content: "\f1b3";
+}
+
+.dentalicon-uniF10A1:before {
+    content: "\f1b4";
+}
+
+.dentalicon-uniF12E:before {
+    content: "\f1b5";
+}
+
+.dentalicon-uniF10B1:before {
+    content: "\f1b6";
+}
+
+.dentalicon-uniF145:before {
+    content: "\f1b7";
+}
+
+.dentalicon-uniF10E1:before {
+    content: "\f1b8";
+}
+
+.dentalicon-uniF126:before {
+    content: "\f1b9";
+}
+
+.dentalicon-uniF14D:before {
+    content: "\f17e";
+}
+
+.dentalicon-uniF163:before {
+    content: "\f17f";
+}
+
+.dentalicon-uniF144:before {
+    content: "\f180";
+}
+
+.dentalicon-uniF11A1:before {
+    content: "\f181";
+}
+
+.dentalicon-uniF1171:before {
+    content: "\f182";
+}
+
+.dentalicon-uniF1052:before {
+    content: "\f183";
+}
+
+.dentalicon-uniF14C:before {
+    content: "\f184";
+}
+
+.dentalicon-uniF12F:before {
+    content: "\f185";
+}
+
+.dentalicon-uniF12B:before {
+    content: "\f186";
+}
+
+.dentalicon-uniF1032:before {
+    content: "\f187";
+}
+
+.dentalicon-uniF1181:before {
+    content: "\f1ba";
+}
+
+.dentalicon-uniF14F:before {
+    content: "\f1bb";
+}
+
+.dentalicon-uniF135:before {
+    content: "\f1bc";
+}
+
+.dentalicon-uniF136:before {
+    content: "\f1bd";
+}
+
+.dentalicon-uniF127:before {
+    content: "\f1be";
+}
+
+.dentalicon-uniF1091:before {
+    content: "\f1bf";
+}
+
+.dentalicon-uniF15F:before {
+    content: "\f1c0";
+}
+
+.dentalicon-uniF13F:before {
+    content: "\f1c1";
+}
+
+.dentalicon-uniF1211:before {
+    content: "\f188";
+}
+
+.dentalicon-uniF1121:before {
+    content: "\f189";
+}
+
+.dentalicon-uniF1151:before {
+    content: "\f18a";
+}
+
+.dentalicon-uniF11E1:before {
+    content: "\f18b";
+}
+
+.dentalicon-uniF15E:before {
+    content: "\f18c";
+}
+
+.dentalicon-uniF141:before {
+    content: "\f18d";
+}
+
+.dentalicon-uniF150:before {
+    content: "\f18e";
+}
+
+.dentalicon-uniF1131:before {
+    content: "\f18f";
+}
+
+.dentalicon-uniF152:before {
+    content: "\f190";
+}
+
+.dentalicon-uniF10D1:before {
+    content: "\f191";
+}

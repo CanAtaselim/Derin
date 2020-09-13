@@ -1,0 +1,2280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DerinModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AboutUs">
+          <Key>
+            <PropertyRef Name="IdAboutUs" />
+          </Key>
+          <Property Name="IdAboutUs" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="Department" Type="smallint" Nullable="false" />
+          <Property Name="Mission" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Vision" Type="nvarchar(max)" />
+          <Property Name="Picture" Type="image" />
+        </EntityType>
+        <EntityType Name="ANNOUNCEMENT">
+          <Key>
+            <PropertyRef Name="IdAnnouncement" />
+          </Key>
+          <Property Name="IdAnnouncement" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="MessageSubject" Type="nvarchar" MaxLength="128" />
+          <Property Name="MessageContent" Type="nvarchar(max)" />
+          <Property Name="MessageDate" Type="datetime" />
+          <Property Name="MessageIcon" Type="nvarchar" MaxLength="128" />
+          <Property Name="Priority" Type="smallint" Nullable="false" />
+          <Property Name="Area" Type="nvarchar" MaxLength="64" />
+          <Property Name="IsVisibleToMain" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="IdBanner" />
+          </Key>
+          <Property Name="IdBanner" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FilePath" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="IdCity" />
+          </Key>
+          <Property Name="IdCity" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="IdCountryRef" Type="bigint" />
+          <Property Name="CityCode" Type="int" />
+          <Property Name="TakbisCityCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="TrafficCode" Type="nvarchar" MaxLength="3" />
+          <Property Name="DivisionId" Type="uniqueidentifier" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CityId" Type="uniqueidentifier" />
+          <Property Name="CityGeometry" Type="geometry" />
+          <Property Name="CentroidGeometry" Type="geometry" />
+          <Property Name="CentroidCity" Type="geometry" />
+        </EntityType>
+        <EntityType Name="ConnectionLog">
+          <Key>
+            <PropertyRef Name="IdConnectionLog" />
+          </Key>
+          <Property Name="IdConnectionLog" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="64" />
+          <Property Name="IdSystemUserRef" Type="bigint" />
+          <Property Name="IpAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="LogDate" Type="datetime" Nullable="false" />
+          <Property Name="ErrorCode" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContactUs">
+          <Key>
+            <PropertyRef Name="IdContactUs" />
+          </Key>
+          <Property Name="IdContactUs" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="Department" Type="smallint" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="14" Nullable="false" />
+          <Property Name="GSM" Type="nvarchar" MaxLength="14" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="14" />
+          <Property Name="Facebook" Type="nvarchar" MaxLength="100" />
+          <Property Name="Twitter" Type="nvarchar" MaxLength="100" />
+          <Property Name="Instagram" Type="nvarchar" MaxLength="100" />
+          <Property Name="Youtube" Type="nvarchar" MaxLength="100" />
+          <Property Name="Linkedin" Type="nvarchar" MaxLength="100" />
+          <Property Name="GooglePlus" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="IdCountry" />
+          </Key>
+          <Property Name="IdCountry" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="CountryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CountryName_English" Type="nvarchar" MaxLength="50" />
+          <Property Name="CountryPhoneCode" Type="nvarchar" MaxLength="15" />
+          <Property Name="CountryId" Type="uniqueidentifier" />
+          <Property Name="ISOCodeA2" Type="nvarchar" MaxLength="5" />
+          <Property Name="CountryGroup" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="IdEvent" />
+          </Key>
+          <Property Name="IdEvent" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="ControllerName" Type="nvarchar(max)" />
+          <Property Name="MethodName" Type="nvarchar(max)" />
+          <Property Name="FunctionName" Type="nvarchar(max)" />
+          <Property Name="EventSource" Type="nvarchar(max)" />
+          <Property Name="EventDate" Type="datetime" Nullable="false" />
+          <Property Name="ExecutionTime" Type="bigint" />
+          <Property Name="MachineName" Type="nvarchar(max)" />
+          <Property Name="MachineIp" Type="nvarchar(max)" />
+          <Property Name="ClientBrowser" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Exception">
+          <Key>
+            <PropertyRef Name="IdException" />
+          </Key>
+          <Property Name="IdException" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="ErrorMessage" Type="nvarchar(max)" />
+          <Property Name="InnerException" Type="nvarchar(max)" />
+          <Property Name="StackTrace" Type="nvarchar(max)" />
+          <Property Name="Area" Type="nvarchar(max)" />
+          <Property Name="Controller" Type="nvarchar(max)" />
+          <Property Name="Action" Type="nvarchar(max)" />
+          <Property Name="ExCode" Type="uniqueidentifier" />
+          <Property Name="ClientBrowser" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="ExceptionFeedBack">
+          <Key>
+            <PropertyRef Name="IdExceptionFeedBack" />
+          </Key>
+          <Property Name="IdExceptionFeedBack" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="FeedBack" Type="nvarchar(max)" />
+          <Property Name="ExCode" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Faculties">
+          <Key>
+            <PropertyRef Name="IdFaculty" />
+          </Key>
+          <Property Name="IdFaculty" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="IdUniversity" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="IdPerson" />
+          </Key>
+          <Property Name="IdPerson" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="IdUniversity" Type="bigint" />
+          <Property Name="IdFaculty" Type="bigint" />
+          <Property Name="IdUniversityDepartment" Type="bigint" />
+          <Property Name="EmployeeType" Type="smallint" Nullable="false" />
+          <Property Name="Department" Type="smallint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Profession" Type="nvarchar" MaxLength="40" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="14" />
+          <Property Name="Gsm" Type="nvarchar" MaxLength="14" />
+          <Property Name="About" Type="nvarchar(max)" />
+          <Property Name="Picture" Type="image" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="IdRole" />
+          </Key>
+          <Property Name="IdRole" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="IdParentRoleRef" Type="bigint" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleDescription" Type="nvarchar" MaxLength="512" />
+          <Property Name="StaticRole" Type="bit" Nullable="false" />
+          <Property Name="LocationAdmin" Type="bit" />
+          <Property Name="RoleCode" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="IsRoleDistribution" Type="bit" />
+          <Property Name="DefaultPage" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="RoleAuthorization">
+          <Key>
+            <PropertyRef Name="IdRoleAuthorization" />
+          </Key>
+          <Property Name="IdRoleAuthorization" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRoleRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="Area" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="Controller" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="Action" Type="nvarchar" MaxLength="64" />
+          <Property Name="IsForbidden" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleSideMenu">
+          <Key>
+            <PropertyRef Name="IdRoleSideMenu" />
+          </Key>
+          <Property Name="IdRoleSideMenu" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="IdRoleRef" Type="bigint" />
+          <Property Name="IdSideMenuRef" Type="bigint" />
+        </EntityType>
+        <EntityType Name="RoleTopMenu">
+          <Key>
+            <PropertyRef Name="IdRoleTopMenu" />
+          </Key>
+          <Property Name="IdRoleTopMenu" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="IdRoleRef" Type="bigint" Nullable="false" />
+          <Property Name="IdTopMenuRef" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="IdServices" />
+          </Key>
+          <Property Name="IdServices" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FullText" Type="nvarchar" MaxLength="3000" Nullable="false" />
+          <Property Name="Summary" Type="nvarchar" MaxLength="300" />
+          <Property Name="Icon" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Sessions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="900" Nullable="false" />
+          <Property Name="Value" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ExpiresAtTime" Type="datetimeoffset" Precision="7" Nullable="false" />
+          <Property Name="SlidingExpirationInSeconds" Type="bigint" />
+          <Property Name="AbsoluteExpiration" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="SideMenu">
+          <Key>
+            <PropertyRef Name="IdSideMenu" />
+          </Key>
+          <Property Name="IdSideMenu" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="IdParentSideMenu" Type="bigint" />
+          <Property Name="IdTopMenuRef" Type="bigint" />
+          <Property Name="Area" Type="nvarchar" MaxLength="24" />
+          <Property Name="Controller" Type="nvarchar" MaxLength="64" />
+          <Property Name="Action" Type="nvarchar" MaxLength="64" />
+          <Property Name="SideMenuName" Type="nvarchar" MaxLength="64" />
+          <Property Name="SideMenuDescription" Type="nvarchar" MaxLength="1024" />
+          <Property Name="SideMenuStatus" Type="smallint" />
+          <Property Name="SideMenuOrder" Type="int" />
+          <Property Name="IconUrl" Type="nvarchar" MaxLength="256" />
+          <Property Name="ItemBackgroundColor" Type="nvarchar" MaxLength="64" />
+          <Property Name="ItemTextColor" Type="nvarchar" MaxLength="64" />
+          <Property Name="ItemIconColor" Type="nvarchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="SystemUser">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="IdNo" Type="nvarchar" MaxLength="11" />
+          <Property Name="Username" Type="nvarchar" MaxLength="128" />
+          <Property Name="Password" Type="nvarchar" MaxLength="64" />
+          <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="128" />
+          <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+          <Property Name="LastPasswordChangeDate" Type="datetime" />
+          <Property Name="LastLoginDate" Type="datetime" />
+          <Property Name="LastPassword" Type="nvarchar" MaxLength="128" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BirthDate" Type="datetime" />
+          <Property Name="Gender" Type="smallint" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="500" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+          <Property Name="MobilePhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmailConfirmation" Type="smallint" Nullable="false" />
+          <Property Name="Status" Type="smallint" Nullable="false" />
+          <Property Name="ProfilePicture" Type="varbinary(max)" />
+          <Property Name="TbsUserId" Type="uniqueidentifier" />
+          <Property Name="ProfilePictureURL" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="SystemUserRole">
+          <Key>
+            <PropertyRef Name="IdSystemUserRole" />
+          </Key>
+          <Property Name="IdSystemUserRole" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="IdSystemUserRef" Type="bigint" Nullable="false" />
+          <Property Name="IdRoleRef" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SystemUserRoleLocation">
+          <Key>
+            <PropertyRef Name="IdSystemUserRoleLocation" />
+          </Key>
+          <Property Name="IdSystemUserRoleLocation" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="IdSystemUserRef" Type="bigint" Nullable="false" />
+          <Property Name="IdSystemUserRoleRef" Type="bigint" Nullable="false" />
+          <Property Name="IdCountryRef" Type="bigint" />
+          <Property Name="IdCityRef" Type="bigint" />
+          <Property Name="IdTownRef" Type="bigint" />
+          <Property Name="IdVillageRef" Type="bigint" />
+        </EntityType>
+        <EntityType Name="SystemUserRoleParameter">
+          <Key>
+            <PropertyRef Name="IdSystemUserRoleParameter" />
+          </Key>
+          <Property Name="IdSystemUserRoleParameter" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="IdSystemUserRef" Type="bigint" />
+          <Property Name="IdSystemUserRoleRef" Type="bigint" />
+          <Property Name="IdRoleRef" Type="bigint" />
+          <Property Name="ParameterAdmin" Type="bit" />
+          <Property Name="SchemaName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TableName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdParameterRef" Type="bigint" />
+          <Property Name="Alias" Type="nvarchar" MaxLength="100" />
+          <Property Name="NameColumnRef" Type="nvarchar" MaxLength="50" />
+          <Property Name="ValueColumnRef" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SystemUserTicket">
+          <Key>
+            <PropertyRef Name="IdTicket" />
+          </Key>
+          <Property Name="IdTicket" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TopMenu">
+          <Key>
+            <PropertyRef Name="IdTopMenu" />
+          </Key>
+          <Property Name="IdTopMenu" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="Area" Type="nvarchar" MaxLength="24" />
+          <Property Name="Controller" Type="nvarchar" MaxLength="64" />
+          <Property Name="Action" Type="nvarchar" MaxLength="64" />
+          <Property Name="TopMenuName" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="TopMenuDescription" Type="nvarchar" MaxLength="1024" />
+          <Property Name="TopMenuStatus" Type="smallint" />
+          <Property Name="TopMenuOrder" Type="int" />
+          <Property Name="IconUrl" Type="nvarchar" MaxLength="256" />
+          <Property Name="ItemBackgroundColor" Type="nvarchar" MaxLength="64" />
+          <Property Name="ItemTextColor" Type="nvarchar" MaxLength="64" />
+          <Property Name="ItemIconColor" Type="nvarchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="Town">
+          <Key>
+            <PropertyRef Name="IdTown" />
+          </Key>
+          <Property Name="IdTown" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="IdCityRef" Type="bigint" />
+          <Property Name="TownCode" Type="int" />
+          <Property Name="TakbisTownCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="TownName" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="CityId" Type="uniqueidentifier" />
+          <Property Name="TownId" Type="uniqueidentifier" />
+          <Property Name="TownGeometry" Type="geometry" />
+          <Property Name="CentroidGeometry" Type="geometry" />
+          <Property Name="CentroidTown" Type="geometry" />
+        </EntityType>
+        <EntityType Name="Universities">
+          <Key>
+            <PropertyRef Name="IdUniversity" />
+          </Key>
+          <Property Name="IdUniversity" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UniversityDepartment">
+          <Key>
+            <PropertyRef Name="IdUniversityDepartment" />
+          </Key>
+          <Property Name="IdUniversityDepartment" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="IdFaculty" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Village">
+          <Key>
+            <PropertyRef Name="IdVillage" />
+          </Key>
+          <Property Name="IdVillage" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="IdTownRef" Type="bigint" />
+          <Property Name="IdCityRef" Type="bigint" />
+          <Property Name="VillageCode" Type="int" />
+          <Property Name="TakbisVillageCode" Type="int" />
+          <Property Name="VillageType" Type="smallint" />
+          <Property Name="VillageName" Type="nvarchar" MaxLength="100" />
+          <Property Name="CityId" Type="uniqueidentifier" />
+          <Property Name="TownId" Type="uniqueidentifier" />
+          <Property Name="VillageId" Type="uniqueidentifier" />
+          <Property Name="Centroid_Weighted" Type="geometry" />
+          <Property Name="BBox_MinPoint" Type="geometry" />
+          <Property Name="BBox_MaxPoint" Type="geometry" />
+        </EntityType>
+        <EntityType Name="CDC">
+          <Key>
+            <PropertyRef Name="IdCDC" />
+          </Key>
+          <Property Name="IdCDC" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="OperationType" Type="smallint" />
+          <Property Name="TableName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="TablePrimaryKeyName" Type="nvarchar" MaxLength="150" />
+          <Property Name="TableId" Type="bigint" />
+          <Property Name="TableIdGuid" Type="uniqueidentifier" />
+          <Property Name="Source" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_ANNOUNCEMENT_SystemUser">
+          <End Role="SystemUser" Type="Self.SystemUser" Multiplicity="1" />
+          <End Role="ANNOUNCEMENT" Type="Self.ANNOUNCEMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemUser">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="ANNOUNCEMENT">
+              <PropertyRef Name="OperationIdUserRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="IdCountry" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="IdCountryRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faculties_Faculties">
+          <End Role="Universities" Type="Self.Universities" Multiplicity="1" />
+          <End Role="Faculties" Type="Self.Faculties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Universities">
+              <PropertyRef Name="IdUniversity" />
+            </Principal>
+            <Dependent Role="Faculties">
+              <PropertyRef Name="IdUniversity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Person_Faculties">
+          <End Role="Faculties" Type="Self.Faculties" Multiplicity="0..1" />
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculties">
+              <PropertyRef Name="IdFaculty" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="IdFaculty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Person_Universities">
+          <End Role="Universities" Type="Self.Universities" Multiplicity="0..1" />
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Universities">
+              <PropertyRef Name="IdUniversity" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="IdUniversity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Person_UniversityDepartment">
+          <End Role="UniversityDepartment" Type="Self.UniversityDepartment" Multiplicity="0..1" />
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UniversityDepartment">
+              <PropertyRef Name="IdUniversityDepartment" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="IdUniversityDepartment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleAuthorization_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="RoleAuthorization" Type="Self.RoleAuthorization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="RoleAuthorization">
+              <PropertyRef Name="IdRoleRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleSideMenu_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="RoleSideMenu" Type="Self.RoleSideMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="RoleSideMenu">
+              <PropertyRef Name="IdRoleRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleSideMenu_SideMenu">
+          <End Role="SideMenu" Type="Self.SideMenu" Multiplicity="0..1" />
+          <End Role="RoleSideMenu" Type="Self.RoleSideMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SideMenu">
+              <PropertyRef Name="IdSideMenu" />
+            </Principal>
+            <Dependent Role="RoleSideMenu">
+              <PropertyRef Name="IdSideMenuRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleTopMenu_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="RoleTopMenu" Type="Self.RoleTopMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="RoleTopMenu">
+              <PropertyRef Name="IdRoleRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleTopMenu_TopMenu">
+          <End Role="TopMenu" Type="Self.TopMenu" Multiplicity="0..1" />
+          <End Role="RoleTopMenu" Type="Self.RoleTopMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TopMenu">
+              <PropertyRef Name="IdTopMenu" />
+            </Principal>
+            <Dependent Role="RoleTopMenu">
+              <PropertyRef Name="IdTopMenuRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SideMenu_TopMenu">
+          <End Role="TopMenu" Type="Self.TopMenu" Multiplicity="0..1" />
+          <End Role="SideMenu" Type="Self.SideMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TopMenu">
+              <PropertyRef Name="IdTopMenu" />
+            </Principal>
+            <Dependent Role="SideMenu">
+              <PropertyRef Name="IdTopMenuRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SystemUserRole_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="SystemUserRole" Type="Self.SystemUserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="SystemUserRole">
+              <PropertyRef Name="IdRoleRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SystemUserRole_SystemUser">
+          <End Role="SystemUser" Type="Self.SystemUser" Multiplicity="1" />
+          <End Role="SystemUserRole" Type="Self.SystemUserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemUser">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="SystemUserRole">
+              <PropertyRef Name="IdSystemUserRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SystemUserRoleLocation_SystemUserRole">
+          <End Role="SystemUserRole" Type="Self.SystemUserRole" Multiplicity="1" />
+          <End Role="SystemUserRoleLocation" Type="Self.SystemUserRoleLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemUserRole">
+              <PropertyRef Name="IdSystemUserRole" />
+            </Principal>
+            <Dependent Role="SystemUserRoleLocation">
+              <PropertyRef Name="IdSystemUserRoleRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Town_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Town" Type="Self.Town" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="IdCity" />
+            </Principal>
+            <Dependent Role="Town">
+              <PropertyRef Name="IdCityRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Village_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Village" Type="Self.Village" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="IdCity" />
+            </Principal>
+            <Dependent Role="Village">
+              <PropertyRef Name="IdCityRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Village_City1">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Village" Type="Self.Village" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="IdCity" />
+            </Principal>
+            <Dependent Role="Village">
+              <PropertyRef Name="IdCityRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Village_Town">
+          <End Role="Town" Type="Self.Town" Multiplicity="0..1" />
+          <End Role="Village" Type="Self.Village" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Town">
+              <PropertyRef Name="IdTown" />
+            </Principal>
+            <Dependent Role="Village">
+              <PropertyRef Name="IdTownRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Role_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINISTRATION">
+          <Parameter Name="SystemUserId" Type="bigint" Mode="In" />
+        </Function>
+        <EntityContainer Name="DerinModelStoreContainer">
+          <EntitySet Name="AboutUs" EntityType="Self.AboutUs" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="ANNOUNCEMENT" EntityType="Self.ANNOUNCEMENT" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="Banner" EntityType="Self.Banner" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="ConnectionLog" EntityType="Self.ConnectionLog" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="ContactUs" EntityType="Self.ContactUs" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="Event" EntityType="Self.Event" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="Exception" EntityType="Self.Exception" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="ExceptionFeedBack" EntityType="Self.ExceptionFeedBack" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="Faculties" EntityType="Self.Faculties" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="Person" EntityType="Self.Person" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="RoleAuthorization" EntityType="Self.RoleAuthorization" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="RoleSideMenu" EntityType="Self.RoleSideMenu" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="RoleTopMenu" EntityType="Self.RoleTopMenu" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="Services" EntityType="Self.Services" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="Sessions" EntityType="Self.Sessions" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="SideMenu" EntityType="Self.SideMenu" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="SystemUser" EntityType="Self.SystemUser" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="SystemUserRole" EntityType="Self.SystemUserRole" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="SystemUserRoleLocation" EntityType="Self.SystemUserRoleLocation" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="SystemUserRoleParameter" EntityType="Self.SystemUserRoleParameter" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="SystemUserTicket" EntityType="Self.SystemUserTicket" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="TopMenu" EntityType="Self.TopMenu" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="Town" EntityType="Self.Town" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="Universities" EntityType="Self.Universities" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="UniversityDepartment" EntityType="Self.UniversityDepartment" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="Village" EntityType="Self.Village" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="CDC" EntityType="Self.CDC" Schema="CDC" store:Type="Tables" />
+          <AssociationSet Name="FK_ANNOUNCEMENT_SystemUser" Association="Self.FK_ANNOUNCEMENT_SystemUser">
+            <End Role="SystemUser" EntitySet="SystemUser" />
+            <End Role="ANNOUNCEMENT" EntitySet="ANNOUNCEMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_Country" Association="Self.FK_City_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faculties_Faculties" Association="Self.FK_Faculties_Faculties">
+            <End Role="Universities" EntitySet="Universities" />
+            <End Role="Faculties" EntitySet="Faculties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Person_Faculties" Association="Self.FK_Person_Faculties">
+            <End Role="Faculties" EntitySet="Faculties" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Person_Universities" Association="Self.FK_Person_Universities">
+            <End Role="Universities" EntitySet="Universities" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Person_UniversityDepartment" Association="Self.FK_Person_UniversityDepartment">
+            <End Role="UniversityDepartment" EntitySet="UniversityDepartment" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleAuthorization_Role" Association="Self.FK_RoleAuthorization_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RoleAuthorization" EntitySet="RoleAuthorization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleSideMenu_Role" Association="Self.FK_RoleSideMenu_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RoleSideMenu" EntitySet="RoleSideMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleSideMenu_SideMenu" Association="Self.FK_RoleSideMenu_SideMenu">
+            <End Role="SideMenu" EntitySet="SideMenu" />
+            <End Role="RoleSideMenu" EntitySet="RoleSideMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleTopMenu_Role" Association="Self.FK_RoleTopMenu_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RoleTopMenu" EntitySet="RoleTopMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleTopMenu_TopMenu" Association="Self.FK_RoleTopMenu_TopMenu">
+            <End Role="TopMenu" EntitySet="TopMenu" />
+            <End Role="RoleTopMenu" EntitySet="RoleTopMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SideMenu_TopMenu" Association="Self.FK_SideMenu_TopMenu">
+            <End Role="TopMenu" EntitySet="TopMenu" />
+            <End Role="SideMenu" EntitySet="SideMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SystemUserRole_Role" Association="Self.FK_SystemUserRole_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="SystemUserRole" EntitySet="SystemUserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SystemUserRole_SystemUser" Association="Self.FK_SystemUserRole_SystemUser">
+            <End Role="SystemUser" EntitySet="SystemUser" />
+            <End Role="SystemUserRole" EntitySet="SystemUserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SystemUserRoleLocation_SystemUserRole" Association="Self.FK_SystemUserRoleLocation_SystemUserRole">
+            <End Role="SystemUserRole" EntitySet="SystemUserRole" />
+            <End Role="SystemUserRoleLocation" EntitySet="SystemUserRoleLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Town_City" Association="Self.FK_Town_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Town" EntitySet="Town" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Village_City" Association="Self.FK_Village_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Village" EntitySet="Village" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Village_City1" Association="Self.FK_Village_City1">
+            <End Role="City" EntitySet="City" />
+            <End Role="Village" EntitySet="Village" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Village_Town" Association="Self.FK_Village_Town">
+            <End Role="Town" EntitySet="Town" />
+            <End Role="Village" EntitySet="Village" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DerinModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DerinEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="Role_List" ReturnType="Collection(DerinModel.Role_List_Result)">
+          <Parameter Name="SystemUserId" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="AboutUs" EntityType="DerinModel.AboutUs" />
+          <EntitySet Name="ANNOUNCEMENT" EntityType="DerinModel.ANNOUNCEMENT" />
+          <EntitySet Name="City" EntityType="DerinModel.City" />
+          <EntitySet Name="ConnectionLog" EntityType="DerinModel.ConnectionLog" />
+          <EntitySet Name="ContactUs" EntityType="DerinModel.ContactUs" />
+          <EntitySet Name="Country" EntityType="DerinModel.Country" />
+          <EntitySet Name="Event" EntityType="DerinModel.Event" />
+          <EntitySet Name="Exception" EntityType="DerinModel.Exception" />
+          <EntitySet Name="ExceptionFeedBack" EntityType="DerinModel.ExceptionFeedBack" />
+          <EntitySet Name="Faculties" EntityType="DerinModel.Faculties" />
+          <EntitySet Name="Person" EntityType="DerinModel.Person" />
+          <EntitySet Name="Role" EntityType="DerinModel.Role" />
+          <EntitySet Name="RoleAuthorization" EntityType="DerinModel.RoleAuthorization" />
+          <EntitySet Name="RoleSideMenu" EntityType="DerinModel.RoleSideMenu" />
+          <EntitySet Name="RoleTopMenu" EntityType="DerinModel.RoleTopMenu" />
+          <EntitySet Name="Services" EntityType="DerinModel.Services" />
+          <EntitySet Name="Sessions" EntityType="DerinModel.Sessions" />
+          <EntitySet Name="SideMenu" EntityType="DerinModel.SideMenu" />
+          <EntitySet Name="SystemUser" EntityType="DerinModel.SystemUser" />
+          <EntitySet Name="SystemUserRole" EntityType="DerinModel.SystemUserRole" />
+          <EntitySet Name="SystemUserRoleLocation" EntityType="DerinModel.SystemUserRoleLocation" />
+          <EntitySet Name="SystemUserRoleParameter" EntityType="DerinModel.SystemUserRoleParameter" />
+          <EntitySet Name="SystemUserTicket" EntityType="DerinModel.SystemUserTicket" />
+          <EntitySet Name="TopMenu" EntityType="DerinModel.TopMenu" />
+          <EntitySet Name="Town" EntityType="DerinModel.Town" />
+          <EntitySet Name="Universities" EntityType="DerinModel.Universities" />
+          <EntitySet Name="UniversityDepartment" EntityType="DerinModel.UniversityDepartment" />
+          <EntitySet Name="Village" EntityType="DerinModel.Village" />
+          <EntitySet Name="CDC" EntityType="DerinModel.CDC" />
+          <AssociationSet Name="FK_ANNOUNCEMENT_SystemUser" Association="DerinModel.FK_ANNOUNCEMENT_SystemUser">
+            <End Role="SystemUser" EntitySet="SystemUser" />
+            <End Role="ANNOUNCEMENT" EntitySet="ANNOUNCEMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_Country" Association="DerinModel.FK_City_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Town_City" Association="DerinModel.FK_Town_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Town" EntitySet="Town" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Village_City" Association="DerinModel.FK_Village_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Village" EntitySet="Village" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Village_City1" Association="DerinModel.FK_Village_City1">
+            <End Role="City" EntitySet="City" />
+            <End Role="Village" EntitySet="Village" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faculties_Faculties" Association="DerinModel.FK_Faculties_Faculties">
+            <End Role="Universities" EntitySet="Universities" />
+            <End Role="Faculties" EntitySet="Faculties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Person_Faculties" Association="DerinModel.FK_Person_Faculties">
+            <End Role="Faculties" EntitySet="Faculties" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Person_Universities" Association="DerinModel.FK_Person_Universities">
+            <End Role="Universities" EntitySet="Universities" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Person_UniversityDepartment" Association="DerinModel.FK_Person_UniversityDepartment">
+            <End Role="UniversityDepartment" EntitySet="UniversityDepartment" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleSideMenu_SideMenu" Association="DerinModel.FK_RoleSideMenu_SideMenu">
+            <End Role="SideMenu" EntitySet="SideMenu" />
+            <End Role="RoleSideMenu" EntitySet="RoleSideMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleTopMenu_TopMenu" Association="DerinModel.FK_RoleTopMenu_TopMenu">
+            <End Role="TopMenu" EntitySet="TopMenu" />
+            <End Role="RoleTopMenu" EntitySet="RoleTopMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SideMenu_TopMenu" Association="DerinModel.FK_SideMenu_TopMenu">
+            <End Role="TopMenu" EntitySet="TopMenu" />
+            <End Role="SideMenu" EntitySet="SideMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Village_Town" Association="DerinModel.FK_Village_Town">
+            <End Role="Town" EntitySet="Town" />
+            <End Role="Village" EntitySet="Village" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SystemUserRole_Role" Association="DerinModel.FK_SystemUserRole_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="SystemUserRole" EntitySet="SystemUserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SystemUserRole_SystemUser" Association="DerinModel.FK_SystemUserRole_SystemUser">
+            <End Role="SystemUser" EntitySet="SystemUser" />
+            <End Role="SystemUserRole" EntitySet="SystemUserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SystemUserRoleLocation_SystemUserRole" Association="DerinModel.FK_SystemUserRoleLocation_SystemUserRole">
+            <End Role="SystemUserRole" EntitySet="SystemUserRole" />
+            <End Role="SystemUserRoleLocation" EntitySet="SystemUserRoleLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleAuthorization_Role" Association="DerinModel.FK_RoleAuthorization_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RoleAuthorization" EntitySet="RoleAuthorization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleSideMenu_Role" Association="DerinModel.FK_RoleSideMenu_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RoleSideMenu" EntitySet="RoleSideMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleTopMenu_Role" Association="DerinModel.FK_RoleTopMenu_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RoleTopMenu" EntitySet="RoleTopMenu" />
+          </AssociationSet>
+          <EntitySet Name="Banner" EntityType="DerinModel.Banner" />
+        </EntityContainer>
+        <ComplexType Name="Role_List_Result">
+          <Property Type="Int64" Name="SystemUserId" Nullable="true" />
+          <Property Type="Int64" Name="IdParentRole" Nullable="true" />
+          <Property Type="String" Name="ParentRoleName" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="ParentRoleCode" Nullable="true" MaxLength="25" />
+          <Property Type="Int64" Name="IdRole" Nullable="false" />
+          <Property Type="String" Name="RoleName" Nullable="false" MaxLength="128" />
+          <Property Type="String" Name="RoleCode" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="DefaultPage" Nullable="true" MaxLength="150" />
+          <Property Type="Int64" Name="IdSystemUserRole" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="AboutUs">
+          <Key>
+            <PropertyRef Name="IdAboutUs" />
+          </Key>
+          <Property Name="IdAboutUs" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="Department" Type="Int16" Nullable="false" />
+          <Property Name="Mission" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Vision" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ANNOUNCEMENT">
+          <Key>
+            <PropertyRef Name="IdAnnouncement" />
+          </Key>
+          <Property Name="IdAnnouncement" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="MessageSubject" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="MessageContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MessageDate" Type="DateTime" Precision="3" />
+          <Property Name="MessageIcon" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Priority" Type="Int16" Nullable="false" />
+          <Property Name="Area" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="IsVisibleToMain" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="SystemUser" Relationship="DerinModel.FK_ANNOUNCEMENT_SystemUser" FromRole="ANNOUNCEMENT" ToRole="SystemUser" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="IdCity" />
+          </Key>
+          <Property Name="IdCity" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="IdCountryRef" Type="Int64" />
+          <Property Name="CityCode" Type="Int32" />
+          <Property Name="TakbisCityCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TrafficCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="DivisionId" Type="Guid" />
+          <Property Name="CityName" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="CityId" Type="Guid" />
+          <Property Name="CityGeometry" Type="Geometry" />
+          <Property Name="CentroidGeometry" Type="Geometry" />
+          <Property Name="CentroidCity" Type="Geometry" />
+          <NavigationProperty Name="Country" Relationship="DerinModel.FK_City_Country" FromRole="City" ToRole="Country" />
+          <NavigationProperty Name="Town" Relationship="DerinModel.FK_Town_City" FromRole="City" ToRole="Town" />
+          <NavigationProperty Name="Village" Relationship="DerinModel.FK_Village_City" FromRole="City" ToRole="Village" />
+          <NavigationProperty Name="Village1" Relationship="DerinModel.FK_Village_City1" FromRole="City" ToRole="Village" />
+        </EntityType>
+        <EntityType Name="ConnectionLog">
+          <Key>
+            <PropertyRef Name="IdConnectionLog" />
+          </Key>
+          <Property Name="IdConnectionLog" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="IdSystemUserRef" Type="Int64" />
+          <Property Name="IpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ErrorCode" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContactUs">
+          <Key>
+            <PropertyRef Name="IdContactUs" />
+          </Key>
+          <Property Name="IdContactUs" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="Department" Type="Int16" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="GSM" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="Facebook" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Twitter" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Instagram" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Youtube" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Linkedin" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GooglePlus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="IdCountry" />
+          </Key>
+          <Property Name="IdCountry" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="CountryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CountryName_English" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CountryPhoneCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CountryId" Type="Guid" />
+          <Property Name="ISOCodeA2" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="CountryGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="City" Relationship="DerinModel.FK_City_Country" FromRole="Country" ToRole="City" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="IdEvent" />
+          </Key>
+          <Property Name="IdEvent" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="ControllerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MethodName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FunctionName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EventSource" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EventDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExecutionTime" Type="Int64" />
+          <Property Name="MachineName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MachineIp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClientBrowser" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Exception">
+          <Key>
+            <PropertyRef Name="IdException" />
+          </Key>
+          <Property Name="IdException" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="ErrorMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InnerException" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Area" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Controller" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExCode" Type="Guid" />
+          <Property Name="ClientBrowser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ExceptionFeedBack">
+          <Key>
+            <PropertyRef Name="IdExceptionFeedBack" />
+          </Key>
+          <Property Name="IdExceptionFeedBack" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="FeedBack" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExCode" Type="Guid" />
+        </EntityType>
+        <EntityType Name="Faculties">
+          <Key>
+            <PropertyRef Name="IdFaculty" />
+          </Key>
+          <Property Name="IdFaculty" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="IdUniversity" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Universities" Relationship="DerinModel.FK_Faculties_Faculties" FromRole="Faculties" ToRole="Universities" />
+          <NavigationProperty Name="Person" Relationship="DerinModel.FK_Person_Faculties" FromRole="Faculties" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="IdPerson" />
+          </Key>
+          <Property Name="IdPerson" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="IdUniversity" Type="Int64" />
+          <Property Name="IdFaculty" Type="Int64" />
+          <Property Name="IdUniversityDepartment" Type="Int64" />
+          <Property Name="EmployeeType" Type="Int16" Nullable="false" />
+          <Property Name="Department" Type="Int16" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Profession" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="Gsm" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="About" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Faculties" Relationship="DerinModel.FK_Person_Faculties" FromRole="Person" ToRole="Faculties" />
+          <NavigationProperty Name="Universities" Relationship="DerinModel.FK_Person_Universities" FromRole="Person" ToRole="Universities" />
+          <NavigationProperty Name="UniversityDepartment" Relationship="DerinModel.FK_Person_UniversityDepartment" FromRole="Person" ToRole="UniversityDepartment" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="IdRole" />
+          </Key>
+          <Property Name="IdRole" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="IdParentRoleRef" Type="Int64" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="RoleDescription" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="StaticRole" Type="Boolean" Nullable="false" />
+          <Property Name="LocationAdmin" Type="Boolean" />
+          <Property Name="RoleCode" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="IsRoleDistribution" Type="Boolean" />
+          <Property Name="DefaultPage" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SystemUserRole" Relationship="DerinModel.FK_SystemUserRole_Role" FromRole="Role" ToRole="SystemUserRole" />
+          <NavigationProperty Name="RoleAuthorization" Relationship="DerinModel.FK_RoleAuthorization_Role" FromRole="Role" ToRole="RoleAuthorization" />
+          <NavigationProperty Name="RoleSideMenu" Relationship="DerinModel.FK_RoleSideMenu_Role" FromRole="Role" ToRole="RoleSideMenu" />
+          <NavigationProperty Name="RoleTopMenu" Relationship="DerinModel.FK_RoleTopMenu_Role" FromRole="Role" ToRole="RoleTopMenu" />
+        </EntityType>
+        <EntityType Name="RoleAuthorization">
+          <Key>
+            <PropertyRef Name="IdRoleAuthorization" />
+          </Key>
+          <Property Name="IdRoleAuthorization" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRoleRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="Area" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Controller" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="IsForbidden" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="DerinModel.FK_RoleAuthorization_Role" FromRole="RoleAuthorization" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="RoleSideMenu">
+          <Key>
+            <PropertyRef Name="IdRoleSideMenu" />
+          </Key>
+          <Property Name="IdRoleSideMenu" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="IdRoleRef" Type="Int64" />
+          <Property Name="IdSideMenuRef" Type="Int64" />
+          <NavigationProperty Name="SideMenu" Relationship="DerinModel.FK_RoleSideMenu_SideMenu" FromRole="RoleSideMenu" ToRole="SideMenu" />
+          <NavigationProperty Name="Role" Relationship="DerinModel.FK_RoleSideMenu_Role" FromRole="RoleSideMenu" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="RoleTopMenu">
+          <Key>
+            <PropertyRef Name="IdRoleTopMenu" />
+          </Key>
+          <Property Name="IdRoleTopMenu" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="IdRoleRef" Type="Int64" Nullable="false" />
+          <Property Name="IdTopMenuRef" Type="Int64" />
+          <NavigationProperty Name="TopMenu" Relationship="DerinModel.FK_RoleTopMenu_TopMenu" FromRole="RoleTopMenu" ToRole="TopMenu" />
+          <NavigationProperty Name="Role" Relationship="DerinModel.FK_RoleTopMenu_Role" FromRole="RoleTopMenu" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="IdServices" />
+          </Key>
+          <Property Name="IdServices" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FullText" Type="String" Nullable="false" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="Summary" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Icon" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Sessions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="900" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ExpiresAtTime" Type="DateTimeOffset" Nullable="false" Precision="7" />
+          <Property Name="SlidingExpirationInSeconds" Type="Int64" />
+          <Property Name="AbsoluteExpiration" Type="DateTimeOffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="SideMenu">
+          <Key>
+            <PropertyRef Name="IdSideMenu" />
+          </Key>
+          <Property Name="IdSideMenu" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="IdParentSideMenu" Type="Int64" />
+          <Property Name="IdTopMenuRef" Type="Int64" />
+          <Property Name="Area" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="Controller" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="SideMenuName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="SideMenuDescription" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="SideMenuStatus" Type="Int16" />
+          <Property Name="SideMenuOrder" Type="Int32" />
+          <Property Name="IconUrl" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ItemBackgroundColor" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="ItemTextColor" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="ItemIconColor" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RoleSideMenu" Relationship="DerinModel.FK_RoleSideMenu_SideMenu" FromRole="SideMenu" ToRole="RoleSideMenu" />
+          <NavigationProperty Name="TopMenu" Relationship="DerinModel.FK_SideMenu_TopMenu" FromRole="SideMenu" ToRole="TopMenu" />
+        </EntityType>
+        <EntityType Name="SystemUser">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="IdNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordQuestion" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordAnswer" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="LastPasswordChangeDate" Type="DateTime" Precision="3" />
+          <Property Name="LastLoginDate" Type="DateTime" Precision="3" />
+          <Property Name="LastPassword" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Precision="3" />
+          <Property Name="Gender" Type="Int16" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MobilePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmation" Type="Int16" Nullable="false" />
+          <Property Name="Status" Type="Int16" Nullable="false" />
+          <Property Name="ProfilePicture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="TbsUserId" Type="Guid" />
+          <Property Name="ProfilePictureURL" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ANNOUNCEMENT" Relationship="DerinModel.FK_ANNOUNCEMENT_SystemUser" FromRole="SystemUser" ToRole="ANNOUNCEMENT" />
+          <NavigationProperty Name="SystemUserRole" Relationship="DerinModel.FK_SystemUserRole_SystemUser" FromRole="SystemUser" ToRole="SystemUserRole" />
+        </EntityType>
+        <EntityType Name="SystemUserRole">
+          <Key>
+            <PropertyRef Name="IdSystemUserRole" />
+          </Key>
+          <Property Name="IdSystemUserRole" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="IdSystemUserRef" Type="Int64" Nullable="false" />
+          <Property Name="IdRoleRef" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="DerinModel.FK_SystemUserRole_Role" FromRole="SystemUserRole" ToRole="Role" />
+          <NavigationProperty Name="SystemUser" Relationship="DerinModel.FK_SystemUserRole_SystemUser" FromRole="SystemUserRole" ToRole="SystemUser" />
+          <NavigationProperty Name="SystemUserRoleLocation" Relationship="DerinModel.FK_SystemUserRoleLocation_SystemUserRole" FromRole="SystemUserRole" ToRole="SystemUserRoleLocation" />
+        </EntityType>
+        <EntityType Name="SystemUserRoleLocation">
+          <Key>
+            <PropertyRef Name="IdSystemUserRoleLocation" />
+          </Key>
+          <Property Name="IdSystemUserRoleLocation" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="IdSystemUserRef" Type="Int64" Nullable="false" />
+          <Property Name="IdSystemUserRoleRef" Type="Int64" Nullable="false" />
+          <Property Name="IdCountryRef" Type="Int64" />
+          <Property Name="IdCityRef" Type="Int64" />
+          <Property Name="IdTownRef" Type="Int64" />
+          <Property Name="IdVillageRef" Type="Int64" />
+          <NavigationProperty Name="SystemUserRole" Relationship="DerinModel.FK_SystemUserRoleLocation_SystemUserRole" FromRole="SystemUserRoleLocation" ToRole="SystemUserRole" />
+        </EntityType>
+        <EntityType Name="SystemUserRoleParameter">
+          <Key>
+            <PropertyRef Name="IdSystemUserRoleParameter" />
+          </Key>
+          <Property Name="IdSystemUserRoleParameter" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="IdSystemUserRef" Type="Int64" />
+          <Property Name="IdSystemUserRoleRef" Type="Int64" />
+          <Property Name="IdRoleRef" Type="Int64" />
+          <Property Name="ParameterAdmin" Type="Boolean" />
+          <Property Name="SchemaName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TableName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdParameterRef" Type="Int64" />
+          <Property Name="Alias" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NameColumnRef" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ValueColumnRef" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SystemUserTicket">
+          <Key>
+            <PropertyRef Name="IdTicket" />
+          </Key>
+          <Property Name="IdTicket" Type="Guid" Nullable="false" />
+          <Property Name="IdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TopMenu">
+          <Key>
+            <PropertyRef Name="IdTopMenu" />
+          </Key>
+          <Property Name="IdTopMenu" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="Area" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="Controller" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="TopMenuName" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="TopMenuDescription" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="TopMenuStatus" Type="Int16" />
+          <Property Name="TopMenuOrder" Type="Int32" />
+          <Property Name="IconUrl" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ItemBackgroundColor" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="ItemTextColor" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="ItemIconColor" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RoleTopMenu" Relationship="DerinModel.FK_RoleTopMenu_TopMenu" FromRole="TopMenu" ToRole="RoleTopMenu" />
+          <NavigationProperty Name="SideMenu" Relationship="DerinModel.FK_SideMenu_TopMenu" FromRole="TopMenu" ToRole="SideMenu" />
+        </EntityType>
+        <EntityType Name="Town">
+          <Key>
+            <PropertyRef Name="IdTown" />
+          </Key>
+          <Property Name="IdTown" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="IdCityRef" Type="Int64" />
+          <Property Name="TownCode" Type="Int32" />
+          <Property Name="TakbisTownCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TownName" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="CityId" Type="Guid" />
+          <Property Name="TownId" Type="Guid" />
+          <Property Name="TownGeometry" Type="Geometry" />
+          <Property Name="CentroidGeometry" Type="Geometry" />
+          <Property Name="CentroidTown" Type="Geometry" />
+          <NavigationProperty Name="City" Relationship="DerinModel.FK_Town_City" FromRole="Town" ToRole="City" />
+          <NavigationProperty Name="Village" Relationship="DerinModel.FK_Village_Town" FromRole="Town" ToRole="Village" />
+        </EntityType>
+        <EntityType Name="Universities">
+          <Key>
+            <PropertyRef Name="IdUniversity" />
+          </Key>
+          <Property Name="IdUniversity" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Faculties" Relationship="DerinModel.FK_Faculties_Faculties" FromRole="Universities" ToRole="Faculties" />
+          <NavigationProperty Name="Person" Relationship="DerinModel.FK_Person_Universities" FromRole="Universities" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="UniversityDepartment">
+          <Key>
+            <PropertyRef Name="IdUniversityDepartment" />
+          </Key>
+          <Property Name="IdUniversityDepartment" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="IdFaculty" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Person" Relationship="DerinModel.FK_Person_UniversityDepartment" FromRole="UniversityDepartment" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="Village">
+          <Key>
+            <PropertyRef Name="IdVillage" />
+          </Key>
+          <Property Name="IdVillage" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="IdTownRef" Type="Int64" />
+          <Property Name="IdCityRef" Type="Int64" />
+          <Property Name="VillageCode" Type="Int32" />
+          <Property Name="TakbisVillageCode" Type="Int32" />
+          <Property Name="VillageType" Type="Int16" />
+          <Property Name="VillageName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CityId" Type="Guid" />
+          <Property Name="TownId" Type="Guid" />
+          <Property Name="VillageId" Type="Guid" />
+          <Property Name="Centroid_Weighted" Type="Geometry" />
+          <Property Name="BBox_MinPoint" Type="Geometry" />
+          <Property Name="BBox_MaxPoint" Type="Geometry" />
+          <NavigationProperty Name="City" Relationship="DerinModel.FK_Village_City" FromRole="Village" ToRole="City" />
+          <NavigationProperty Name="City1" Relationship="DerinModel.FK_Village_City1" FromRole="Village" ToRole="City" />
+          <NavigationProperty Name="Town" Relationship="DerinModel.FK_Village_Town" FromRole="Village" ToRole="Town" />
+        </EntityType>
+        <EntityType Name="CDC">
+          <Key>
+            <PropertyRef Name="IdCDC" />
+          </Key>
+          <Property Name="IdCDC" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="OperationType" Type="Int16" />
+          <Property Name="TableName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TablePrimaryKeyName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TableId" Type="Int64" />
+          <Property Name="TableIdGuid" Type="Guid" />
+          <Property Name="Source" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_ANNOUNCEMENT_SystemUser">
+          <End Type="DerinModel.SystemUser" Role="SystemUser" Multiplicity="1" />
+          <End Type="DerinModel.ANNOUNCEMENT" Role="ANNOUNCEMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemUser">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="ANNOUNCEMENT">
+              <PropertyRef Name="OperationIdUserRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_Country">
+          <End Type="DerinModel.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="DerinModel.City" Role="City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="IdCountry" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="IdCountryRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Town_City">
+          <End Type="DerinModel.City" Role="City" Multiplicity="0..1" />
+          <End Type="DerinModel.Town" Role="Town" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="IdCity" />
+            </Principal>
+            <Dependent Role="Town">
+              <PropertyRef Name="IdCityRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Village_City">
+          <End Type="DerinModel.City" Role="City" Multiplicity="0..1" />
+          <End Type="DerinModel.Village" Role="Village" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="IdCity" />
+            </Principal>
+            <Dependent Role="Village">
+              <PropertyRef Name="IdCityRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Village_City1">
+          <End Type="DerinModel.City" Role="City" Multiplicity="0..1" />
+          <End Type="DerinModel.Village" Role="Village" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="IdCity" />
+            </Principal>
+            <Dependent Role="Village">
+              <PropertyRef Name="IdCityRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faculties_Faculties">
+          <End Type="DerinModel.Universities" Role="Universities" Multiplicity="1" />
+          <End Type="DerinModel.Faculties" Role="Faculties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Universities">
+              <PropertyRef Name="IdUniversity" />
+            </Principal>
+            <Dependent Role="Faculties">
+              <PropertyRef Name="IdUniversity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Person_Faculties">
+          <End Type="DerinModel.Faculties" Role="Faculties" Multiplicity="0..1" />
+          <End Type="DerinModel.Person" Role="Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculties">
+              <PropertyRef Name="IdFaculty" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="IdFaculty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Person_Universities">
+          <End Type="DerinModel.Universities" Role="Universities" Multiplicity="0..1" />
+          <End Type="DerinModel.Person" Role="Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Universities">
+              <PropertyRef Name="IdUniversity" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="IdUniversity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Person_UniversityDepartment">
+          <End Type="DerinModel.UniversityDepartment" Role="UniversityDepartment" Multiplicity="0..1" />
+          <End Type="DerinModel.Person" Role="Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UniversityDepartment">
+              <PropertyRef Name="IdUniversityDepartment" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="IdUniversityDepartment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleSideMenu_SideMenu">
+          <End Type="DerinModel.SideMenu" Role="SideMenu" Multiplicity="0..1" />
+          <End Type="DerinModel.RoleSideMenu" Role="RoleSideMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SideMenu">
+              <PropertyRef Name="IdSideMenu" />
+            </Principal>
+            <Dependent Role="RoleSideMenu">
+              <PropertyRef Name="IdSideMenuRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleTopMenu_TopMenu">
+          <End Type="DerinModel.TopMenu" Role="TopMenu" Multiplicity="0..1" />
+          <End Type="DerinModel.RoleTopMenu" Role="RoleTopMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TopMenu">
+              <PropertyRef Name="IdTopMenu" />
+            </Principal>
+            <Dependent Role="RoleTopMenu">
+              <PropertyRef Name="IdTopMenuRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SideMenu_TopMenu">
+          <End Type="DerinModel.TopMenu" Role="TopMenu" Multiplicity="0..1" />
+          <End Type="DerinModel.SideMenu" Role="SideMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TopMenu">
+              <PropertyRef Name="IdTopMenu" />
+            </Principal>
+            <Dependent Role="SideMenu">
+              <PropertyRef Name="IdTopMenuRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Village_Town">
+          <End Type="DerinModel.Town" Role="Town" Multiplicity="0..1" />
+          <End Type="DerinModel.Village" Role="Village" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Town">
+              <PropertyRef Name="IdTown" />
+            </Principal>
+            <Dependent Role="Village">
+              <PropertyRef Name="IdTownRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SystemUserRole_Role">
+          <End Type="DerinModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="DerinModel.SystemUserRole" Role="SystemUserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="SystemUserRole">
+              <PropertyRef Name="IdRoleRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SystemUserRole_SystemUser">
+          <End Type="DerinModel.SystemUser" Role="SystemUser" Multiplicity="1" />
+          <End Type="DerinModel.SystemUserRole" Role="SystemUserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemUser">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="SystemUserRole">
+              <PropertyRef Name="IdSystemUserRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SystemUserRoleLocation_SystemUserRole">
+          <End Type="DerinModel.SystemUserRole" Role="SystemUserRole" Multiplicity="1" />
+          <End Type="DerinModel.SystemUserRoleLocation" Role="SystemUserRoleLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemUserRole">
+              <PropertyRef Name="IdSystemUserRole" />
+            </Principal>
+            <Dependent Role="SystemUserRoleLocation">
+              <PropertyRef Name="IdSystemUserRoleRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleAuthorization_Role">
+          <End Type="DerinModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="DerinModel.RoleAuthorization" Role="RoleAuthorization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="RoleAuthorization">
+              <PropertyRef Name="IdRoleRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleSideMenu_Role">
+          <End Type="DerinModel.Role" Role="Role" Multiplicity="0..1" />
+          <End Type="DerinModel.RoleSideMenu" Role="RoleSideMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="RoleSideMenu">
+              <PropertyRef Name="IdRoleRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleTopMenu_Role">
+          <End Type="DerinModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="DerinModel.RoleTopMenu" Role="RoleTopMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="RoleTopMenu">
+              <PropertyRef Name="IdRoleRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="IdBanner" />
+          </Key>
+          <Property Name="IdBanner" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FilePath" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DerinModelStoreContainer" CdmEntityContainer="DerinEntities">
+          <FunctionImportMapping FunctionImportName="Role_List" FunctionName="DerinModel.Store.Role_List">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DerinModel.Role_List_Result">
+                <ScalarProperty Name="SystemUserId" ColumnName="SystemUserId" />
+                <ScalarProperty Name="IdParentRole" ColumnName="IdParentRole" />
+                <ScalarProperty Name="ParentRoleName" ColumnName="ParentRoleName" />
+                <ScalarProperty Name="ParentRoleCode" ColumnName="ParentRoleCode" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
+                <ScalarProperty Name="DefaultPage" ColumnName="DefaultPage" />
+                <ScalarProperty Name="IdSystemUserRole" ColumnName="IdSystemUserRole" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="AboutUs">
+            <EntityTypeMapping TypeName="DerinModel.AboutUs">
+              <MappingFragment StoreEntitySet="AboutUs">
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Vision" ColumnName="Vision" />
+                <ScalarProperty Name="Mission" ColumnName="Mission" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdAboutUs" ColumnName="IdAboutUs" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ANNOUNCEMENT">
+            <EntityTypeMapping TypeName="DerinModel.ANNOUNCEMENT">
+              <MappingFragment StoreEntitySet="ANNOUNCEMENT">
+                <ScalarProperty Name="IsVisibleToMain" ColumnName="IsVisibleToMain" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="MessageIcon" ColumnName="MessageIcon" />
+                <ScalarProperty Name="MessageDate" ColumnName="MessageDate" />
+                <ScalarProperty Name="MessageContent" ColumnName="MessageContent" />
+                <ScalarProperty Name="MessageSubject" ColumnName="MessageSubject" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdAnnouncement" ColumnName="IdAnnouncement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="DerinModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="CentroidCity" ColumnName="CentroidCity" />
+                <ScalarProperty Name="CentroidGeometry" ColumnName="CentroidGeometry" />
+                <ScalarProperty Name="CityGeometry" ColumnName="CityGeometry" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+                <ScalarProperty Name="TrafficCode" ColumnName="TrafficCode" />
+                <ScalarProperty Name="TakbisCityCode" ColumnName="TakbisCityCode" />
+                <ScalarProperty Name="CityCode" ColumnName="CityCode" />
+                <ScalarProperty Name="IdCountryRef" ColumnName="IdCountryRef" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConnectionLog">
+            <EntityTypeMapping TypeName="DerinModel.ConnectionLog">
+              <MappingFragment StoreEntitySet="ConnectionLog">
+                <ScalarProperty Name="ErrorCode" ColumnName="ErrorCode" />
+                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+                <ScalarProperty Name="IdSystemUserRef" ColumnName="IdSystemUserRef" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="IdConnectionLog" ColumnName="IdConnectionLog" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactUs">
+            <EntityTypeMapping TypeName="DerinModel.ContactUs">
+              <MappingFragment StoreEntitySet="ContactUs">
+                <ScalarProperty Name="GooglePlus" ColumnName="GooglePlus" />
+                <ScalarProperty Name="Linkedin" ColumnName="Linkedin" />
+                <ScalarProperty Name="Youtube" ColumnName="Youtube" />
+                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="GSM" ColumnName="GSM" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdContactUs" ColumnName="IdContactUs" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="DerinModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="CountryGroup" ColumnName="CountryGroup" />
+                <ScalarProperty Name="ISOCodeA2" ColumnName="ISOCodeA2" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="CountryPhoneCode" ColumnName="CountryPhoneCode" />
+                <ScalarProperty Name="CountryName_English" ColumnName="CountryName_English" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdCountry" ColumnName="IdCountry" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Event">
+            <EntityTypeMapping TypeName="DerinModel.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="ClientBrowser" ColumnName="ClientBrowser" />
+                <ScalarProperty Name="MachineIp" ColumnName="MachineIp" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="ExecutionTime" ColumnName="ExecutionTime" />
+                <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+                <ScalarProperty Name="EventSource" ColumnName="EventSource" />
+                <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
+                <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+                <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdEvent" ColumnName="IdEvent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Exception">
+            <EntityTypeMapping TypeName="DerinModel.Exception">
+              <MappingFragment StoreEntitySet="Exception">
+                <ScalarProperty Name="ClientBrowser" ColumnName="ClientBrowser" />
+                <ScalarProperty Name="ExCode" ColumnName="ExCode" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+                <ScalarProperty Name="InnerException" ColumnName="InnerException" />
+                <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdException" ColumnName="IdException" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExceptionFeedBack">
+            <EntityTypeMapping TypeName="DerinModel.ExceptionFeedBack">
+              <MappingFragment StoreEntitySet="ExceptionFeedBack">
+                <ScalarProperty Name="ExCode" ColumnName="ExCode" />
+                <ScalarProperty Name="FeedBack" ColumnName="FeedBack" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdExceptionFeedBack" ColumnName="IdExceptionFeedBack" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Faculties">
+            <EntityTypeMapping TypeName="DerinModel.Faculties">
+              <MappingFragment StoreEntitySet="Faculties">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IdUniversity" ColumnName="IdUniversity" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdFaculty" ColumnName="IdFaculty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Person">
+            <EntityTypeMapping TypeName="DerinModel.Person">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="About" ColumnName="About" />
+                <ScalarProperty Name="Gsm" ColumnName="Gsm" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Profession" ColumnName="Profession" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="EmployeeType" ColumnName="EmployeeType" />
+                <ScalarProperty Name="IdUniversityDepartment" ColumnName="IdUniversityDepartment" />
+                <ScalarProperty Name="IdFaculty" ColumnName="IdFaculty" />
+                <ScalarProperty Name="IdUniversity" ColumnName="IdUniversity" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdPerson" ColumnName="IdPerson" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="DerinModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="DefaultPage" ColumnName="DefaultPage" />
+                <ScalarProperty Name="IsRoleDistribution" ColumnName="IsRoleDistribution" />
+                <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
+                <ScalarProperty Name="LocationAdmin" ColumnName="LocationAdmin" />
+                <ScalarProperty Name="StaticRole" ColumnName="StaticRole" />
+                <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="IdParentRoleRef" ColumnName="IdParentRoleRef" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleAuthorization">
+            <EntityTypeMapping TypeName="DerinModel.RoleAuthorization">
+              <MappingFragment StoreEntitySet="RoleAuthorization">
+                <ScalarProperty Name="IsForbidden" ColumnName="IsForbidden" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="IdRoleRef" ColumnName="IdRoleRef" />
+                <ScalarProperty Name="IdRoleAuthorization" ColumnName="IdRoleAuthorization" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleSideMenu">
+            <EntityTypeMapping TypeName="DerinModel.RoleSideMenu">
+              <MappingFragment StoreEntitySet="RoleSideMenu">
+                <ScalarProperty Name="IdSideMenuRef" ColumnName="IdSideMenuRef" />
+                <ScalarProperty Name="IdRoleRef" ColumnName="IdRoleRef" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdRoleSideMenu" ColumnName="IdRoleSideMenu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleTopMenu">
+            <EntityTypeMapping TypeName="DerinModel.RoleTopMenu">
+              <MappingFragment StoreEntitySet="RoleTopMenu">
+                <ScalarProperty Name="IdTopMenuRef" ColumnName="IdTopMenuRef" />
+                <ScalarProperty Name="IdRoleRef" ColumnName="IdRoleRef" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdRoleTopMenu" ColumnName="IdRoleTopMenu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Services">
+            <EntityTypeMapping TypeName="DerinModel.Services">
+              <MappingFragment StoreEntitySet="Services">
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="FullText" ColumnName="FullText" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdServices" ColumnName="IdServices" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sessions">
+            <EntityTypeMapping TypeName="DerinModel.Sessions">
+              <MappingFragment StoreEntitySet="Sessions">
+                <ScalarProperty Name="AbsoluteExpiration" ColumnName="AbsoluteExpiration" />
+                <ScalarProperty Name="SlidingExpirationInSeconds" ColumnName="SlidingExpirationInSeconds" />
+                <ScalarProperty Name="ExpiresAtTime" ColumnName="ExpiresAtTime" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SideMenu">
+            <EntityTypeMapping TypeName="DerinModel.SideMenu">
+              <MappingFragment StoreEntitySet="SideMenu">
+                <ScalarProperty Name="ItemIconColor" ColumnName="ItemIconColor" />
+                <ScalarProperty Name="ItemTextColor" ColumnName="ItemTextColor" />
+                <ScalarProperty Name="ItemBackgroundColor" ColumnName="ItemBackgroundColor" />
+                <ScalarProperty Name="IconUrl" ColumnName="IconUrl" />
+                <ScalarProperty Name="SideMenuOrder" ColumnName="SideMenuOrder" />
+                <ScalarProperty Name="SideMenuStatus" ColumnName="SideMenuStatus" />
+                <ScalarProperty Name="SideMenuDescription" ColumnName="SideMenuDescription" />
+                <ScalarProperty Name="SideMenuName" ColumnName="SideMenuName" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="IdTopMenuRef" ColumnName="IdTopMenuRef" />
+                <ScalarProperty Name="IdParentSideMenu" ColumnName="IdParentSideMenu" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdSideMenu" ColumnName="IdSideMenu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemUser">
+            <EntityTypeMapping TypeName="DerinModel.SystemUser">
+              <MappingFragment StoreEntitySet="SystemUser">
+                <ScalarProperty Name="ProfilePictureURL" ColumnName="ProfilePictureURL" />
+                <ScalarProperty Name="TbsUserId" ColumnName="TbsUserId" />
+                <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="EmailConfirmation" ColumnName="EmailConfirmation" />
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastPassword" ColumnName="LastPassword" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="LastPasswordChangeDate" ColumnName="LastPasswordChangeDate" />
+                <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+                <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="IdNo" ColumnName="IdNo" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemUserRole">
+            <EntityTypeMapping TypeName="DerinModel.SystemUserRole">
+              <MappingFragment StoreEntitySet="SystemUserRole">
+                <ScalarProperty Name="IdRoleRef" ColumnName="IdRoleRef" />
+                <ScalarProperty Name="IdSystemUserRef" ColumnName="IdSystemUserRef" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdSystemUserRole" ColumnName="IdSystemUserRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemUserRoleLocation">
+            <EntityTypeMapping TypeName="DerinModel.SystemUserRoleLocation">
+              <MappingFragment StoreEntitySet="SystemUserRoleLocation">
+                <ScalarProperty Name="IdVillageRef" ColumnName="IdVillageRef" />
+                <ScalarProperty Name="IdTownRef" ColumnName="IdTownRef" />
+                <ScalarProperty Name="IdCityRef" ColumnName="IdCityRef" />
+                <ScalarProperty Name="IdCountryRef" ColumnName="IdCountryRef" />
+                <ScalarProperty Name="IdSystemUserRoleRef" ColumnName="IdSystemUserRoleRef" />
+                <ScalarProperty Name="IdSystemUserRef" ColumnName="IdSystemUserRef" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdSystemUserRoleLocation" ColumnName="IdSystemUserRoleLocation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemUserRoleParameter">
+            <EntityTypeMapping TypeName="DerinModel.SystemUserRoleParameter">
+              <MappingFragment StoreEntitySet="SystemUserRoleParameter">
+                <ScalarProperty Name="ValueColumnRef" ColumnName="ValueColumnRef" />
+                <ScalarProperty Name="NameColumnRef" ColumnName="NameColumnRef" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="IdParameterRef" ColumnName="IdParameterRef" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="SchemaName" ColumnName="SchemaName" />
+                <ScalarProperty Name="ParameterAdmin" ColumnName="ParameterAdmin" />
+                <ScalarProperty Name="IdRoleRef" ColumnName="IdRoleRef" />
+                <ScalarProperty Name="IdSystemUserRoleRef" ColumnName="IdSystemUserRoleRef" />
+                <ScalarProperty Name="IdSystemUserRef" ColumnName="IdSystemUserRef" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdSystemUserRoleParameter" ColumnName="IdSystemUserRoleParameter" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemUserTicket">
+            <EntityTypeMapping TypeName="DerinModel.SystemUserTicket">
+              <MappingFragment StoreEntitySet="SystemUserTicket">
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="IdUserRef" ColumnName="IdUserRef" />
+                <ScalarProperty Name="IdTicket" ColumnName="IdTicket" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TopMenu">
+            <EntityTypeMapping TypeName="DerinModel.TopMenu">
+              <MappingFragment StoreEntitySet="TopMenu">
+                <ScalarProperty Name="ItemIconColor" ColumnName="ItemIconColor" />
+                <ScalarProperty Name="ItemTextColor" ColumnName="ItemTextColor" />
+                <ScalarProperty Name="ItemBackgroundColor" ColumnName="ItemBackgroundColor" />
+                <ScalarProperty Name="IconUrl" ColumnName="IconUrl" />
+                <ScalarProperty Name="TopMenuOrder" ColumnName="TopMenuOrder" />
+                <ScalarProperty Name="TopMenuStatus" ColumnName="TopMenuStatus" />
+                <ScalarProperty Name="TopMenuDescription" ColumnName="TopMenuDescription" />
+                <ScalarProperty Name="TopMenuName" ColumnName="TopMenuName" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdTopMenu" ColumnName="IdTopMenu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Town">
+            <EntityTypeMapping TypeName="DerinModel.Town">
+              <MappingFragment StoreEntitySet="Town">
+                <ScalarProperty Name="CentroidTown" ColumnName="CentroidTown" />
+                <ScalarProperty Name="CentroidGeometry" ColumnName="CentroidGeometry" />
+                <ScalarProperty Name="TownGeometry" ColumnName="TownGeometry" />
+                <ScalarProperty Name="TownId" ColumnName="TownId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="TownName" ColumnName="TownName" />
+                <ScalarProperty Name="TakbisTownCode" ColumnName="TakbisTownCode" />
+                <ScalarProperty Name="TownCode" ColumnName="TownCode" />
+                <ScalarProperty Name="IdCityRef" ColumnName="IdCityRef" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdTown" ColumnName="IdTown" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Universities">
+            <EntityTypeMapping TypeName="DerinModel.Universities">
+              <MappingFragment StoreEntitySet="Universities">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdUniversity" ColumnName="IdUniversity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UniversityDepartment">
+            <EntityTypeMapping TypeName="DerinModel.UniversityDepartment">
+              <MappingFragment StoreEntitySet="UniversityDepartment">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IdFaculty" ColumnName="IdFaculty" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdUniversityDepartment" ColumnName="IdUniversityDepartment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Village">
+            <EntityTypeMapping TypeName="DerinModel.Village">
+              <MappingFragment StoreEntitySet="Village">
+                <ScalarProperty Name="BBox_MaxPoint" ColumnName="BBox_MaxPoint" />
+                <ScalarProperty Name="BBox_MinPoint" ColumnName="BBox_MinPoint" />
+                <ScalarProperty Name="Centroid_Weighted" ColumnName="Centroid_Weighted" />
+                <ScalarProperty Name="VillageId" ColumnName="VillageId" />
+                <ScalarProperty Name="TownId" ColumnName="TownId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="VillageName" ColumnName="VillageName" />
+                <ScalarProperty Name="VillageType" ColumnName="VillageType" />
+                <ScalarProperty Name="TakbisVillageCode" ColumnName="TakbisVillageCode" />
+                <ScalarProperty Name="VillageCode" ColumnName="VillageCode" />
+                <ScalarProperty Name="IdCityRef" ColumnName="IdCityRef" />
+                <ScalarProperty Name="IdTownRef" ColumnName="IdTownRef" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdVillage" ColumnName="IdVillage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CDC">
+            <EntityTypeMapping TypeName="DerinModel.CDC">
+              <MappingFragment StoreEntitySet="CDC">
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="TableIdGuid" ColumnName="TableIdGuid" />
+                <ScalarProperty Name="TableId" ColumnName="TableId" />
+                <ScalarProperty Name="TablePrimaryKeyName" ColumnName="TablePrimaryKeyName" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="OperationType" ColumnName="OperationType" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdCDC" ColumnName="IdCDC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Banner">
+            <EntityTypeMapping TypeName="DerinModel.Banner">
+              <MappingFragment StoreEntitySet="Banner">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdBanner" ColumnName="IdBanner" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,82 @@
+﻿@model Derin.Business.ViewModel.Login.LoginVM
+<style>
+    ul {
+        padding-left: 20px;
+        padding-top: 10px;
+        list-style-type: none;
+    }
+
+        ul li {
+            position: relative;
+            font-size: 13px;
+        }
+
+            ul li:before {
+                content: "";
+                display: block;
+                position: absolute;
+                left: -20px;
+                top: 4.9px;
+                width: 9px;
+                height: 9px;
+                border: 1px solid orangered;
+                background: orangered;
+                border-radius: 50%;
+                box-shadow: 0px 0px 0px 2px #fff inset;
+            }
+</style>
+<div class="kt-grid kt-grid--ver kt-grid--root">
+    <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v3 kt-login--signin" id="kt_login">
+        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" style="background-image: url(./assets/media//bg/bg-3.jpg);">
+            <div class="kt-grid__item kt-grid__item--fluid kt-login__wrapper">
+                <div class="kt-login__container">
+                    <div class="kt-login__logo">
+                        <a href="#">
+                            <img width="400" src="~/images/logohi.png" />
+                        </a>
+                    </div>
+                    <div class="kt-login__signin">
+                        <div class="kt-login__head">
+                            <h3 class="kt-login__title">Yönetici olarak oturum açın</h3>
+                        </div>
+                        <form method="post" novalidate class="kt-form">
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                            <div class="input-group">
+                                @Html.TextBoxFor(m => m.UserName, new { @placeholder = "Kullanıcı Adınız", @class = "form-control", @autocomplete = "off" })
+                            </div>
+                            <div class="input-group">
+                                @Html.TextBoxFor(m => m.Password, new { @placeholder = "Şifreniz", @class = "form-control", @type = "password" })
+                            </div>
+                            <div class="row kt-login__extra">
+                                <div class="col kt-align-right">
+                                    <a href="javascript:;" id="kt_login_forgot" class="kt-login__link">Şifremi Unuttum ?</a>
+                                </div>
+                            </div>
+                            <div class="kt-login__actions">
+                                <button id="kt_login_signin_submit " class="btn btn-brand btn-elevate btn-elevate-air kt-login__btn-primary btnLogin">
+                                    <i class="fa fa-sign-in-alt"></i>Giriş
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="kt-login__forgot">
+                        <div class="kt-login__head">
+                            <h3 class="kt-login__title">Şifremi unuttum</h3>
+                            <div class="kt-login__desc">Şifrenizi sıfırlamak için e-posta adresinizi girin:</div>
+                        </div>
+                        <form class="kt-form" action="">
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Email" name="email" id="kt_email" autocomplete="off">
+                            </div>
+                            <div class="kt-login__actions">
+                                <button id="kt_login_forgot_submit" class="btn btn-brand btn-elevate kt-login__btn-primary">Gönder</button>&nbsp;&nbsp;
+                                <button id="kt_login_forgot_cancel" class="btn btn-light btn-elevate kt-login__btn-secondary">İptal</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

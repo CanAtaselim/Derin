@@ -1,0 +1,71 @@
+﻿<style>
+
+    .blockOverlay {
+        z-index: 9998 !important;
+    }
+
+    .blockMsg {
+        z-index: 9999 !important;
+    }
+
+    .kt-portlet__body {
+        padding: 12px !important;
+    }
+
+    .kt-portlet__head {
+        padding: 12px !important;
+    }
+
+    .kt-portlet__foot {
+        padding: 12px !important;
+    }
+
+    [type="file"] {
+        height: 0;
+        overflow: hidden;
+        width: 0;
+        visibility: collapse;
+    }
+</style>
+@RenderSection("pageLevelStyles", required: false)
+@RenderSection("pageLevelInlineStyles", required: false)
+@RenderBody()
+<script src="/assets/js/demo1/scripts.bundle.js" type="text/javascript"></script>
+@RenderSection("pageLevelPlugins", required: false)
+@RenderSection("pageLevelScripts", required: false)
+@RenderSection("pageLevelInlineScripts", required: false)
+
+<script>
+    function formatBytes(bytes, decimals)
+    {
+        if (bytes == 0) return '0 Bytes';
+        var k = 1024,
+            dm = decimals <= 0 ? 0 : decimals || 2,
+            sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+            i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+    }
+    Array.prototype.sum = function (prop)
+    {
+        var total = 0
+        for (var i = 0, _len = this.length; i < _len; i++)
+        {
+            total += this[i][prop]
+        }
+        return total
+    }
+    File.prototype.convertToBase64 = function (callback)
+    {
+        var reader = new FileReader();
+        reader.onloadend = function (e)
+        {
+            callback(e.target.result);
+        };
+        reader.readAsDataURL(this);
+    };
+    jQuery(document).ready(function ()
+    {
+        $('.kt-selectpicker').selectpicker();
+        $('[data-toggle="kt-tooltip"]').tooltip();
+    });
+</script>

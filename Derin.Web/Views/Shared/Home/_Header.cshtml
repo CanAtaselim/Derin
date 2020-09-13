@@ -1,0 +1,136 @@
+﻿@using Derin.Business.ViewModel.Administration
+@{
+    List<ContactUsVM> contactUs = ViewBag.ContactUs;
+
+    var contactUsCayyolu = contactUs.Where(m => m.Department == 1).FirstOrDefault();
+    var contactUsPolatli = contactUs.Where(m => m.Department == 2).FirstOrDefault();
+
+    string area = this.ViewContext.RouteData.Values["area"].ToString();
+    string controller = this.ViewContext.RouteData.Values["controller"].ToString();
+    string action = this.ViewContext.RouteData.Values["action"].ToString();
+}
+
+
+<div class="carousel-contact-header owl-carousel">
+    <div class="item">
+        <div class="top-header-area">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <!-- Top Content -->
+                    <div class="col-6 col-md-10 col-lg-10">
+                        <div class="text text-center">
+                            <div class="top-header-content">
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="@contactUsCayyolu.Address"><i class="fa fa-map-marker"></i><span>@contactUsCayyolu.Address</span></a>
+                                <a href="#" style="margin-left:30px" data-toggle="tooltip" data-placement="bottom" title="@contactUsCayyolu.Email"><i class="fa fa-envelope"></i><span>@contactUsCayyolu.Email</span></a>
+                                <a href="#" style="margin-left:30px" data-toggle="tooltip" data-placement="bottom" title="@contactUsCayyolu.Phone"><i class="fa fa-phone"></i><span>@contactUsCayyolu.Phone</span></a>
+                                <a href="#" style="margin-left:30px" data-toggle="tooltip" data-placement="bottom" title="@contactUsCayyolu.Phone">
+                                    <i class="fa fa-door-open"></i><span>
+                                        Açılış: Pzt-Cts: 09:00 – 19:00
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Top Header Social Info -->
+                    <div class="col-6 col-md-2 col-lg-2">
+                        @*<div class="top-header-social-info text-right">
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google Plus"><i class="fa fa-google-plus"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+                            </div>*@
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="top-header-area">
+            <div class="container h-100">
+
+                <div class="row h-100 align-items-center">
+                    <!-- Top Content -->
+                    <div class="col-6 col-md-10 col-lg-10">
+                        <div class="text text-center">
+                            <div class="top-header-content">
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="@contactUsPolatli.Address"><i class="fa fa-map-marker"></i><span>@contactUsPolatli.Address</span></a>
+                                <a href="#" style="margin-left:30px" data-toggle="tooltip" data-placement="bottom" title="@contactUsPolatli.Email"><i class="fa fa-envelope"></i><span>@contactUsPolatli.Email</span></a>
+                                <a href="#" style="margin-left:30px" data-toggle="tooltip" data-placement="bottom" title="@contactUsPolatli.Phone"><i class="fa fa-phone"></i><span>@contactUsPolatli.Phone</span></a>
+                                <a href="#" style="margin-left:30px" data-toggle="tooltip" data-placement="bottom" title="@contactUsPolatli.Phone">
+                                    <i class="fa fa-door-open"></i><span>
+                                        Açılış: Pzt-Cts: 09:00 – 22:00
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Top Header Social Info -->
+                    <div class="col-6 col-md-2 col-lg-2">
+                        @*<div class="top-header-social-info text-right">
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google Plus"><i class="fa fa-google-plus"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+                            </div>*@
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+
+        <a href="index.html"> <img src="~/images/logohi.png" style="max-width:200px" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item @(controller == "Home" ? "active" : "")"><a href='@Url.Action("Index", "Home", new { Area = "Main" })' class="nav-link">Anasayfa</a></li>
+                <li class="nav-item @(controller == "AboutUs" ? "active" : "")"><a href='@Url.Action("Index", "AboutUs", new { Area = "Main" })' class="nav-link">Hakkımızda</a></li>
+                <li class="nav-item @(controller == "Services" ? "active" : "")"><a href='@Url.Action("Index", "Services", new { Area = "Main" })' class="nav-link">Hizmetlerimiz</a></li>
+                <li class="nav-item @(controller == "Team" ? "active" : "")"><a href='@Url.Action("Index", "Team", new { Area = "Main" })' class="nav-link">Ekibimiz</a></li>
+                <li class="nav-item @(controller == "Gallery" ? "active" : "")"><a href='@Url.Action("Index", "Gallery", new { Area = "Main" })' class="nav-link">Galeri</a></li>
+                <li class="nav-item @(controller == "ContactUs" ? "active" : "")"><a href='@Url.Action("Index", "ContactUs", new { Area = "Main" })' class="nav-link">İletişim</a></li>
+                @*<li class="nav-item cta"><a href="contact.html" class="nav-link" data-toggle="modal" data-target="#modalRequest"><i class="fa fa-whatsapp"></i></a></li>*@
+            </ul>
+        </div>
+    </div>
+</nav>
+@if (controller != "Home")
+{
+    <section class="page-info-section set-bg" data-setbg="img/page-info-bg/1.jpg" style="background-image: url(/frontend/images/1.jpg);">
+        <div class="container">
+            @{
+                switch (controller)
+                {
+                    case "Home":
+                        <h2>Anasayfa</h2>
+                        break;
+                    case "AboutUs":
+                        <h2>Hakkımızda</h2>
+                        break;
+                    case "Services":
+                        <h2>Hizmetlerimiz</h2>
+                        break;
+                    case "Team":
+                        <h2>Ekibimiz</h2>
+                        break;
+                    case "Gallery":
+                        <h2>Galeri</h2>
+                        break;
+                    case "ContactUs":
+                        <h2>İletişim</h2>
+                        break;
+                }
+            }
+        </div>
+    </section>
+}

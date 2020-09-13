@@ -1,0 +1,176 @@
+﻿@model PersonVM
+@{
+    Layout = "~/Views/Shared/_AjaxLayout.cshtml";
+}
+@section pageLevelInlineScripts {
+
+}
+@section pageLevelStyles {
+    <link href="~/lib/croppie/croppie.css" rel="stylesheet" />
+}
+@section pageLevelInlineStyles {
+
+}
+@section pageLevelPlugins {
+    <script src="~/admin/person/edit.js"></script>
+    <script src="/assets/vendors/general/typeahead.js/dist/typeahead.bundle.js" type="text/javascript"></script>
+    <script src="/lib/croppie/croppie.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+}
+
+<div class="kt-portlet">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="fa fa-user"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @if (Model.IdPerson > 0)
+                {
+                    <span>@Model.Name @Model.Surname</span>
+                }
+                else
+                {
+                    <span>Yeni Çalışan Ekle</span>
+                }
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-actions">
+                <button type="button" class="btn btn-success btn-elevate btn-elevate-air btnSave"><i class="fa fa-save"></i>Kaydet</button>
+                <button type="button" class="btn btn-info  btn-elevate btn-elevate-air btnReturnList"><i class="fa fa-arrow-left"></i> Listeye Dön </button>
+                @if (Model.IdPerson > 0)
+                {
+                    <button type="button" data-toggle="kt-tooltip" data-placement="top" title="" data-original-title="Sil" class="btn btn-danger btn-elevate btn-elevate-air btnDel" data-id="@Model.IdPerson"><i class="flaticon-delete"></i> Sil </button>
+                }
+
+            </div>
+        </div>
+    </div>
+    <form novalidate id="submit_form" class="horizontal-form" enctype="multipart/form-data">
+        <input type="hidden" asp-for="IdPerson" />
+        <div class="kt-portlet__body">
+
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Şube:</label>
+                <div class="col-3">
+                    <select class="form-control kt-selectpicker department" id="cbDepartment" multiple asp-for="DepartmentList" asp-items="ViewBag.DepartmentList"><option value="">Seçiniz</option></select>
+                    <span asp-validation-for="Department" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Fotoğraf</label>
+                <div class="col-10">
+                    <div class="kt-margin-b-20">
+                        <input type="hidden" asp-for="Picture" />
+                        @if (Model != null && Model.Picture != null)
+                        {
+                            <img alt="" id="personImage" class="img-thumbnail" src="data:image;base64,@System.Convert.ToBase64String(Model.Picture)" style="max-height:200px" />
+                        }
+                        else
+                        {
+                            <img alt="" id="personImage" src="/assets/media/users/100_4.jpg" class="img-thumbnail" style="max-height:200px" />
+                        }
+
+                    </div>
+                    <label class="btn btn-twitter btn-elevate" style="margin-bottom:0px; cursor:pointer" for="customFile"><i class="fa fa-upload"></i>Fotoğraf yüklemek için tıklayınız.</label>
+                    <input type="file" name="files" id="customFile" accept="image/png,image/jpg,image/jpeg">
+
+
+                </div>
+            </div>
+            <div id="collapseOne5" class="panel-collapse collapse" aria-labelledby="headingOne5">
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">Fotoğraf Düzenle</label>
+                    <div class="col-4">
+                        <div id="cropTool"></div>
+                        <div class="kt-margin-t-10">
+                            <div class="btn-group mr-2" role="group" aria-label="First group">
+                                <button type="button" data-toggle="kt-tooltip" data-placement="top" title="" data-original-title="Sola döndür" class="btn btn-secondary btnRotateLeft"><i class="la la-rotate-left"></i></button>
+                                <button type="button" data-toggle="kt-tooltip" data-placement="top" title="" data-original-title="Kırp" class="btn btn-success btnCrop"><i class="la la-crop"></i>Fotoğrafı Kırp</button>
+                                <button type="button" data-toggle="kt-tooltip" data-placement="top" title="" data-original-title="Sağa Döndür" class="btn btn-secondary  btnRotateRight"><i class="la la-rotate-right"></i></button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Çalışan Tipi:</label>
+                <div class="col-6">
+                    <select class="form-control kt-selectpicker employee" multiple asp-for="EmployeeTypeList" asp-items="ViewBag.EmployeeType"></select>
+                    <span asp-validation-for="EmployeeType" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Adı:</label>
+                <div class="col-6">
+                    <input asp-for="Name" maxlength="20" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Soyadı:</label>
+                <div class="col-6">
+                    <input asp-for="Surname" maxlength="20" class="form-control" />
+                    <span asp-validation-for="Surname" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Unvan:</label>
+                <div class="col-6">
+                    <input asp-for="Title" maxlength="40" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Meslek:</label>
+                <div class="col-6">
+                    <input asp-for="Profession" maxlength="40" class="form-control" />
+                    <span asp-validation-for="Profession" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Telefon:</label>
+                <div class="col-6">
+                    <input asp-for="Phone" maxlength="14" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">GSM:</label>
+                <div class="col-6">
+                    <input asp-for="Gsm" maxlength="14" class="form-control" />
+                    <span asp-validation-for="Gsm" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Hakkında:</label>
+                <div class="col-6">
+                    <textarea class="form-control" asp-for="About" style="min-height:100px; max-height:250px"></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label"></label>
+                <div class="col-6">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="kt-portlet__foot">
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-10">
+                    <button type="button" class="btn btn-success btn-elevate btn-elevate-air btnSave"><i class="fa fa-save"></i>Kaydet</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

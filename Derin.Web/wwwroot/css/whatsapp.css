@@ -1,0 +1,111 @@
+﻿.text-center {
+    text-align: center;
+}
+
+.text-large {
+    font-size: 1.6em;
+}
+
+.social-button {
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #00e676;
+    background-color: rgba(0,230,118,0.75);
+    color: #fff;
+    border: 0 none;
+    padding: 0;
+    text-align: center;
+    width: 2.5em;
+    height: 2.5em;
+    line-height: 2.5em;
+    position: fixed;
+    transition: all 0.25s ease-in-out;
+    z-index: 500;
+    bottom: 40px;
+    right: 40px;
+}
+
+    .social-button:hover {
+        background-color: #00e676;
+        color: #fff;
+    }
+
+        .social-button:hover:before {
+            -webkit-animation: social-button-beat 1.5s ease-out infinite;
+            animation: social-button-beat 1.5s ease-out infinite;
+        }
+
+        .social-button:hover:after {
+            -webkit-animation: social-button-beat 1.5s ease-out 0.4s infinite;
+            animation: social-button-beat 1.5s ease-out 0.4s infinite;
+        }
+
+    .social-button:before,
+    .social-button:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background-color: #00e676;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        opacity: 0;
+        transition: all 0.25s ease-in-out;
+    }
+
+button.wh-ap-btn::before {
+    content: 'Whatsapp';
+    display: block;
+    position: absolute;
+    margin-left: 70px;
+    margin-top: 16px;
+    height: 25px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 3px;
+    width: 0;
+    opacity: 0;
+    padding: 0;
+    transition: opacity 0.4s, width 0.4s, padding 0.5s;
+    padding-top: 7px;
+}
+
+
+@-webkit-keyframes social-button-beat {
+    0% {
+        opacity: 0.8;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    70% {
+        opacity: 0;
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes social-button-beat {
+    0% {
+        opacity: 0.8;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    70% {
+        opacity: 0;
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,107 @@
+﻿@{
+    List<ContactUsVM> contactUs = ViewBag.ContactUs;
+    var contactUsCayyolu = contactUs.Where(m => m.Department == 1).FirstOrDefault();
+    var contactUsPolatli = contactUs.Where(m => m.Department == 2).FirstOrDefault();
+
+}
+<style>
+    .contact-information {
+        position: relative;
+        z-index: 1;
+        padding: 30px 50px;
+        background-color: #00aeef;
+        border-radius: 3px;
+    }
+
+        .contact-information h5 {
+            color: white;
+        }
+
+        .contact-information p {
+            color: white;
+        }
+</style>
+
+<section class="ftco-section" style="padding-top:50px">
+    <div class="container">
+
+        <div class="row mb-4">
+            <div class="col-12 col-md-4">
+                <div class="contact-information">
+                    <h5>Adres</h5>
+                    <p>@contactUsCayyolu.Address</p>
+
+                    <h5>Telefon</h5>
+                    <p>@contactUsCayyolu.Phone</p>
+
+                    @if (contactUsCayyolu.Fax != null)
+                    {
+                        <h5>Faks</h5>
+                        <p>@contactUsCayyolu.Fax</p>
+                    }
+                    @if (contactUsCayyolu.GSM != null)
+                    {
+                        <h5>GSM</h5>
+                        <p>@contactUsCayyolu.GSM</p>
+                    }
+
+                    <h5>E-Posta</h5>
+                    <p class="mb-0">@contactUsCayyolu.Email</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-8">
+                <div class="text-left heading-section ftco-animate fadeInUp ftco-animated">
+                    <h2 class="mb-3">Bize Ulaşın</h2>
+                </div>
+                <div class="divider">
+                    <span></span>
+                </div>
+                <form action="#" method="post">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="message-name" class="form-control" placeholder="Ad">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="email" name="message-surname" class="form-control" placeholder="Soyad">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="message-email" class="form-control" placeholder="E-Posta">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="email" name="message-phone" class="form-control" placeholder="Telefon">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <textarea name="message" cols="30" rows="7" class="form-control" placeholder="Mesajınız"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <input type="submit" value="Gönder" class="btn btn-primary py-3 px-5">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="google-maps">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3074.888993279117!2d32.14225631563087!3d39.58465211374491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d25a269c13922b%3A0xabb2ec41c5e4971e!2zRGVudEFkYSBBxJ_EsXogdmUgRGnFnyBTYcSfbMSxxJ_EsSBQb2xpa2xpbmnEn2k!5e0!3m2!1str!2str!4v1565050264682!5m2!1str!2str" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ***** Contact Area End ***** -->

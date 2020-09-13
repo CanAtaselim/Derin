@@ -1,0 +1,84 @@
+﻿@model AboutUsVM
+@{
+    Layout = "~/Views/Shared/_AjaxLayout.cshtml";
+}
+@section pageLevelInlineScripts {
+}
+@section pageLevelStyles {
+}
+@section pageLevelInlineStyles {
+}
+@section pageLevelPlugins {
+
+    <script src="~/admin/aboutus/edit.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+<div class="kt-portlet">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="fa fa-info-circle"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                Hakkımızda
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-actions">
+                <button type="button" class="btn btn-success btn-elevate btn-elevate-air btnSave"><i class="fa fa-save"></i>Kaydet</button>
+                <button type="button" class="btn btn-danger btn-elevate btn-elevate-air btnDel" data-id="@Model.IdAboutUs"><i class="flaticon-delete"></i> Sil </button>
+            </div>
+        </div>
+    </div>
+    <form novalidate id="submit_form" class="horizontal-form" enctype="multipart/form-data">
+        <input type="hidden" asp-for="IdAboutUs" />
+        <div class="kt-portlet__body">
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Misyon:</label>
+                <div class="col-10">
+                    <textarea asp-for="Mission" class="form-control" rows="12"></textarea>
+                    <span asp-validation-for="Mission" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Vizyon:</label>
+                <div class="col-10">
+                    <textarea asp-for="Vision" class="form-control" rows="12"></textarea>
+                    <span asp-validation-for="Vision" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Görsel:</label>
+                <div class="col-10">
+                    <label class="btn btn-twitter btn-elevate" style="margin-bottom:0px; cursor:pointer" for="customFile"><i class="fa fa-upload"></i>Fotoğraf yüklemek için tıklayınız.</label>
+                    <input type="file" name="files" id="customFile" accept="image/png,image/jpg,image/jpeg">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label"></label>
+                <div class="col-10">
+                    <input type="hidden" asp-for="Picture" />
+                    @if (Model != null && Model.Picture != null)
+                    {
+                        <img alt="" id="aboutUsImage" class="img-thumbnail" src="data:image;base64,@System.Convert.ToBase64String(Model.Picture)" style="max-height:300px" />
+                    }
+                    else
+                    {
+                        <img alt="" id="aboutUsImage" class="img-thumbnail" style="max-height:300px" />
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="kt-portlet__foot">
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-10">
+                    <button type="button" class="btn btn-success btn-elevate btn-elevate-air btnSave"><i class="fa fa-save"></i>Kaydet</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+
