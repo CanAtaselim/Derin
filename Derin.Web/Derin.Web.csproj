@@ -13,6 +13,13 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="wwwroot\frontend\src\**" />
+    <Content Remove="wwwroot\frontend\src\**" />
+    <EmbeddedResource Remove="wwwroot\frontend\src\**" />
+    <None Remove="wwwroot\frontend\src\**" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.0.1" />
@@ -52,9 +59,59 @@
     <Folder Include="Areas\Main\Data\" />
     <Folder Include="Areas\Main\Models\" />
     <Folder Include="Models\" />
-    <Folder Include="wwwroot\frontend\src\" />
+    <Folder Include="wwwroot\frontend\img\gallery\" />
     <Folder Include="wwwroot\images\gallery\cayyolu\lowres\" />
     <Folder Include="wwwroot\lib\croppie\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\frontend\css\breadcrumb.css.map" />
+    <None Include="wwwroot\frontend\css\style.css.map" />
+    <None Include="wwwroot\frontend\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\frontend\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\frontend\img\elements\_DS_Store" />
+    <None Include="wwwroot\frontend\js\bootstrap.min.js" />
+    <None Include="wwwroot\frontend\js\contact.js" />
+    <None Include="wwwroot\frontend\js\custom.js" />
+    <None Include="wwwroot\frontend\js\gmaps.min.js" />
+    <None Include="wwwroot\frontend\js\jquery-3.2.1.min.js" />
+    <None Include="wwwroot\frontend\js\jquery.ajaxchimp.min.js" />
+    <None Include="wwwroot\frontend\js\jquery.form.js" />
+    <None Include="wwwroot\frontend\js\jquery.validate.min.js" />
+    <None Include="wwwroot\frontend\js\mail-script.js" />
+    <None Include="wwwroot\frontend\js\popper.js" />
+    <None Include="wwwroot\frontend\js\stellar.js" />
+    <None Include="wwwroot\frontend\js\theme.js" />
+    <None Include="wwwroot\frontend\scss\breadcrumb.scss" />
+    <None Include="wwwroot\frontend\scss\style.scss" />
+    <None Include="wwwroot\frontend\scss\_blog.scss" />
+    <None Include="wwwroot\frontend\scss\_button.scss" />
+    <None Include="wwwroot\frontend\scss\_clients.scss" />
+    <None Include="wwwroot\frontend\scss\_contact.scss" />
+    <None Include="wwwroot\frontend\scss\_counter.scss" />
+    <None Include="wwwroot\frontend\scss\_elements.scss" />
+    <None Include="wwwroot\frontend\scss\_feature.scss" />
+    <None Include="wwwroot\frontend\scss\_footer.scss" />
+    <None Include="wwwroot\frontend\scss\_header.scss" />
+    <None Include="wwwroot\frontend\scss\_predefine.scss" />
+    <None Include="wwwroot\frontend\scss\_services.scss" />
+    <None Include="wwwroot\frontend\scss\_team.scss" />
+    <None Include="wwwroot\frontend\scss\_testimonials.scss" />
+    <None Include="wwwroot\frontend\scss\_variables.scss" />
+    <None Include="wwwroot\frontend\vendors\animate-css\wow.min.js" />
+    <None Include="wwwroot\frontend\vendors\bootstrap-datepicker\bootstrap-datetimepicker.min.js" />
+    <None Include="wwwroot\frontend\vendors\bootstrap-datepicker\bootstrap-select.js" />
+    <None Include="wwwroot\frontend\vendors\counter-up\jquery.counterup.js" />
+    <None Include="wwwroot\frontend\vendors\counter-up\jquery.waypoints.min.js" />
+    <None Include="wwwroot\frontend\vendors\isotope\imagesloaded.pkgd.min.js" />
+    <None Include="wwwroot\frontend\vendors\isotope\isotope-min.js" />
+    <None Include="wwwroot\frontend\vendors\jquery-ui\jquery-ui.js" />
+    <None Include="wwwroot\frontend\vendors\lightbox\simpleLightbox.min.js" />
+    <None Include="wwwroot\frontend\vendors\linericon\fonts\Linearicons-Free.svg" />
+    <None Include="wwwroot\frontend\vendors\linericon\fonts\Linearicons-Free.woff2" />
+    <None Include="wwwroot\frontend\vendors\nice-select\js\jquery.nice-select.js" />
+    <None Include="wwwroot\frontend\vendors\nice-select\js\jquery.nice-select.min.js" />
+    <None Include="wwwroot\frontend\vendors\owl-carousel\owl.carousel.min.js" />
   </ItemGroup>
 
   <ItemGroup>
