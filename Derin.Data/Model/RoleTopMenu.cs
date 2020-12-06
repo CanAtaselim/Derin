@@ -22,7 +22,7 @@ namespace Derin.Data.Model
         public long IdRoleRef { get; set; }
         public Nullable<long> IdTopMenuRef { get; set; }
     
-        public virtual TopMenu TopMenu { get; set; }
         public virtual Role Role { get; set; }
+        public virtual TopMenu TopMenu { get; set; }
     }
 }

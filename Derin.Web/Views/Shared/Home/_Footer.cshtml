@@ -1,71 +1,45 @@
 ﻿@using Derin.Business.ViewModel.Administration
 @{
-    List<ContactUsVM> contactUs = ViewBag.ContactUs;
-
-    var contactUsCayyolu = contactUs.Where(m => m.Department == 1).FirstOrDefault();
-    var contactUsPolatli = contactUs.Where(m => m.Department == 2).FirstOrDefault();
+    ContactUsVM contactUs = ViewBag.ContactUs;
+    AboutUsVM aboutUs = ViewBag.AboutUs;
 }
-<footer class="ftco-footer ftco-bg-dark ftco-section">
+<footer class="footer-area p_120">
     <div class="container">
-        <div class="row mb-5">
-            @*<div class="col-md-3">
-                <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">DentaCare.</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                </div>
-                <ul class="ftco-footer-social list-unstyled float-md-left float-lft ">
-                    <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                    <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                    <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                </ul>
-            </div>*@
-            @*<div class="col-md-3">
-                <div class="ftco-footer-widget mb-4 ml-md-5">
-                    <h2 class="ftco-heading-2">Linkler</h2>
-                    <ul class="list-unstyled">
-                        <li><a href='@Url.Action("Index", "Home", new { Area = "Main" })' class="y-2 d-bloc">Anasayfa</a></li>
-                        <li><a href='@Url.Action("Index", "AboutUs", new { Area = "Main" })' class="y-2 d-bloc">Hakkımızda</a></li>
-                        <li><a href='@Url.Action("Index", "Team", new { Area = "Main" })' class="y-2 d-bloc">Ekibimiz</a></li>
-                        <li><a href='@Url.Action("Index", "Gallery", new { Area = "Main" })' class="y-2 d-bloc">Galeri</a></li>
-                        <li><a href='@Url.Action("Index", "ContactUs", new { Area = "Main" })' class="y-2 d-bloc">İletişim</a></li>
-                    </ul>
-                </div>
-            </div>*@
-            <div class="col-md-6">
-                <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Çayyolu</h2>
-                    <div class="block-23 mb-3">
-                        <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">@contactUsCayyolu.Address</span></li>
-                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">@contactUsCayyolu.Phone</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">@contactUsCayyolu.Email</span></a></li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Polatlı</h2>
-                    <div class="block-23 mb-3">
-                        <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">@contactUsPolatli.Address</span></li>
-                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">@contactUsPolatli.Phone</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">@contactUsPolatli.Email</span></a></li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </div>
         <div class="row">
-            <div class="col-md-12 text-center">
+            <div class="col-lg-7  col-md-12 col-sm-12">
+                <h6 class="footer_title">Misyonumuz</h6>
 
-                <p>
-                    Copyright &copy;
-                    <script>document.write(new Date().getFullYear());</script> Tüm Hakları Saklıdır
-                </p>
+                @{
+                    if (aboutUs != null)
+                    {
+                        string about = aboutUs.Mission.Length > 300 ? aboutUs.Mission.Substring(0, 299) : aboutUs.Mission;
+                        <p>
+                            @about ...
+                        </p>
+                    }
+
+                }
             </div>
+            <div class="col-lg-5 col-md-12 col-sm-12">
+                <div class="single-footer-widget contact_wd">
+                    <h6 class="footer_title">İletişim</h6>
+                    <p>@contactUs.Address</p>
+                    <p>@contactUs.Phone</p>
+                    <p>@contactUs.GSM</p>
+                    <p>@contactUs.Email</p>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="row footer-bottom d-flex justify-content-between align-items-center">
+            <p class="col-lg-8 col-md-8 footer-text m-0">
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;
+                <script>document.write(new Date().getFullYear());</script> Tüm Hakları Saklıdır
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+
         </div>
     </div>
 </footer>

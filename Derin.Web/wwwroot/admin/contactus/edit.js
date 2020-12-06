@@ -6,13 +6,10 @@ jQuery(document).ready(function ()
         placement: 'right'
     });
 
-    $("#cbDepartment").change(function ()
-    {
-        reInvokeComponent();
-    });
+
     function reInvokeComponent()
     {
-        $.post("/Admin/ContactUs/ReInvokeEditComponent", { Department: $("#cbDepartment").val() }, function (result) { $("#contactUsContent").html(result); });
+        $.post("/Admin/ContactUs/ReInvokeEditComponent", function (result) { $("#contactUsContent").html(result); });
     }
     $(".btnSave").click(function (event)
     {

@@ -34,9 +34,9 @@ namespace Derin.Web.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult List(int Department = 1)
+        public IActionResult List()
         {
-            return ViewComponent("GalleryEdit", new { Department });
+            return ViewComponent("GalleryEdit");
         }
 
         [HttpPost]
@@ -54,9 +54,8 @@ namespace Derin.Web.Areas.Admin.Controllers
                 }
                 else
                 {
-                    string departmentName = galleryVM.Department == 1 ? "cayyolu" : "polatli";
-                    string lowresDirectory = Path.Combine(_env.WebRootPath, "images\\gallery\\" + departmentName + "\\lowres");
-                    string thumbnailDirectory = Path.Combine(_env.WebRootPath, "images\\gallery\\" + departmentName + "\\thumbnail");
+                    string lowresDirectory = Path.Combine(_env.WebRootPath, "images\\gallery\\derin\\lowres");
+                    string thumbnailDirectory = Path.Combine(_env.WebRootPath, "images\\gallery\\derin\\thumbnail");
                     if (!Directory.Exists(lowresDirectory))
                     {
                         Directory.CreateDirectory(lowresDirectory);
@@ -105,14 +104,13 @@ namespace Derin.Web.Areas.Admin.Controllers
             return Json(aMsg);
         }
         [HttpPost]
-        public IActionResult Delete(string imageName, short department)
+        public IActionResult Delete(string imageName)
         {
             AjaxMessage aMsg = new AjaxMessage();
             try
             {
-                string departmentName = department == 1 ? "cayyolu" : "polatli";
-                string lowresDirectory = Path.Combine(_env.WebRootPath, "images\\gallery\\" + departmentName + "\\lowres\\" + imageName);
-                string thumbnailDirectory = Path.Combine(_env.WebRootPath, "images\\gallery\\" + departmentName + "\\thumbnail\\" + imageName);
+                string lowresDirectory = Path.Combine(_env.WebRootPath, "images\\gallery\\derin\\lowres\\" + imageName);
+                string thumbnailDirectory = Path.Combine(_env.WebRootPath, "images\\gallery\\derin\\thumbnail\\" + imageName);
 
                 if (System.IO.File.Exists(thumbnailDirectory) && System.IO.File.Exists(lowresDirectory))
                 {
@@ -140,9 +138,9 @@ namespace Derin.Web.Areas.Admin.Controllers
             using (MagickImage imageFile = new MagickImage(GetFormImageToByte(image)))
             {
 
-                MagickGeometry reSize = new MagickGeometry(200);
+                MagickGeometry reSize = new MagickGeometry(300);
                 imageFile.AutoOrient();
-                //reSize.IgnoreAspectRatio = false;
+                reSize.IgnoreAspectRatio = false;
                 imageFile.Resize(reSize);
                 imageFile.Write(Path.Combine(thumbnailDirectory, imageName + imageExtension));
             }
@@ -155,7 +153,7 @@ namespace Derin.Web.Areas.Admin.Controllers
 
                 MagickGeometry reSize = new MagickGeometry(new Percentage(90), new Percentage(90));
                 imageFile.AutoOrient();
-                //reSize.IgnoreAspectRatio = false;
+                reSize.IgnoreAspectRatio = false;
                 imageFile.Resize(reSize);
                 imageFile.Write(Path.Combine(lowresDirectory, imageName + imageExtension));
             }

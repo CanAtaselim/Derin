@@ -29,19 +29,19 @@ namespace Derin.Web.Areas.Main.Controllers
         [ContactUsAttribute]
         public IActionResult Index()
         {
-            ViewBag.ContactUs = JsonConvert.DeserializeObject<List<ContactUsVM>>(HttpContext.Session.GetString("ContactUsData"));
+            ViewBag.ContactUs = JsonConvert.DeserializeObject<ContactUsVM>(HttpContext.Session.GetString("ContactUsData"));
+            ViewBag.AboutUs = JsonConvert.DeserializeObject<AboutUsVM>(HttpContext.Session.GetString("AboutUsData"));
 
             GalleryVM galleryVM = new GalleryVM();
             galleryVM.GalleryList = new List<GalleryItem>();
-            galleryVM.GalleryList.AddRange(GetImageList("cayyolu"));
-            galleryVM.GalleryList.AddRange(GetImageList("polatli"));
+            galleryVM.GalleryList.AddRange(GetImageList());
 
             return View(galleryVM);
         }
 
-        private List<GalleryItem> GetImageList(string departmentName)
+        private List<GalleryItem> GetImageList()
         {
-            string thumbnailDirectory = Path.Combine(_env.WebRootPath, "images\\gallery\\" + departmentName + "\\thumbnail");
+            string thumbnailDirectory = Path.Combine(_env.WebRootPath, "images\\gallery\\derin\\thumbnail");
             DirectoryInfo di = new DirectoryInfo(thumbnailDirectory);
             List<GalleryItem> galleryList = new List<GalleryItem>();
             if (di.Exists)
@@ -56,8 +56,7 @@ namespace Derin.Web.Areas.Main.Controllers
                 {
                     gallery = new GalleryItem();
                     gallery.FileName = item.Name;
-                    gallery.FilePath = Path.Combine(_env.WebRootPath, "images\\gallery\\" + departmentName);
-                    gallery.DepartmentName = departmentName;
+                    gallery.FilePath = Path.Combine(_env.WebRootPath, "images\\gallery\\derin");
 
                     galleryList.Add(gallery);
                 }

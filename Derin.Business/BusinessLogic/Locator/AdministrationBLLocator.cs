@@ -163,6 +163,11 @@ namespace Derin.Business.BusinessLogic.Locator
         {
             get { return _BannerBL == null ? _BannerBL = new BannerBL(new UnitOfWork(new DerinEntities(ConnectionStrings.Derin_Prod))) : _BannerBL; }
         }
+        private ProjectBL _ProjectBL;
 
+        public ProjectBL ProjectBL
+        {
+            get { return _ProjectBL == null ? _ProjectBL = new ProjectBL(new UnitOfWork(new DerinEntities(ConnectionStrings.Derin_Prod))) : _ProjectBL; }
+        }
     }
 }

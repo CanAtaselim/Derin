@@ -8,7 +8,6 @@ jQuery(document).ready(function () {
     //$('.employee').selectpicker('val', ['1', '2']);
 
     var selectedEmployee = [];
-    var selectedDepartment = [];
 
 
     $('.kt-selectpicker').selectpicker(
@@ -24,18 +23,6 @@ jQuery(document).ready(function () {
         $(brands).each(function (index, brand) {
             if ($(this).val() != "") {
                 selectedEmployee.push([$(this).val()]);
-            }
-        });
-
-    });
-
-    $('.department').change(function () {
-
-        selectedDepartment = [];
-        var brands = $('.department option:selected');
-        $(brands).each(function (index, brand) {
-            if ($(this).val() != "") {
-                selectedDepartment.push([$(this).val()]);
             }
         });
 
@@ -104,7 +91,7 @@ jQuery(document).ready(function () {
         });
 
         fileData.append("Employees", selectedEmployee);
-        fileData.append("Departments", selectedDepartment);
+
         $.validator.unobtrusive.parse($("form#submit_form"));
 
         $("form#submit_form").validate();

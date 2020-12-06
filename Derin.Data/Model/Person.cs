@@ -23,7 +23,6 @@ namespace Derin.Data.Model
         public Nullable<long> IdFaculty { get; set; }
         public Nullable<long> IdUniversityDepartment { get; set; }
         public short EmployeeType { get; set; }
-        public short Department { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Title { get; set; }

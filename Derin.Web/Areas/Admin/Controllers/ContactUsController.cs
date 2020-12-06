@@ -35,7 +35,6 @@ namespace Derin.Web.Areas.Admin.Controllers
 
 
                     ContactUs contactUs = new ContactUs();
-                    contactUs.Department = model.Department;
                     contactUs.Address = model.Address;
                     contactUs.Email = model.Email;
                     contactUs.Phone = model.Phone;
@@ -46,7 +45,6 @@ namespace Derin.Web.Areas.Admin.Controllers
                     contactUs.Instagram  = model.Instagram;
                     contactUs.Youtube   = model.Youtube;
                     contactUs.Linkedin  = model.Linkedin;
-                    contactUs.GooglePlus = model.GooglePlus;
                     contactUs.OperationDate = DateTime.Now;
                     contactUs.OperationIdUserRef = HttpRequestInfo.UserID;
                     contactUs.OperationIP = HttpRequestInfo.IpAddress;
@@ -109,9 +107,9 @@ namespace Derin.Web.Areas.Admin.Controllers
             }
             return Json(aMsg);
         }
-        public IActionResult ReInvokeEditComponent(int Department)
+        public IActionResult ReInvokeEditComponent()
         {
-            return ViewComponent("ContactUsEdit", new { Department });
+            return ViewComponent("ContactUsEdit");
         }
     }
 }

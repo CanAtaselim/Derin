@@ -46,7 +46,6 @@
                             <tr>
                                 <th></th>
                                 <th>Çalışan Tipi</th>
-                                <th>Şube</th>
                                 <th>Ad Soyad</th>
                                 <th>Unvan</th>
                                 <th>Meslek</th>
@@ -107,11 +106,6 @@
                                             }
 
 
-                                        </td>
-                                        <td>
-                                            <span>
-                                                @_Enumeration.GetEnumDescription((_Enumeration._Department)Enum.ToObject(typeof(_Enumeration._Department), item.Department))
-                                            </span>
                                         </td>
                                         <td>@item.Name @item.Surname</td>
                                         <td>@item.Title</td>

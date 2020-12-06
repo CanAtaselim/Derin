@@ -122,7 +122,7 @@ button:focus {
 .main_title h2 {
   font-family: "Oswald", sans-serif;
   font-size: 36px;
-  color: #222222;
+  color: #18294e;
   margin-bottom: 12px;
 }
 
@@ -164,7 +164,7 @@ button:focus {
 .header_area .navbar .nav .nav-item .nav-link {
   font: 500 12px/100px "Poppins", sans-serif;
   text-transform: uppercase;
-  color: #222222;
+  color: #18294e;
   padding: 0px;
   display: inline-block;
 }
@@ -240,7 +240,7 @@ button:focus {
 
 .header_area .navbar .nav .nav-item.submenu ul .nav-item .nav-link {
   line-height: 45px;
-  color: #222222;
+  color: #18294e;
   padding: 0px 30px;
   -webkit-transition: all 150ms linear;
   -o-transition: all 150ms linear;
@@ -278,7 +278,7 @@ button:focus {
   font-size: 12px;
   line-height: 60px;
   display: inline-block;
-  color: #222222;
+  color: #18294e;
   margin-left: 80px;
 }
 
@@ -287,7 +287,7 @@ button:focus {
 }
 
 .header_area + section, .header_area + row, .header_area + div {
-  margin-top: 146px;
+  margin-top: 135px;
 }
 
 .header_area.navbar_fixed .main_menu {
@@ -383,7 +383,7 @@ button:focus {
 
 .top_menu .dn_btn:hover {
   background: transparent;
-  color: #222222;
+  color: #18294e;
   border-color: #fab700;
 }
 
@@ -470,7 +470,7 @@ button:focus {
   background: #fab700;
   border-radius: 4px;
   line-height: 60px;
-  color: #222222;
+  color: #18294e;
   padding-left: 4px;
   padding-right: 4px;
   padding-bottom: 5px;
@@ -684,7 +684,7 @@ button:focus {
 }
 
 .causes_item .causes_text h4 {
-  color: #222222;
+  color: #18294e;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 600;
@@ -721,7 +721,7 @@ button:focus {
   border-color: #eeeeee;
   background: #fff;
   font-size: 14px;
-  color: #222222;
+  color: #18294e;
 }
 
 /* End Causes Area css
@@ -781,7 +781,7 @@ button:focus {
   display: inline-block;
   padding: 1px 18px;
   text-align: center;
-  color: #222222;
+  color: #18294e;
 }
 
 .tags .tag_btn:before {
@@ -872,7 +872,7 @@ button:focus {
 
 .blog_info .post_tag a {
   font: 300 14px/21px "Roboto", sans-serif;
-  color: #222222;
+  color: #18294e;
 }
 
 .blog_info .post_tag a:hover {
@@ -892,7 +892,7 @@ button:focus {
 }
 
 .blog_info .blog_meta li a i {
-  color: #222222;
+  color: #18294e;
   font-size: 16px;
   font-weight: 600;
   padding-left: 15px;
@@ -915,7 +915,7 @@ button:focus {
 .blog_details h2 {
   font-size: 24px;
   line-height: 36px;
-  color: #222222;
+  color: #18294e;
   font-weight: 600;
   -webkit-transition: all 0.3s linear;
   -o-transition: all 0.3s linear;
@@ -934,7 +934,7 @@ button:focus {
   font-size: 14px;
   line-height: 36px;
   display: inline-block;
-  color: #222222;
+  color: #18294e;
   font-weight: 500;
   padding: 0px 30px;
   background: #fff;
@@ -1014,7 +1014,7 @@ button:focus {
 .blog_right_sidebar .author_widget h4 {
   font-size: 18px;
   line-height: 20px;
-  color: #222222;
+  color: #18294e;
   margin-bottom: 5px;
   margin-top: 30px;
 }
@@ -1029,7 +1029,7 @@ button:focus {
 
 .blog_right_sidebar .author_widget .social_icon a {
   font-size: 14px;
-  color: #222222;
+  color: #18294e;
   -webkit-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
@@ -1055,7 +1055,7 @@ button:focus {
 .blog_right_sidebar .popular_post_widget .post_item .media-body h3 {
   font-size: 14px;
   line-height: 20px;
-  color: #222222;
+  color: #18294e;
   margin-bottom: 4px;
   -webkit-transition: all 0.3s linear;
   -o-transition: all 0.3s linear;
@@ -1188,7 +1188,7 @@ button:focus {
   -webkit-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
-  color: #222222;
+  color: #18294e;
   font-size: 12px;
 }
 
@@ -1274,7 +1274,7 @@ button:focus {
 }
 
 .single-post-area .social-links li a:hover {
-  color: #222222;
+  color: #18294e;
 }
 
 .single-post-area .blog_details {
@@ -1324,7 +1324,7 @@ button:focus {
 .single-post-area .navigation-area h4 {
   font-size: 18px;
   line-height: 25px;
-  color: #222222;
+  color: #18294e;
 }
 
 .single-post-area .navigation-area .nav-left {
@@ -1417,7 +1417,7 @@ button:focus {
 .comments-area h4 {
   text-align: center;
   margin-bottom: 50px;
-  color: #222222;
+  color: #18294e;
   font-size: 18px;
 }
 
@@ -1427,7 +1427,7 @@ button:focus {
 }
 
 .comments-area a {
-  color: #222222;
+  color: #18294e;
 }
 
 .comments-area .comment-list {
@@ -1471,7 +1471,7 @@ button:focus {
 
 .comments-area .btn-reply {
   background-color: #fff;
-  color: #222222;
+  color: #18294e;
   border: 1px solid #eee;
   padding: 2px 18px;
   font-size: 12px;
@@ -1501,7 +1501,7 @@ button:focus {
   margin-bottom: 50px;
   font-size: 18px;
   line-height: 22px;
-  color: #222222;
+  color: #18294e;
 }
 
 .comment-form .name {
@@ -1715,11 +1715,11 @@ button:focus {
   color: "Roboto", sans-serif;
   font-weight: bold;
   margin-bottom: 0px;
-  color: #222222;
+  color: #18294e;
 }
 
 .contact_info .info_item h6 a {
-  color: #222222;
+  color: #18294e;
 }
 
 .contact_info .info_item p {
@@ -1904,11 +1904,11 @@ button:focus {
 /*==============Elements Button Area css ================*/
 .elements_button .title_color {
   margin-bottom: 30px;
-  color: #222222;
+  color: #18294e;
 }
 
 .title_color {
-  color: #222222;
+  color: #18294e;
 }
 
 .button-group-area {
@@ -1933,7 +1933,7 @@ button:focus {
 
 .button-group-area .link {
   text-decoration: underline;
-  color: #222222;
+  color: #18294e;
   background: transparent;
 }
 
@@ -2303,7 +2303,7 @@ h6 {
 }
 
 .genric-btn.default {
-  color: #222222;
+  color: #18294e;
   background: #f9f9ff;
   border: 1px solid transparent;
 }
@@ -2319,7 +2319,7 @@ h6 {
 }
 
 .genric-btn.default-border:hover {
-  color: #222222;
+  color: #18294e;
   background: #f9f9ff;
   border: 1px solid transparent;
 }
@@ -2445,33 +2445,33 @@ h6 {
 }
 
 .genric-btn.link {
-  color: #222222;
+  color: #18294e;
   background: #f9f9ff;
   text-decoration: underline;
   border: 1px solid transparent;
 }
 
 .genric-btn.link:hover {
-  color: #222222;
+  color: #18294e;
   border: 1px solid #f9f9ff;
   background: #fff;
 }
 
 .genric-btn.link-border {
-  color: #222222;
+  color: #18294e;
   border: 1px solid #f9f9ff;
   background: #fff;
   text-decoration: underline;
 }
 
 .genric-btn.link-border:hover {
-  color: #222222;
+  color: #18294e;
   background: #f9f9ff;
   border: 1px solid transparent;
 }
 
 .genric-btn.disable {
-  color: #222222, 0.3;
+  color: #18294e, 0.3;
   background: #f9f9ff;
   border: 1px solid transparent;
   cursor: not-allowed;
@@ -2520,7 +2520,7 @@ h6 {
 }
 
 .progress-table .table-head .serial, .progress-table .table-head .country, .progress-table .table-head .visit, .progress-table .table-head .percentage {
-  color: #222222;
+  color: #18294e;
   line-height: 40px;
   text-transform: uppercase;
   font-weight: 500;
@@ -2994,7 +2994,7 @@ h6 {
 }
 
 .single-defination h4 {
-  color: #222222;
+  color: #18294e;
 }
 
 .primary-checkbox input:checked + label {
@@ -3420,7 +3420,7 @@ h6 {
   display: inline-block;
   background: #f9f9ff;
   padding: 0px 35px;
-  color: #222222;
+  color: #18294e;
   font-family: "Roboto", sans-serif;
   font-size: 13px;
   font-weight: 500;
@@ -3446,7 +3446,7 @@ h6 {
 .black_btn {
   padding: 0px 44px;
   line-height: 50px;
-  background: #222222;
+  background: #18294e;
   color: #fab700;
   display: inline-block;
   border-radius: 5px;
@@ -3460,11 +3460,11 @@ h6 {
 
 .black_btn:hover {
   background: #fab700;
-  color: #222222;
+  color: #18294e;
 }
 
 .ab_btn {
-  background: #222222;
+  background: #18294e;
   display: inline-block;
   color: #fff;
   line-height: 40px;
@@ -3481,7 +3481,7 @@ h6 {
 
 .ab_btn:hover {
   background: #fab700;
-  color: #222222;
+  color: #18294e;
 }
 
 /* End Main Button Area css
@@ -3512,7 +3512,7 @@ h6 {
 }
 
 .testimonials_area .owl-prev:hover, .testimonials_area .owl-next:hover {
-  color: #222222;
+  color: #18294e;
 }
 
 .testimonials_area .owl-prev {
@@ -3567,7 +3567,7 @@ h6 {
 }
 
 .testi_item .media .media-body h4 {
-  color: #222222;
+  color: #18294e;
   font-family: "Oswald", sans-serif;
   font-weight: 500;
   font-size: 20px;
@@ -3622,7 +3622,7 @@ h6 {
 .services_item h4 {
   font-size: 20px;
   font-family: "Oswald", sans-serif;
-  color: #222222;
+  color: #18294e;
   margin-bottom: 18px;
 }
 
@@ -3694,7 +3694,7 @@ h6 {
 }
 
 .builder_item .hover h4 {
-  color: #222222;
+  color: #18294e;
   font-size: 20px;
   margin-bottom: 0px;
   -webkit-transition: all 300ms ease;
@@ -3709,7 +3709,7 @@ h6 {
   font-size: 14px;
   line-height: 24px;
   font-family: "Roboto", sans-serif;
-  color: #222222;
+  color: #18294e;
 }
 
 .builder_item:hover:before {
@@ -3774,7 +3774,7 @@ h6 {
 
 .team_item .team_img .hover a {
   font-size: 14px;
-  color: #222222;
+  color: #18294e;
   margin-right: 20px;
   opacity: .3;
 }
@@ -3794,7 +3794,7 @@ h6 {
 
 .team_item .team_name h4 {
   margin-bottom: 5px;
-  color: #222222;
+  color: #18294e;
   font-family: "Oswald", sans-serif;
   font-weight: 500;
   font-size: 18px;
@@ -3837,12 +3837,12 @@ h6 {
   font-size: 48px;
   font-family: "Oswald", sans-serif;
   font-weight: 500;
-  color: #222222;
+  color: #18294e;
 }
 
 .counter_item p {
   margin-bottom: 0px;
-  color: #222222;
+  color: #18294e;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
 }
@@ -3872,7 +3872,7 @@ h6 {
   font-size: 18px;
   font-family: "Oswald", sans-serif;
   font-weight: 500;
-  color: #222222;
+  color: #18294e;
   margin-bottom: 20px;
   -webkit-transition: all 300ms linear 0s;
   -o-transition: all 300ms linear 0s;
@@ -3912,7 +3912,7 @@ h6 {
 .about_inner .ab_left_text h4 {
   font-size: 36px;
   font-family: "Oswald", sans-serif;
-  color: #222222;
+  color: #18294e;
   margin-bottom: 22px;
 }
 
@@ -3926,7 +3926,7 @@ h6 {
 /*----------------------------------------------------*/
 /*============== footer-area css ===============*/
 .footer-area {
-  background: #222222;
+  background: #18294e;
 }
 
 .single-footer-widget p {
@@ -3985,7 +3985,7 @@ h6 {
 
 .single-footer-widget .sub-btn {
   background: #fab700;
-  color: #222222;
+  color: #18294e;
   font-weight: 300;
   line-height: 30px;
   padding: 0px;
@@ -4070,7 +4070,7 @@ h6 {
 }
 
 .footer-bottom .footer-social a:hover {
-  color: #222222;
+  color: #18294e;
   background: #fab700;
 }
 

@@ -137,10 +137,8 @@ jQuery(document).ready(function ()
     {
         removeImg(this);
     });
-    $("#cbDepartment").change(function ()
-    {
-        $.post("/Admin/Gallery/List", { Department: $(this).val() }, function (result) { $("#galleryContent").html(result); });
-    });
+
+
     $(".delete-image").click(function ()
     {
         event.preventDefault();
@@ -163,7 +161,6 @@ jQuery(document).ready(function ()
 
                         if (result.status === 1)
                         {
-                            debugger;
                             $(that).closest("li").remove();
 
                         } else
@@ -180,7 +177,7 @@ jQuery(document).ready(function ()
                     { // error function callback
                         if (err) { swal.fire("Hata", err, "error"); }
                     },
-                    { imageName: $(that).data("name"), department: $("#cbDepartment").val() }, //data
+                    { imageName: $(that).data("name") }, //data
                     null,
                     this, // context erişimi için successcallback içerisinde thatLocal olarak kullanılabilir
                     'post' // istek yöntemi
@@ -235,7 +232,7 @@ jQuery(document).ready(function ()
                             type: "success"
                         }).then(function ()
                         {
-                            $.post("/Admin/Gallery/List", { Department: $("#cbDepartment").val() }, function (result) { $("#galleryContent").html(result); });
+                            $.post("/Admin/Gallery/List", function (result) { $("#galleryContent").html(result); });
                         });
                     } else
                     {

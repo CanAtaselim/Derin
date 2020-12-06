@@ -17,10 +17,10 @@ namespace Derin.Data.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Role()
         {
-            this.SystemUserRole = new HashSet<SystemUserRole>();
             this.RoleAuthorization = new HashSet<RoleAuthorization>();
             this.RoleSideMenu = new HashSet<RoleSideMenu>();
             this.RoleTopMenu = new HashSet<RoleTopMenu>();
+            this.SystemUserRole = new HashSet<SystemUserRole>();
         }
     
         public long IdRole { get; set; }
@@ -38,12 +38,12 @@ namespace Derin.Data.Model
         public string DefaultPage { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SystemUserRole> SystemUserRole { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RoleAuthorization> RoleAuthorization { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RoleSideMenu> RoleSideMenu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RoleTopMenu> RoleTopMenu { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SystemUserRole> SystemUserRole { get; set; }
     }
 }

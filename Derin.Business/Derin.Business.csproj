@@ -103,6 +103,7 @@
     <Compile Include="BusinessLogic\Administration\ConnectionLogBL.cs" />
     <Compile Include="BusinessLogic\Administration\CountryBL.cs" />
     <Compile Include="BusinessLogic\Administration\ExceptionFeedBackBL.cs" />
+    <Compile Include="BusinessLogic\Administration\ProjectBL.cs" />
     <Compile Include="BusinessLogic\Administration\ServicesBL.cs" />
     <Compile Include="BusinessLogic\Administration\PersonBL.cs" />
     <Compile Include="BusinessLogic\Administration\RoleAuthorizationBL.cs" />
@@ -130,7 +131,6 @@
     <Compile Include="ViewModel\Administration\AnnouncementVM.cs" />
     <Compile Include="ViewModel\Administration\BannerVM.cs" />
     <Compile Include="ViewModel\Administration\CDCVM.cs" />
-    <Compile Include="ViewModel\Administration\TalentVM.cs" />
     <Compile Include="ViewModel\Administration\CityVM.cs" />
     <Compile Include="ViewModel\Administration\ConnectionLogVM.cs" />
     <Compile Include="ViewModel\Administration\ContactUsVM.cs" />
@@ -139,6 +139,7 @@
     <Compile Include="ViewModel\Administration\FacultyVM.cs" />
     <Compile Include="ViewModel\Administration\GalleryVM.cs" />
     <Compile Include="ViewModel\Administration\PersonVM.cs" />
+    <Compile Include="ViewModel\Administration\ProjectVM.cs" />
     <Compile Include="ViewModel\Administration\RoleAuthorizationVM.cs" />
     <Compile Include="ViewModel\Administration\RoleSideMenuVM.cs" />
     <Compile Include="ViewModel\Administration\RoleTopMenuVM.cs" />

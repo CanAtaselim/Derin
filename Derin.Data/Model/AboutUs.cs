@@ -19,7 +19,6 @@ namespace Derin.Data.Model
         public string OperationIP { get; set; }
         public System.DateTime OperationDate { get; set; }
         public short OperationIsDeleted { get; set; }
-        public short Department { get; set; }
         public string Mission { get; set; }
         public string Vision { get; set; }
         public byte[] Picture { get; set; }

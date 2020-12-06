@@ -23,16 +23,14 @@ namespace Derin.Web.Areas.Admin.ViewComponents.Gallery
             _env = env;
         }
 
-        public Task<IViewComponentResult> InvokeAsync(int Department = (int)_Enumeration._Department.Cayyolu)
+        public Task<IViewComponentResult> InvokeAsync()
         {
-            ViewBag.DepartmentList = HttpInfo.DepartmentList;
 
-            string departmentName = Department == 1 ? "cayyolu" : "polatli";
-            string thumbnailDirectory = Path.Combine(_env.WebRootPath, "images\\gallery\\" + departmentName + "\\thumbnail");
+            string thumbnailDirectory = Path.Combine(_env.WebRootPath, "images\\gallery\\derin\\thumbnail");
             DirectoryInfo di = new DirectoryInfo(thumbnailDirectory);
             GalleryVM galleryVM = new GalleryVM();
             galleryVM.GalleryList = new List<GalleryItem>();
-            galleryVM.Department = 1;
+
             if (di.Exists)
             {
                 List<string> ext = new List<string> { ".jpg", ".jpeg", ".png", ".gif", ".tif" };
@@ -46,7 +44,7 @@ namespace Derin.Web.Areas.Admin.ViewComponents.Gallery
                 {
                     gallery = new GalleryItem();
                     gallery.FileName = item.Name;
-                    gallery.FilePath = Path.Combine(_env.WebRootPath, "images\\gallery\\" + departmentName);
+                    gallery.FilePath = Path.Combine(_env.WebRootPath, "images\\gallery\\derin");
 
                     galleryVM.GalleryList.Add(gallery);
                 }

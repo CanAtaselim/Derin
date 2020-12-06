@@ -38,8 +38,6 @@ namespace Derin.Business.BusinessLogic.Administration
                 Instagram = x.Instagram,
                 Youtube = x.Youtube,
                 Linkedin = x.Linkedin,
-                GooglePlus = x.GooglePlus,
-                Department = x.Department
 
             }).ToList();
         }
@@ -57,9 +55,7 @@ namespace Derin.Business.BusinessLogic.Administration
                 Twitter = x.Twitter,
                 Instagram = x.Instagram,
                 Youtube = x.Youtube,
-                Linkedin = x.Linkedin,
-                GooglePlus = x.GooglePlus,
-                Department = x.Department
+                Linkedin = x.Linkedin
             }).ToList();
         }
         public override void Save()

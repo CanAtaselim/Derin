@@ -28,7 +28,6 @@ namespace Derin.Business.BusinessLogic.Administration
             return CRUD.Query(filter, orderBy, take, skip, includes).Select(x => new PersonVM
             {
                 IdPerson = x.IdPerson,
-                Department = x.Department,
                 Name = x.Name,
                 Surname = x.Surname,
                 Title = x.Title,

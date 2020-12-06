@@ -29,6 +29,7 @@ namespace Derin.Data.UnitOfWork.Derin
         IGenericRepository<ContactUs> ContactUsRepository { get; }
         IGenericRepository<Services> ServicesRepository { get; }
         IGenericRepository<Banner> BannerRepository { get; }
+        IGenericRepository<Project> ProjectRepository { get; }
 
         #endregion 
 

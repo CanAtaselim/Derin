@@ -45,9 +45,6 @@
                         imageData = GetFormImageToByte(files[0]);
                     }
 
-
-
-
                     AboutUs aboutUs = new AboutUs();
                     aboutUs.Mission = model.Mission;
                     aboutUs.Vision = model.Vision;
@@ -56,8 +53,6 @@
                     aboutUs.OperationIdUserRef = HttpRequestInfo.UserID;
                     aboutUs.OperationIP = HttpRequestInfo.IpAddress;
                     aboutUs.OperationIsDeleted = 1;
-
-
 
                     if (model.IdAboutUs == 0)
                     {
@@ -115,11 +110,10 @@
             }
             return Json(aMsg);
         }
-        public IActionResult ReInvokeEditComponent(int Department)
+        public IActionResult ReInvokeEditComponent()
         {
-            return ViewComponent("AboutUsEdit", new { Department });
+            return ViewComponent("AboutUsEdit");
         }
-
         public static byte[] GetFormImageToByte(IFormFile image)
         {
             byte[] data = null;

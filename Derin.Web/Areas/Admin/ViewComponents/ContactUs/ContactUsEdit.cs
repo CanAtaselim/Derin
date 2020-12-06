@@ -16,19 +16,12 @@ namespace Derin.Web.Areas.Admin.ViewComponents.ContactUs
             _administrationBLLocator = administrationBLLocator;
         }
 
-        public Task<IViewComponentResult> InvokeAsync(int Department = (int)_Enumeration._Department.Cayyolu)
+        public Task<IViewComponentResult> InvokeAsync()
         {
-            ViewBag.DepartmentList = HttpInfo.DepartmentList;
 
             ContactUsVM contactUs = new ContactUsVM();
-            if (Department > 0)
-            {
-                contactUs = _administrationBLLocator.ContactUsBL.GetVM(filter: m => m.Department == Department && m.OperationIsDeleted == (short)_Enumeration.IsOperationDeleted.Active, orderBy: o => o.OrderBy(x => x.Department)).FirstOrDefault();
-            }
-            else
-            {
-                contactUs = _administrationBLLocator.ContactUsBL.GetVM(filter: m => m.OperationIsDeleted == (short)_Enumeration.IsOperationDeleted.Active, orderBy: o => o.OrderBy(x => x.Department)).FirstOrDefault();
-            }
+
+            contactUs = _administrationBLLocator.ContactUsBL.GetVM(filter: m => m.OperationIsDeleted == (short)_Enumeration.IsOperationDeleted.Active).FirstOrDefault();
 
             return Task.FromResult<IViewComponentResult>(View(contactUs ?? new ContactUsVM()));
         }

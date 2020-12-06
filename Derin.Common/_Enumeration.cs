@@ -83,14 +83,6 @@ namespace Derin.Common
             OurTeam = 3
 
         }
-        public enum _Department
-        {
-            [Description("Çayyolu")]
-            Cayyolu = 1,
-            [Description("Polatlı")]
-            Polatli = 2
-
-        }
         #endregion
 
         #region Administration Enums

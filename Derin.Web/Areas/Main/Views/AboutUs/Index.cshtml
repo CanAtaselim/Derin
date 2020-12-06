@@ -1,75 +1,66 @@
 ﻿@{
     AboutUsVM aboutUs = ViewBag.AboutUs;
 }
-<style>
-    .oval {
-        text-align: center;
-        float: left;
-        margin-right: 15px;
-    }
-</style>
 
 @{
     var base64 = Convert.ToBase64String(aboutUs.Picture);
     var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
 }
 
-<section class="ftco-section" style="padding-top:50px">
-    <div class="container">
-        <div class="row d-md-flex">
-            <div class="col-md-5 ftco-animate img about-image order-md-last">
-                <img align="middle" src="@imgSrc" style="width:100%" />
+<!--================Home Banner Area =================-->
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+        <div class="container">
+            <div class="banner_content text-center">
+                <h2>Hakkımızda</h2>
             </div>
-            <div class="col-md-7 ftco-animate pr-md-5 order-md-first">
-                <div class="row">
-                    <div class="col-md-12 nav-link-wrap mb-5">
-                        <div class="nav ftco-animate nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <a class="nav-link active" id="v-pills-whatwedo-tab" data-toggle="pill" href="#v-pills-whatwedo" role="tab" aria-controls="v-pills-whatwedo" aria-selected="true">Vizyonumuz</a>
-                            <a class="nav-link" id="v-pills-mission-tab" data-toggle="pill" href="#v-pills-mission" role="tab" aria-controls="v-pills-mission" aria-selected="false">Misyonumuz</a>
-                        </div>
-                    </div>
-                    <div class="col-md-12 d-flex align-items-center">
-
-                        <div class="tab-content ftco-animate" id="v-pills-tabContent">
-
-                            <div class="tab-pane fade show active" id="v-pills-whatwedo" role="tabpanel" aria-labelledby="v-pills-whatwedo-tab">
-                                <div>
-                                    <div class="oval">
-                                        <div class="services">
-                                            <div class="icon d-flex justify-content-center align-items-center">
-                                                <span class="dentalicon-001-tooth"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p>@aboutUs.Vision</p>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane fade" id="v-pills-mission" role="tabpanel" aria-labelledby="v-pills-mission-tab">
-                                <div>
-                                    <div class="oval">
-                                        <div class="services">
-                                            <div class="icon d-flex justify-content-center align-items-center">
-                                                <span class="dentalicon-001-tooth"></></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p>@aboutUs.Mission</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+<!--================About Area =================-->
+<section class="about_area p_120">
+    <div class="container">
+        <div class="row about_inner">
+            <div class="col-lg-6">
+                <div class="ab_left_text" style="margin-top:0px">
+                    <h4>Misyonumuz</h4>
+                    <p>@aboutUs.Mission</p>
+                    <h4>Visyonumuz</h4>
+                    <p>@aboutUs.Vision</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="ab_img">
+                    <img class="img-fluid" src="@imgSrc" alt="">
                 </div>
             </div>
         </div>
     </div>
 </section>
+<!--================End About Area =================-->
 
-
-
-
-
-
-
-<!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+<!--================End Counter Area =================-->
+<section class="clients_logo_area p_120">
+    <div class="container">
+        <div class="clients_slider owl-carousel">
+            <div class="item">
+                <img src="~/frontend/img/clients-logo/c-logo-1.png" alt="">
+            </div>
+            <div class="item">
+                <img src="~/frontend/img/clients-logo/c-logo-2.png" alt="">
+            </div>
+            <div class="item">
+                <img src="~/frontend/img/clients-logo/c-logo-3.png" alt="">
+            </div>
+            <div class="item">
+                <img src="~/frontend/img/clients-logo/c-logo-4.png" alt="">
+            </div>
+            <div class="item">
+                <img src="~/frontend/img/clients-logo/c-logo-5.png" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Clients Logo Area =================-->

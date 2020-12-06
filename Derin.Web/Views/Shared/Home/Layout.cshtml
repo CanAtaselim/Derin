@@ -1,31 +1,23 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Dentadal's Ağız ve Diş Sağlığı Polikliniği</title>
+    <title>Der-in İnşaat</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
 
-    <link rel="stylesheet" href="/frontend/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="/frontend/css/animate.css">
-    <link rel="stylesheet" href="/frontend/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/frontend/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="/frontend/css/magnific-popup.css">
-    <link rel="stylesheet" href="/frontend/css/aos.css">
-    <link rel="stylesheet" href="/frontend/css/ionicons.min.css">
-    <link rel="stylesheet" href="/frontend/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="/frontend/css/jquery.timepicker.css">
-    @*<link rel="stylesheet" href="/frontend/css/flaticon.css">*@
-    <link rel="stylesheet" href="/frontend/css/icomoon.css">
-    <link rel="stylesheet" href="/frontend/css/style.css">
-    @*<link href="~/frontend/fonts/flaticon/font/flaticon.css" rel="stylesheet" />*@
-    @*<link rel="stylesheet" href="/frontend/fonts/denticonpack/1/font/flaticon.css" />*@
+    <link rel="stylesheet" href="/frontend/css/bootstrap.css">
+    <link rel="stylesheet" href="/frontend/vendors/linericon/style.css">
+    <link rel="stylesheet" href="/frontend/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/frontend/vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="/frontend/vendors/lightbox/simpleLightbox.css">
+    <link rel="stylesheet" href="/frontend/vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="/frontend/vendors/animate-css/animate.css">
     <link href="~/lib/dentalicons/style.css" rel="stylesheet" />
-    <link href="~/css/whatsapp.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="/assets/media/logos/favicon.png" />
-    @*<link rel="stylesheet" href="/frontend/fonts/denticonpack/2/font/flaticon.css" />
-        <link rel="stylesheet" href="/frontend/fonts/denticonpack/3/font/flaticon.css" />*@
+    <!-- main css -->
+    <link rel="stylesheet" href="/frontend/css/style.css">
+    <link rel="stylesheet" href="/frontend/css/responsive.css">
     @RenderSection("pageLevelStyles", required: false)
     @RenderSection("pageLevelInlineStyles", required: false)
     <style>
@@ -39,12 +31,6 @@
     @Html.Partial("~/Views/Shared/Home/_Header.cshtml")
     <!-- ***** Header Area End ***** -->
     @RenderBody()
-    <div class="text-center text-large">
-        <a href="https://api.whatsapp.com/send?phone=905448455030" class="social-button" target="_blank">
-            <i style="vertical-align: -12%!important; color:#fff!important" class="fa fa-lg fa-whatsapp"></i>
-        </a>
-    </div>
-
     <!-- ***** Blog Area End ***** -->
     <!-- ***** Footer Area Start ***** -->
     @Html.Partial("~/Views/Shared/Home/_Footer.cshtml")
@@ -52,21 +38,20 @@
     <!-- ******* All JS ******* -->
     <!-- jQuery js -->
 
-    <script src="/frontend/js/jquery.min.js"></script>
-    <script src="/frontend/js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="/frontend/js/popper.min.js"></script>
+    <script src="/frontend/js/jquery-3.2.1.min.js"></script>
+    <script src="/frontend/js/popper.js"></script>
     <script src="/frontend/js/bootstrap.min.js"></script>
-    <script src="/frontend/js/jquery.easing.1.3.js"></script>
-    <script src="/frontend/js/jquery.waypoints.min.js"></script>
-    <script src="/frontend/js/jquery.stellar.min.js"></script>
-    <script src="/frontend/js/owl.carousel.min.js"></script>
-    <script src="/frontend/js/jquery.magnific-popup.min.js"></script>
-    <script src="/frontend/js/aos.js"></script>
-    <script src="/frontend/js/jquery.animateNumber.min.js"></script>
-    <script src="/frontend/js/bootstrap-datepicker.js"></script>
-    <script src="/frontend/js/jquery.timepicker.min.js"></script>
-    <script src="/frontend/js/scrollax.min.js"></script>
-    <script src="/frontend/js/main.js"></script>
+    <script src="/frontend/js/stellar.js"></script>
+    <script src="/frontend/vendors/lightbox/simpleLightbox.min.js"></script>
+    <script src="/frontend/vendors/nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="/frontend/vendors/isotope/imagesloaded.pkgd.min.js"></script>
+    <script src="/frontend/vendors/isotope/isotope-min.js"></script>
+    <script src="/frontend/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/frontend/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/frontend/vendors/counter-up/jquery.waypoints.min.js"></script>
+    <script src="/frontend/vendors/counter-up/jquery.counterup.js"></script>
+    <script src="/frontend/js/mail-script.js"></script>
+    <script src="/frontend/js/theme.js"></script>
     <script>
         jQuery(document).ready(function () {
             $(".booking-btn").click(function () {

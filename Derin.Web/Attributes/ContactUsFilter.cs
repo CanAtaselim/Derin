@@ -27,10 +27,14 @@ namespace Derin.Web.Attributes
                 AdministrationBLLocator _locator = new AdministrationBLLocator();
                 if (filterContext.HttpContext.Session.GetString("ContactUsData") == null)
                 {
-                    List<ContactUsVM> contactUs = _locator.ContactUsBL.GetVM(filter: m => m.OperationIsDeleted == (short)_Enumeration.IsOperationDeleted.Active);
+                    ContactUsVM contactUs = _locator.ContactUsBL.GetVM(filter: m => m.OperationIsDeleted == (short)_Enumeration.IsOperationDeleted.Active).FirstOrDefault();
                     filterContext.HttpContext.Session.SetString("ContactUsData", JsonConvert.SerializeObject(contactUs));
                 }
-
+                if (filterContext.HttpContext.Session.GetString("AboutUsData") == null)
+                {
+                    AboutUsVM aboutUs = _locator.AboutUsBL.GetVM(filter: m => m.OperationIsDeleted == (short)_Enumeration.IsOperationDeleted.Active).FirstOrDefault();
+                    filterContext.HttpContext.Session.SetString("AboutUsData", JsonConvert.SerializeObject(aboutUs));
+                }
             }
             catch (System.Exception ex)
             {

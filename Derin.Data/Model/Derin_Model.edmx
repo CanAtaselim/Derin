@@ -14,7 +14,6 @@
           <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="OperationDate" Type="datetime" Nullable="false" />
           <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
-          <Property Name="Department" Type="smallint" Nullable="false" />
           <Property Name="Mission" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Vision" Type="nvarchar(max)" />
           <Property Name="Picture" Type="image" />
@@ -89,7 +88,6 @@
           <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="OperationDate" Type="datetime" Nullable="false" />
           <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
-          <Property Name="Department" Type="smallint" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="14" Nullable="false" />
@@ -100,7 +98,6 @@
           <Property Name="Instagram" Type="nvarchar" MaxLength="100" />
           <Property Name="Youtube" Type="nvarchar" MaxLength="100" />
           <Property Name="Linkedin" Type="nvarchar" MaxLength="100" />
-          <Property Name="GooglePlus" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Country">
           <Key>
@@ -192,7 +189,6 @@
           <Property Name="IdFaculty" Type="bigint" />
           <Property Name="IdUniversityDepartment" Type="bigint" />
           <Property Name="EmployeeType" Type="smallint" Nullable="false" />
-          <Property Name="Department" Type="smallint" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Surname" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="40" Nullable="false" />
@@ -200,6 +196,21 @@
           <Property Name="Phone" Type="nvarchar" MaxLength="14" />
           <Property Name="Gsm" Type="nvarchar" MaxLength="14" />
           <Property Name="About" Type="nvarchar(max)" />
+          <Property Name="Picture" Type="image" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="IdProject" />
+          </Key>
+          <Property Name="IdProject" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationIdUserRef" Type="bigint" Nullable="false" />
+          <Property Name="OperationIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperationDate" Type="datetime" Nullable="false" />
+          <Property Name="OperationIsDeleted" Type="smallint" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Detail" Type="nvarchar" MaxLength="1000" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
           <Property Name="Picture" Type="image" />
         </EntityType>
         <EntityType Name="Role">
@@ -738,6 +749,7 @@
           <EntitySet Name="ExceptionFeedBack" EntityType="Self.ExceptionFeedBack" Schema="ADMINISTRATION" store:Type="Tables" />
           <EntitySet Name="Faculties" EntityType="Self.Faculties" Schema="ADMINISTRATION" store:Type="Tables" />
           <EntitySet Name="Person" EntityType="Self.Person" Schema="ADMINISTRATION" store:Type="Tables" />
+          <EntitySet Name="Project" EntityType="Self.Project" Schema="ADMINISTRATION" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="ADMINISTRATION" store:Type="Tables" />
           <EntitySet Name="RoleAuthorization" EntityType="Self.RoleAuthorization" Schema="ADMINISTRATION" store:Type="Tables" />
           <EntitySet Name="RoleSideMenu" EntityType="Self.RoleSideMenu" Schema="ADMINISTRATION" store:Type="Tables" />
@@ -843,6 +855,7 @@
           </FunctionImport>
           <EntitySet Name="AboutUs" EntityType="DerinModel.AboutUs" />
           <EntitySet Name="ANNOUNCEMENT" EntityType="DerinModel.ANNOUNCEMENT" />
+          <EntitySet Name="Banner" EntityType="DerinModel.Banner" />
           <EntitySet Name="City" EntityType="DerinModel.City" />
           <EntitySet Name="ConnectionLog" EntityType="DerinModel.ConnectionLog" />
           <EntitySet Name="ContactUs" EntityType="DerinModel.ContactUs" />
@@ -906,34 +919,6 @@
             <End Role="UniversityDepartment" EntitySet="UniversityDepartment" />
             <End Role="Person" EntitySet="Person" />
           </AssociationSet>
-          <AssociationSet Name="FK_RoleSideMenu_SideMenu" Association="DerinModel.FK_RoleSideMenu_SideMenu">
-            <End Role="SideMenu" EntitySet="SideMenu" />
-            <End Role="RoleSideMenu" EntitySet="RoleSideMenu" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RoleTopMenu_TopMenu" Association="DerinModel.FK_RoleTopMenu_TopMenu">
-            <End Role="TopMenu" EntitySet="TopMenu" />
-            <End Role="RoleTopMenu" EntitySet="RoleTopMenu" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SideMenu_TopMenu" Association="DerinModel.FK_SideMenu_TopMenu">
-            <End Role="TopMenu" EntitySet="TopMenu" />
-            <End Role="SideMenu" EntitySet="SideMenu" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Village_Town" Association="DerinModel.FK_Village_Town">
-            <End Role="Town" EntitySet="Town" />
-            <End Role="Village" EntitySet="Village" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SystemUserRole_Role" Association="DerinModel.FK_SystemUserRole_Role">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="SystemUserRole" EntitySet="SystemUserRole" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SystemUserRole_SystemUser" Association="DerinModel.FK_SystemUserRole_SystemUser">
-            <End Role="SystemUser" EntitySet="SystemUser" />
-            <End Role="SystemUserRole" EntitySet="SystemUserRole" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SystemUserRoleLocation_SystemUserRole" Association="DerinModel.FK_SystemUserRoleLocation_SystemUserRole">
-            <End Role="SystemUserRole" EntitySet="SystemUserRole" />
-            <End Role="SystemUserRoleLocation" EntitySet="SystemUserRoleLocation" />
-          </AssociationSet>
           <AssociationSet Name="FK_RoleAuthorization_Role" Association="DerinModel.FK_RoleAuthorization_Role">
             <End Role="Role" EntitySet="Role" />
             <End Role="RoleAuthorization" EntitySet="RoleAuthorization" />
@@ -946,8 +931,36 @@
             <End Role="Role" EntitySet="Role" />
             <End Role="RoleTopMenu" EntitySet="RoleTopMenu" />
           </AssociationSet>
-          <EntitySet Name="Banner" EntityType="DerinModel.Banner" />
-        </EntityContainer>
+          <AssociationSet Name="FK_SystemUserRole_Role" Association="DerinModel.FK_SystemUserRole_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="SystemUserRole" EntitySet="SystemUserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleSideMenu_SideMenu" Association="DerinModel.FK_RoleSideMenu_SideMenu">
+            <End Role="SideMenu" EntitySet="SideMenu" />
+            <End Role="RoleSideMenu" EntitySet="RoleSideMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleTopMenu_TopMenu" Association="DerinModel.FK_RoleTopMenu_TopMenu">
+            <End Role="TopMenu" EntitySet="TopMenu" />
+            <End Role="RoleTopMenu" EntitySet="RoleTopMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SideMenu_TopMenu" Association="DerinModel.FK_SideMenu_TopMenu">
+            <End Role="TopMenu" EntitySet="TopMenu" />
+            <End Role="SideMenu" EntitySet="SideMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SystemUserRole_SystemUser" Association="DerinModel.FK_SystemUserRole_SystemUser">
+            <End Role="SystemUser" EntitySet="SystemUser" />
+            <End Role="SystemUserRole" EntitySet="SystemUserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SystemUserRoleLocation_SystemUserRole" Association="DerinModel.FK_SystemUserRoleLocation_SystemUserRole">
+            <End Role="SystemUserRole" EntitySet="SystemUserRole" />
+            <End Role="SystemUserRoleLocation" EntitySet="SystemUserRoleLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Village_Town" Association="DerinModel.FK_Village_Town">
+            <End Role="Town" EntitySet="Town" />
+            <End Role="Village" EntitySet="Village" />
+          </AssociationSet>
+          <EntitySet Name="Project" EntityType="DerinModel.Project" />
+          </EntityContainer>
         <ComplexType Name="Role_List_Result">
           <Property Type="Int64" Name="SystemUserId" Nullable="true" />
           <Property Type="Int64" Name="IdParentRole" Nullable="true" />
@@ -968,7 +981,6 @@
           <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
-          <Property Name="Department" Type="Int16" Nullable="false" />
           <Property Name="Mission" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Vision" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
@@ -990,6 +1002,19 @@
           <Property Name="Area" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="IsVisibleToMain" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="SystemUser" Relationship="DerinModel.FK_ANNOUNCEMENT_SystemUser" FromRole="ANNOUNCEMENT" ToRole="SystemUser" />
+        </EntityType>
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="IdBanner" />
+          </Key>
+          <Property Name="IdBanner" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
+          <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FilePath" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="City">
           <Key>
@@ -1035,7 +1060,6 @@
           <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
-          <Property Name="Department" Type="Int16" Nullable="false" />
           <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="true" />
@@ -1046,7 +1070,6 @@
           <Property Name="Instagram" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Youtube" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Linkedin" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="GooglePlus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Country">
           <Key>
@@ -1141,7 +1164,6 @@
           <Property Name="IdFaculty" Type="Int64" />
           <Property Name="IdUniversityDepartment" Type="Int64" />
           <Property Name="EmployeeType" Type="Int16" Nullable="false" />
-          <Property Name="Department" Type="Int16" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Surname" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
@@ -1171,10 +1193,10 @@
           <Property Name="RoleCode" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="IsRoleDistribution" Type="Boolean" />
           <Property Name="DefaultPage" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="SystemUserRole" Relationship="DerinModel.FK_SystemUserRole_Role" FromRole="Role" ToRole="SystemUserRole" />
           <NavigationProperty Name="RoleAuthorization" Relationship="DerinModel.FK_RoleAuthorization_Role" FromRole="Role" ToRole="RoleAuthorization" />
           <NavigationProperty Name="RoleSideMenu" Relationship="DerinModel.FK_RoleSideMenu_Role" FromRole="Role" ToRole="RoleSideMenu" />
           <NavigationProperty Name="RoleTopMenu" Relationship="DerinModel.FK_RoleTopMenu_Role" FromRole="Role" ToRole="RoleTopMenu" />
+          <NavigationProperty Name="SystemUserRole" Relationship="DerinModel.FK_SystemUserRole_Role" FromRole="Role" ToRole="SystemUserRole" />
         </EntityType>
         <EntityType Name="RoleAuthorization">
           <Key>
@@ -1203,8 +1225,8 @@
           <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
           <Property Name="IdRoleRef" Type="Int64" />
           <Property Name="IdSideMenuRef" Type="Int64" />
-          <NavigationProperty Name="SideMenu" Relationship="DerinModel.FK_RoleSideMenu_SideMenu" FromRole="RoleSideMenu" ToRole="SideMenu" />
           <NavigationProperty Name="Role" Relationship="DerinModel.FK_RoleSideMenu_Role" FromRole="RoleSideMenu" ToRole="Role" />
+          <NavigationProperty Name="SideMenu" Relationship="DerinModel.FK_RoleSideMenu_SideMenu" FromRole="RoleSideMenu" ToRole="SideMenu" />
         </EntityType>
         <EntityType Name="RoleTopMenu">
           <Key>
@@ -1217,8 +1239,8 @@
           <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
           <Property Name="IdRoleRef" Type="Int64" Nullable="false" />
           <Property Name="IdTopMenuRef" Type="Int64" />
-          <NavigationProperty Name="TopMenu" Relationship="DerinModel.FK_RoleTopMenu_TopMenu" FromRole="RoleTopMenu" ToRole="TopMenu" />
           <NavigationProperty Name="Role" Relationship="DerinModel.FK_RoleTopMenu_Role" FromRole="RoleTopMenu" ToRole="Role" />
+          <NavigationProperty Name="TopMenu" Relationship="DerinModel.FK_RoleTopMenu_TopMenu" FromRole="RoleTopMenu" ToRole="TopMenu" />
         </EntityType>
         <EntityType Name="Services">
           <Key>
@@ -1581,90 +1603,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_RoleSideMenu_SideMenu">
-          <End Type="DerinModel.SideMenu" Role="SideMenu" Multiplicity="0..1" />
-          <End Type="DerinModel.RoleSideMenu" Role="RoleSideMenu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SideMenu">
-              <PropertyRef Name="IdSideMenu" />
-            </Principal>
-            <Dependent Role="RoleSideMenu">
-              <PropertyRef Name="IdSideMenuRef" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RoleTopMenu_TopMenu">
-          <End Type="DerinModel.TopMenu" Role="TopMenu" Multiplicity="0..1" />
-          <End Type="DerinModel.RoleTopMenu" Role="RoleTopMenu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TopMenu">
-              <PropertyRef Name="IdTopMenu" />
-            </Principal>
-            <Dependent Role="RoleTopMenu">
-              <PropertyRef Name="IdTopMenuRef" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SideMenu_TopMenu">
-          <End Type="DerinModel.TopMenu" Role="TopMenu" Multiplicity="0..1" />
-          <End Type="DerinModel.SideMenu" Role="SideMenu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TopMenu">
-              <PropertyRef Name="IdTopMenu" />
-            </Principal>
-            <Dependent Role="SideMenu">
-              <PropertyRef Name="IdTopMenuRef" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Village_Town">
-          <End Type="DerinModel.Town" Role="Town" Multiplicity="0..1" />
-          <End Type="DerinModel.Village" Role="Village" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Town">
-              <PropertyRef Name="IdTown" />
-            </Principal>
-            <Dependent Role="Village">
-              <PropertyRef Name="IdTownRef" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SystemUserRole_Role">
-          <End Type="DerinModel.Role" Role="Role" Multiplicity="1" />
-          <End Type="DerinModel.SystemUserRole" Role="SystemUserRole" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Role">
-              <PropertyRef Name="IdRole" />
-            </Principal>
-            <Dependent Role="SystemUserRole">
-              <PropertyRef Name="IdRoleRef" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SystemUserRole_SystemUser">
-          <End Type="DerinModel.SystemUser" Role="SystemUser" Multiplicity="1" />
-          <End Type="DerinModel.SystemUserRole" Role="SystemUserRole" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SystemUser">
-              <PropertyRef Name="IdUser" />
-            </Principal>
-            <Dependent Role="SystemUserRole">
-              <PropertyRef Name="IdSystemUserRef" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SystemUserRoleLocation_SystemUserRole">
-          <End Type="DerinModel.SystemUserRole" Role="SystemUserRole" Multiplicity="1" />
-          <End Type="DerinModel.SystemUserRoleLocation" Role="SystemUserRoleLocation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SystemUserRole">
-              <PropertyRef Name="IdSystemUserRole" />
-            </Principal>
-            <Dependent Role="SystemUserRoleLocation">
-              <PropertyRef Name="IdSystemUserRoleRef" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_RoleAuthorization_Role">
           <End Type="DerinModel.Role" Role="Role" Multiplicity="1" />
           <End Type="DerinModel.RoleAuthorization" Role="RoleAuthorization" Multiplicity="*" />
@@ -1701,20 +1639,106 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Banner">
+        <Association Name="FK_SystemUserRole_Role">
+          <End Type="DerinModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="DerinModel.SystemUserRole" Role="SystemUserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="SystemUserRole">
+              <PropertyRef Name="IdRoleRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleSideMenu_SideMenu">
+          <End Type="DerinModel.SideMenu" Role="SideMenu" Multiplicity="0..1" />
+          <End Type="DerinModel.RoleSideMenu" Role="RoleSideMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SideMenu">
+              <PropertyRef Name="IdSideMenu" />
+            </Principal>
+            <Dependent Role="RoleSideMenu">
+              <PropertyRef Name="IdSideMenuRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleTopMenu_TopMenu">
+          <End Type="DerinModel.TopMenu" Role="TopMenu" Multiplicity="0..1" />
+          <End Type="DerinModel.RoleTopMenu" Role="RoleTopMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TopMenu">
+              <PropertyRef Name="IdTopMenu" />
+            </Principal>
+            <Dependent Role="RoleTopMenu">
+              <PropertyRef Name="IdTopMenuRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SideMenu_TopMenu">
+          <End Type="DerinModel.TopMenu" Role="TopMenu" Multiplicity="0..1" />
+          <End Type="DerinModel.SideMenu" Role="SideMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TopMenu">
+              <PropertyRef Name="IdTopMenu" />
+            </Principal>
+            <Dependent Role="SideMenu">
+              <PropertyRef Name="IdTopMenuRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SystemUserRole_SystemUser">
+          <End Type="DerinModel.SystemUser" Role="SystemUser" Multiplicity="1" />
+          <End Type="DerinModel.SystemUserRole" Role="SystemUserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemUser">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="SystemUserRole">
+              <PropertyRef Name="IdSystemUserRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SystemUserRoleLocation_SystemUserRole">
+          <End Type="DerinModel.SystemUserRole" Role="SystemUserRole" Multiplicity="1" />
+          <End Type="DerinModel.SystemUserRoleLocation" Role="SystemUserRoleLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemUserRole">
+              <PropertyRef Name="IdSystemUserRole" />
+            </Principal>
+            <Dependent Role="SystemUserRoleLocation">
+              <PropertyRef Name="IdSystemUserRoleRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Village_Town">
+          <End Type="DerinModel.Town" Role="Town" Multiplicity="0..1" />
+          <End Type="DerinModel.Village" Role="Village" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Town">
+              <PropertyRef Name="IdTown" />
+            </Principal>
+            <Dependent Role="Village">
+              <PropertyRef Name="IdTownRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Project">
           <Key>
-            <PropertyRef Name="IdBanner" />
+            <PropertyRef Name="IdProject" />
           </Key>
-          <Property Name="IdBanner" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdProject" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="OperationIdUserRef" Type="Int64" Nullable="false" />
           <Property Name="OperationIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="OperationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="OperationIsDeleted" Type="Int16" Nullable="false" />
-          <Property Name="FileName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FilePath" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Detail" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1741,7 +1765,6 @@
                 <ScalarProperty Name="Picture" ColumnName="Picture" />
                 <ScalarProperty Name="Vision" ColumnName="Vision" />
                 <ScalarProperty Name="Mission" ColumnName="Mission" />
-                <ScalarProperty Name="Department" ColumnName="Department" />
                 <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
                 <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
                 <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
@@ -1765,6 +1788,20 @@
                 <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
                 <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
                 <ScalarProperty Name="IdAnnouncement" ColumnName="IdAnnouncement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Banner">
+            <EntityTypeMapping TypeName="DerinModel.Banner">
+              <MappingFragment StoreEntitySet="Banner">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
+                <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
+                <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
+                <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
+                <ScalarProperty Name="IdBanner" ColumnName="IdBanner" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1804,7 +1841,6 @@
           <EntitySetMapping Name="ContactUs">
             <EntityTypeMapping TypeName="DerinModel.ContactUs">
               <MappingFragment StoreEntitySet="ContactUs">
-                <ScalarProperty Name="GooglePlus" ColumnName="GooglePlus" />
                 <ScalarProperty Name="Linkedin" ColumnName="Linkedin" />
                 <ScalarProperty Name="Youtube" ColumnName="Youtube" />
                 <ScalarProperty Name="Instagram" ColumnName="Instagram" />
@@ -1815,7 +1851,6 @@
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Department" ColumnName="Department" />
                 <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
                 <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
                 <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
@@ -1917,7 +1952,6 @@
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Department" ColumnName="Department" />
                 <ScalarProperty Name="EmployeeType" ColumnName="EmployeeType" />
                 <ScalarProperty Name="IdUniversityDepartment" ColumnName="IdUniversityDepartment" />
                 <ScalarProperty Name="IdFaculty" ColumnName="IdFaculty" />
@@ -2240,21 +2274,23 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Banner">
-            <EntityTypeMapping TypeName="DerinModel.Banner">
-              <MappingFragment StoreEntitySet="Banner">
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
-                <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <EntitySetMapping Name="Project">
+            <EntityTypeMapping TypeName="DerinModel.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="OperationIsDeleted" ColumnName="OperationIsDeleted" />
                 <ScalarProperty Name="OperationDate" ColumnName="OperationDate" />
                 <ScalarProperty Name="OperationIP" ColumnName="OperationIP" />
                 <ScalarProperty Name="OperationIdUserRef" ColumnName="OperationIdUserRef" />
-                <ScalarProperty Name="IdBanner" ColumnName="IdBanner" />
+                <ScalarProperty Name="IdProject" ColumnName="IdProject" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

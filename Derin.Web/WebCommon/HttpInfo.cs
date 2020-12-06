@@ -49,24 +49,6 @@ namespace Derin.Web.WebCommon
         {
             return string.Format("{0};{1};{2};{3};{4};{5}", date.Year.ToString(), date.Month.ToString(), date.Day.ToString(), date.Hour.ToString(), date.Minute.ToString(), date.Second.ToString());
         }
-        public static List<SelectListItem> DepartmentList
-        {
-            get
-            {
-                return new List<SelectListItem>() {
-                    new SelectListItem()
-                    {
-                        Text = _Enumeration.GetEnumDescription(_Enumeration._Department.Cayyolu).ToString(),
-                        Value = ((int)_Enumeration._Department.Cayyolu).ToString()
-                    },
-                    new SelectListItem()
-                    {
-                        Text = _Enumeration.GetEnumDescription(_Enumeration._Department.Polatli).ToString(),
-                        Value = ((int)_Enumeration._Department.Polatli).ToString()
-                    },
-                };
-            }
-        }
     }
 
     public class AjaxMessage
@@ -85,7 +67,7 @@ namespace Derin.Web.WebCommon
 
     public static class EventAppInfo
     {
-        public static string Source { get { return "SinerjiSoftFramework"; } }
+        public static string Source { get { return "Ataselim"; } }
         public static string Log { get { return "Application"; } }
     }
 

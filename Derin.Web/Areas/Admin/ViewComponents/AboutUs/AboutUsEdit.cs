@@ -27,6 +27,6 @@ namespace Derin.Web.Areas.Admin.ViewComponents.AboutUs
 
             return Task.FromResult<IViewComponentResult>(View(aboutUs ?? new AboutUsVM()));
         }
-
+    
     }
 }

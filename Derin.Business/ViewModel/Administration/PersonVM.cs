@@ -13,9 +13,7 @@ namespace Derin.Business.ViewModel.Administration
         [Required(ErrorMessage = "Çalışan tipi zorunlu.")]
         public short EmployeeType { get; set; }
         [Required(ErrorMessage = "Şube zorunlu.")]
-        public short Department { get; set; }
-        [Required(ErrorMessage = "Ad zorunlu.")]
-        [MaxLength(20)]
+
         public string Name { get; set; }
         [Required(ErrorMessage = "Soyad zorunlu.")]
         [MaxLength(20)]
@@ -33,8 +31,6 @@ namespace Derin.Business.ViewModel.Administration
         public byte[] Picture { get; set; }
         public List<string> EmployeeTypeList { get; set; }
         public string Employees { get; set; }
-        public List<string> DepartmentList { get; set; }
-        public string Departments { get; set; }
 
     }
 }

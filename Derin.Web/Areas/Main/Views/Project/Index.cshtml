@@ -1,0 +1,74 @@
+﻿@{
+    List<ProjectVM> projects = ViewBag.Project;
+}
+
+<!--================Home Banner Area =================-->
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+        <div class="container">
+            <div class="banner_content text-center">
+                <h2>Projelerimiz</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Services Area =================-->
+<!--================Builder Image Area =================-->
+
+
+<seciton class="builder_area">
+    <div class="row m0 builder_inner">
+        @foreach (var item in projects)
+        {
+            var base64 = Convert.ToBase64String(item.Picture);
+            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+
+            <div class="builder_item">
+                <img src="@imgSrc" alt="">
+                <div class="hover">
+                    <h4>@item.Title</h4>
+                    <p>@item.Detail</p>
+                </div>
+            </div>
+        }
+
+        <div class="builder_item">
+            <img src="~/frontend/img/builder/builder-2.jpg" alt="">
+            <div class="hover">
+                <h4>Alex Complex for Residence</h4>
+                <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
+            </div>
+        </div>
+        <div class="builder_item">
+            <img src="~/frontend/img/builder/builder-3.jpg" alt="">
+            <div class="hover">
+                <h4>Alex Complex for Residence</h4>
+                <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
+            </div>
+        </div>
+        <div class="builder_item">
+            <img src="~/frontend/img/builder/builder-4.jpg" alt="">
+            <div class="hover">
+                <h4>Alex Complex for Residence</h4>
+                <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
+            </div>
+        </div>
+        <div class="builder_item">
+            <img src="~/frontend/img/builder/builder-5.jpg" alt="">
+            <div class="hover">
+                <h4>Alex Complex for Residence</h4>
+                <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
+            </div>
+        </div>
+        <div class="builder_item">
+            <img src="~/frontend/img/builder/builder-6.jpg" alt="">
+            <div class="hover">
+                <h4>Alex Complex for Residence</h4>
+                <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
+            </div>
+        </div>
+    </div>
+</seciton>
+<!--================End Builder Image Area =================-->
+<!--================Feature Area =================-->

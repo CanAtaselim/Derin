@@ -7,9 +7,6 @@
     <!-- begin:: Aside -->
     <div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
         <div class="kt-aside__brand-logo">
-            <a href="/">
-                <img width="150" src="~/images/logohi.png" />
-            </a>
         </div>
         <div class="kt-aside__brand-tools">
             <button class="kt-aside__brand-aside-toggler" id="kt_aside_toggler">
@@ -63,10 +60,10 @@
                         <span class="kt-menu__link-text">Hakkımızda</span>
                     </a>
                 </li>
-                <li class="kt-menu__item @(controller == "Person" ? activeItem : "")" aria-haspopup="true">
-                    <a href='@Url.Action("Index", "Person", new { Area = "Admin" })' class="kt-menu__link ">
+                <li class="kt-menu__item @(controller == "Project" ? activeItem : "")" aria-haspopup="true">
+                    <a href='@Url.Action("Index", "Project", new { Area = "Admin" })' class="kt-menu__link ">
                         <i class="kt-menu__link-icon fa fa-user"></i>
-                        <span class="kt-menu__link-text">Ekibimiz</span>
+                        <span class="kt-menu__link-text">Projelerimiz</span>
                     </a>
                 </li>
                 <li class="kt-menu__item @(controller == "Services" ? activeItem : "")" aria-haspopup="true">
@@ -81,18 +78,12 @@
                         <span class="kt-menu__link-text">Galeri</span>
                     </a>
                 </li>
-                <li class="kt-menu__item @(controller == "Talent" ? activeItem : "")" aria-haspopup="true">
-                    <a href='@Url.Action("Index", "Talent", new { Area = "Admin" })' class="kt-menu__link ">
-                        <i class="kt-menu__link-icon fa fa-check-double"></i>
-                        <span class="kt-menu__link-text">Yetenekler</span>
-                    </a>
-                </li>
-                <li class="kt-menu__item @(controller == "Banner" ? activeItem : "")" aria-haspopup="true">
+                @*<li class="kt-menu__item @(controller == "Banner" ? activeItem : "")" aria-haspopup="true">
                     <a href='@Url.Action("Index", "Banner", new { Area = "Admin" })' class="kt-menu__link ">
                         <i class="kt-menu__link-icon fa fa-sliders-h"></i>
                         <span class="kt-menu__link-text">Banner</span>
                     </a>
-                </li>
+                </li>*@
                 <li class="kt-menu__item @(controller == "ContactUs" ? activeItem : "")" aria-haspopup="true">
                     <a href='@Url.Action("Index", "ContactUs", new { Area = "Admin" })' class="kt-menu__link ">
                         <i class="kt-menu__link-icon fa fa-phone-square"></i>

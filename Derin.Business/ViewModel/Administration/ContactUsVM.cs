@@ -11,8 +11,6 @@ namespace Derin.Business.ViewModel.Administration
     public class ContactUsVM : BaseVM
     {
         public long IdContactUs { get; set; }
-        [Required(ErrorMessage = "Lütfen Şube Seçiniz.")]
-        public short Department { get; set; }
 
         [Required(ErrorMessage = "Lütfen Adres Giriniz.")]
         [MaxLength(500, ErrorMessage = "Adres 500 karakterden fazla olamaz")]
@@ -48,9 +46,6 @@ namespace Derin.Business.ViewModel.Administration
 
         [MaxLength(100, ErrorMessage = "Linkedin 100 karakterden fazla olamaz")]
         public string Linkedin { get; set; }
-
-        [MaxLength(100, ErrorMessage = "Google+ 100 karakterden fazla olamaz")]
-        public string GooglePlus { get; set; }
 
     }
 }

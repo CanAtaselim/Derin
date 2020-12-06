@@ -19,7 +19,6 @@ namespace Derin.Data.Model
         public string OperationIP { get; set; }
         public System.DateTime OperationDate { get; set; }
         public short OperationIsDeleted { get; set; }
-        public short Department { get; set; }
         public string Address { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
@@ -30,6 +29,5 @@ namespace Derin.Data.Model
         public string Instagram { get; set; }
         public string Youtube { get; set; }
         public string Linkedin { get; set; }
-        public string GooglePlus { get; set; }
     }
 }

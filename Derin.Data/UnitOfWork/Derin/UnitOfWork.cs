@@ -120,6 +120,8 @@ namespace Derin.Data.UnitOfWork.Derin
         private IGenericRepository<Banner> _bannerRepository;
         public IGenericRepository<Banner> BannerRepository => _bannerRepository ?? (_bannerRepository = new GenericRepository<Banner>(_context));
 
+        private IGenericRepository<Project> _projectRepository;
+        public IGenericRepository<Project> ProjectRepository => _projectRepository ?? (_projectRepository = new GenericRepository<Project>(_context));
 
 
         #endregion

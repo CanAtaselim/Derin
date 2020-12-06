@@ -182,6 +182,9 @@
     <Compile Include="Model\Person.cs">
       <DependentUpon>Derin_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Project.cs">
+      <DependentUpon>Derin_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Role.cs">
       <DependentUpon>Derin_Model.tt</DependentUpon>
     </Compile>

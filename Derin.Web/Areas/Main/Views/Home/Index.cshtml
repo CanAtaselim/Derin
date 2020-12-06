@@ -1,392 +1,122 @@
 ﻿@{
-    List<ContactUsVM> contactUs = ViewBag.ContactUs;
+    ContactUsVM contactUs = ViewBag.ContactUs;
     List<PersonVM> person = ViewBag.Persons;
     List<ServicesVM> services = ViewBag.Services;
+    List<ProjectVM> projects = ViewBag.Project;
     AboutUsVM aboutUs = ViewBag.AboutUs;
-    List<TalentVM> talent = ViewBag.Talent;
-    var contactUsCayyolu = contactUs.Where(m => m.Department == 1).FirstOrDefault();
-    var contactUsPolatli = contactUs.Where(m => m.Department == 2).FirstOrDefault();
 }
-<style>
-    .modalImg {
-        width: 160px;
-        margin: 5px auto;
-        -webkit-border-radius: 50%;
-    }
-</style>
-<section class="home-slider owl-carousel">
-    <div class="slider-item" style="background-image: url('/frontend/images/bg_1.jpg');">
-        <div class="overlay"></div>
+<!--================Home Banner Area =================-->
+<section class="home_banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
         <div class="container">
-            <div class="row slider-text align-items-center" data-scrollax-parent="true">
-                <div class="col-md-6 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                    <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-                        İstediğiniz Mükemmel Gülümsemenizi Elde Edin
-                    </h1>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slider-item" style="background-image: url('/frontend/images/bg_2.jpg');">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row slider-text align-items-center" data-scrollax-parent="true">
-                <div class="col-md-6 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                    <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-                        Sakin ve Rahat Bir Ortamda Modern Diş Hekimliği
-
-                    </h1>
-                </div>
+            <div class="banner_content text-center">
+                <h3>Build Your <span>Dream</span></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
             </div>
         </div>
     </div>
 </section>
-
-<section class="ftco-intro">
+<!--================Feature Area =================-->
+<section class="feature_area p_120">
     <div class="container">
-        <div class="row no-gutters justify-content-md-center">
-            <div class="col-md-8 color-3 p-4">
-                <h3 class="mb-2">Randevu Al</h3>
-                <form action="#" class="appointment-form">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="appointment_name" placeholder="Ad">
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="appointment_surname" placeholder="Soyad">
-                            </div>
-                        </div>
-
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="appointment_email" placeholder="E-Posta">
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="phone" placeholder="Telefon">
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <input type="text" class="form-control appointment_date" placeholder="Tarih">
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <input type="text" class="form-control appointment_time" placeholder="Saat">
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <textarea name="your-message" style="height:100px!important" class="form-control" placeholder="Mesajınız"></textarea>
-                            </div>
-                        </div>
-
+        <div class="main_title">
+            <h2>Hizmetlerimiz</h2>
+        </div>
+        <div class="row feature_inner">
+            @foreach (var item in services)
+            {
+                <div class="col-lg-4 col-md-6 mb-30">
+                    <div class="feature_item h-100 mb-0 d-inline-block">
+                        @*<h4><i class="@item.Icon"></i>@item.Title</h4>*@
+                        <h4>@item.Title</h4>
+                        <p>
+                            @item.Summary
+                        </p>
                     </div>
-                    <input style="border-radius:2px!important; font-size:14px" type="submit" value="Gönder" class="btn btn-light py-2 px-4">
-                </form>
-            </div>
+                </div>
+            }
+
         </div>
     </div>
 </section>
-
-<section class="ftco-section ftco-services">
-    <div class="container">
-
-        <div class="row">
-            @try
-            {
-                foreach (ServicesVM item in services)
-                {
-                    <div class="col-lg-3 d-flex ftco-animate" data-toggle="modal" data-target="#services@(item.IdServices) " style="cursor:pointer; padding-left:10px; padding-right:10px;">
-                        <div class="staff" style="padding-left:12px; padding-right:12px;">
-                            <div class="media block-6 services d-block text-center" style="margin-bottom:0px">
-                                <div class="icon d-flex justify-content-center align-items-center">
-                                    <span class="@item.Icon"></span>
-                                </div>
-                                <div class="media-body p-">
-                                    <h3 class="heading">
-                                        @item.Title
-                                    </h3>
-                                    @{
-                                        string FullText = item.FullText;
-                                        if (item.FullText.Length > 211)
-                                        {
-                                            var parts = item.FullText.Substring(0, 210).Split(' ');
-                                            FullText = string.Join(" ", parts.Take(parts.Length - 1)) + "...";
-
-                                        }
-                                        <span>@Html.Raw(FullText)</span> <br />
-                                        <span style="color:#00aeef; font-size:12px">daha fazlası için tıklayınız..</span>
-
-                                    }
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="modal fade" id="services@(item.IdServices)" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-body">
-
-                                    <div class="staff" style="padding-left:12px; padding-right:12px;">
-                                        <div class="media block-6 services d-block text-center" style="margin-bottom:0px">
-                                            <div class="icon d-flex justify-content-center align-items-center">
-                                                <span class="@item.Icon"></span>
-                                            </div>
-                                            <div class="media-body p-">
-                                                <h3 class="heading">
-                                                    @item.Title
-                                                </h3>
-                                                <span>@item.FullText</span> <br />
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
-        </div>
-    </div>
-    @try
-    {
-        @if (talent.Count > 0)
+<!--================End Feature Area =================-->
+<!--================End Home Banner Area =================-->
+<!--================Builder Image Area =================-->
+<seciton class="builder_area">
+    <div class="row m0 builder_inner">
+        @foreach (var item in projects)
         {
-            <div class="container-wrap mt-5">
-                <div class="row d-flex no-gutters">
-                    <div class="col-md-6 img" style="background-image: url('/frontend/images/about-2.jpg');">
-                    </div>
-                    <div class="col-md-6 d-flex">
-                        <div class="about-wrap">
-                            @foreach (var item in talent)
-                            {
-                                <div class="list-services d-flex ftco-animate">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <span class="icon-check2"></span>
-                                    </div>
-                                    <div class="text">
-                                        <h3>@item.Title</h3>
-                                        <p>@item.Description</p>
-                                    </div>
-                                </div>
-                            }
-                        </div>
-                    </div>
+            var base64 = Convert.ToBase64String(item.Picture);
+            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+
+            <div class="builder_item">
+                <img src="@imgSrc" alt="">
+                <div class="hover">
+                    <h4>@item.Title</h4>
+                    <p>@item.Detail</p>
                 </div>
             </div>
         }
-    }
-    catch (Exception ex)
-    {
 
-    }
-
-
-</section>
-
-
-<section class="ftco-section">
+        <div class="builder_item">
+            <img src="~/frontend/img/builder/builder-2.jpg" alt="">
+            <div class="hover">
+                <h4>Alex Complex for Residence</h4>
+                <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
+            </div>
+        </div>
+        <div class="builder_item">
+            <img src="~/frontend/img/builder/builder-3.jpg" alt="">
+            <div class="hover">
+                <h4>Alex Complex for Residence</h4>
+                <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
+            </div>
+        </div>
+        <div class="builder_item">
+            <img src="~/frontend/img/builder/builder-4.jpg" alt="">
+            <div class="hover">
+                <h4>Alex Complex for Residence</h4>
+                <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
+            </div>
+        </div>
+        <div class="builder_item">
+            <img src="~/frontend/img/builder/builder-5.jpg" alt="">
+            <div class="hover">
+                <h4>Alex Complex for Residence</h4>
+                <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
+            </div>
+        </div>
+        <div class="builder_item">
+            <img src="~/frontend/img/builder/builder-6.jpg" alt="">
+            <div class="hover">
+                <h4>Alex Complex for Residence</h4>
+                <p>LCD screens are uniquely modern in style, and the liquid crystals that make them work have allowed humanity to create  slimmer.</p>
+            </div>
+        </div>
+    </div>
+</seciton>
+<!--================End Builder Image Area =================-->
+<!--================Clients Logo Area =================-->
+<section class="clients_logo_area p_120">
     <div class="container">
-        <div class="row justify-content-center mb-5 pb-5">
-            <div class="col-md-7 text-center heading-section ftco-animate">
-                <h2 class="mb-3">Yöneticilerimiz</h2>
+        <div class="clients_slider owl-carousel">
+            <div class="item">
+                <img src="~/frontend/img/clients-logo/c-logo-1.png" alt="">
             </div>
-        </div>
-        <div class="row">
-            @try
-            {
-                @foreach (PersonVM item in person)
-                {
-                    <div class="col-lg-4 col-md-6 d-flex mb-sm-4 ftco-animate" data-toggle="modal" data-target="#person@(item.IdPerson)" style="cursor:pointer">
-                        <div class="staff">
-
-                            <img class="img mb-4" style="display:block" src="@Url.Action("GetImageFilePath", "Home", new { idPerson = item.IdPerson, area = "Main" })" />
-                            <div class="info text-center">
-                                <h3>@item.Name @item.Surname</h3>
-                                <span class="position">@item.Profession</span>
-                                <div class="text">
-                                    @{
-                                        string about = item.About;
-                                        if (item.About.Length > 250)
-                                        {
-                                            var parts = item.About.Substring(0, 249).Split(' ');
-                                            about = string.Join(" ", parts.Take(parts.Length - 1)) + "...";
-
-                                        }
-                                        <p>@Html.Raw(about)</p> <span class='position'>daha fazlası için tıklayınız..</span>
-
-                                    }
-                                    @*<ul class="ftco-social">
-                                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                                            <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-                                        </ul>*@
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal fade" id="person@(item.IdPerson)" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-body">
-
-                                    <div class="staff">
-
-                                        <img class="img mb-4" style="display:block" src="@Url.Action("GetImageFilePath", "Home", new { idPerson = item.IdPerson, area = "Main" })" />
-                                        <div class="info text-center">
-                                            <h3>@item.Name @item.Surname</h3>
-                                            <span class="position">@item.Profession</span>
-                                            <div class="text">
-                                                <p>@item.About</p>
-                                                @*<ul class="ftco-social">
-                                                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                                                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                                                        <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                                                        <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-                                                    </ul>*@
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                }
-
-            }
-            catch (Exception ex)
-            {
-            }
-
-        </div>
-    </div>
-</section>
-
-
-
-<section class="ftco-section testimony-section bg-light">
-    <div class="container">
-        <div class="row justify-content-center ftco-animate">
-            <div class="col-md-12">
-                <div class="carousel-testimony owl-carousel ftco-owl">
-                    <div class="item">
-                        <div class="testimony-wrap">
-                            <div class="text text-center">
-                                <p class="">
-                                    Dr.Gizem Karagöz’e teşekkür ederim. Çok ilgili,dikkatli ve titiz. Elide oldukça hafif. Sayenizde kanal tedavimi rahatlıkla yaptırabildim. Başarılarınızın devamını dilerim.
-                                </p>
-                                <p class="name">Erkan Demir</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap">
-                            <div class="text text-center">
-                                <p class="">
-                                    Ben hastanız Hande Odabaşı. Dişçi korkusunun benim gibi çoğu kişide de olduğunu düşünüyorum. Korku içinde polikliniğinize geldim. Güleryüzlü personelleriniz ve ilgili doktor kadronuz sayesinde, yapılan tedaviden çok memnun kaldım. Dentada Ağız ve Diş Sağlığı Polikliniğine çok teşekkür ederim.
-                                </p>
-                                <p class="name">Hande Odabaşı</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="item">
+                <img src="~/frontend/img/clients-logo/c-logo-2.png" alt="">
+            </div>
+            <div class="item">
+                <img src="~/frontend/img/clients-logo/c-logo-3.png" alt="">
+            </div>
+            <div class="item">
+                <img src="~/frontend/img/clients-logo/c-logo-4.png" alt="">
+            </div>
+            <div class="item">
+                <img src="~/frontend/img/clients-logo/c-logo-5.png" alt="">
             </div>
         </div>
     </div>
 </section>
-
-
-
-
-
-@*<section class="ftco-quote">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 pr-md-5 aside-stretch py-5 choose">
-
-                    <div class="ftco-animate">
-                        @aboutUs.Mission
-                    </div>
-                </div>
-                <div class="col-md-6 py-5 pl-md-5">
-                    <div class="ftco-animate">
-                        @aboutUs.Vision
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>*@
-
-
-
-
-
-<!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
-
-<!-- Modal -->
-<div class="modal fade" id="modalRequest" tabindex="-1" role="dialog" aria-labelledby="modalRequestLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalRequestLabel">Make an Appointment</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="#">
-                    <div class="form-group">
-                        <!-- <label for="appointment_name" class="text-black">Full Name</label> -->
-                        <input type="text" class="form-control" id="appointment_name" placeholder="Full Name">
-                    </div>
-                    <div class="form-group">
-                        <!-- <label for="appointment_email" class="text-black">Email</label> -->
-                        <input type="text" class="form-control" id="appointment_email" placeholder="Email">
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <!-- <label for="appointment_date" class="text-black">Date</label> -->
-                                <input type="text" class="form-control appointment_date" placeholder="Date">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <!-- <label for="appointment_time" class="text-black">Time</label> -->
-                                <input type="text" class="form-control appointment_time" placeholder="Time">
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <!-- <label for="appointment_message" class="text-black">Message</label> -->
-                        <textarea name="" id="appointment_message" class="form-control" cols="30" rows="10" placeholder="Message"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Make an Appointment" class="btn btn-primary">
-                    </div>
-                </form>
-            </div>
-
-        </div>
-    </div>
-</div>
+<!--================End Clients Logo Area =================-->

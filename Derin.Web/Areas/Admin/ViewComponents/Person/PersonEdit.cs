@@ -52,11 +52,8 @@ namespace Derin.Web.Areas.Admin.ViewComponents.Person
         {
 
             ViewBag.EmployeeType = EmployeeTypeList;
-            ViewBag.DepartmentList = HttpInfo.DepartmentList;
 
             PersonVM person = _mapper.Map<PersonVM>(_administrationBLLocator.PersonBL.CRUD.GetById(IdPerson));
-
-
 
             return Task.FromResult<IViewComponentResult>(View(person ?? new PersonVM()));
         }

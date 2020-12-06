@@ -29,6 +29,7 @@ namespace Derin.Data.Model
     
         public virtual DbSet<AboutUs> AboutUs { get; set; }
         public virtual DbSet<ANNOUNCEMENT> ANNOUNCEMENT { get; set; }
+        public virtual DbSet<Banner> Banner { get; set; }
         public virtual DbSet<City> City { get; set; }
         public virtual DbSet<ConnectionLog> ConnectionLog { get; set; }
         public virtual DbSet<ContactUs> ContactUs { get; set; }
@@ -56,7 +57,7 @@ namespace Derin.Data.Model
         public virtual DbSet<UniversityDepartment> UniversityDepartment { get; set; }
         public virtual DbSet<Village> Village { get; set; }
         public virtual DbSet<CDC> CDC { get; set; }
-        public virtual DbSet<Banner> Banner { get; set; }
+        public virtual DbSet<Project> Project { get; set; }
     
         public virtual ObjectResult<Role_List_Result> Role_List(Nullable<long> systemUserId)
         {

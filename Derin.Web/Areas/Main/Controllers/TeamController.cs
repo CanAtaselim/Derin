@@ -24,10 +24,10 @@ namespace Derin.Web.Areas.Main.Controllers
             _adminlocator = adminLocator;
         }
         [ContactUsAttribute]
-        public IActionResult Index(short Department = 1)
+        public IActionResult Index()
         {
-            ViewBag.ContactUs = JsonConvert.DeserializeObject<List<ContactUsVM>>(HttpContext.Session.GetString("ContactUsData"));
-            //ViewBag.Persons = _adminlocator.PersonBL.GetVM(filter: m => m.DepartmentList.Contains(Department.ToString()) && m.OperationIsDeleted == (short)_Enumeration.IsOperationDeleted.Active);
+            ViewBag.ContactUs = JsonConvert.DeserializeObject<ContactUsVM>(HttpContext.Session.GetString("ContactUsData"));
+            ViewBag.AboutUs = JsonConvert.DeserializeObject<AboutUsVM>(HttpContext.Session.GetString("AboutUsData"));
 
             return View();
         }

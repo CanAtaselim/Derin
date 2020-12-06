@@ -3,7 +3,6 @@
 
 jQuery(document).ready(function ()
 {
-
     $("#customFile").on("change", function (event)
     {
         var image = document.querySelector("#aboutUsImage");
